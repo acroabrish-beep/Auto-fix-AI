@@ -1,0 +1,23 @@
+# Tasks - AutoFix AI Web (Step 10: Platform Intelligence)
+
+- [ ] Core Intelligence & Helpers
+    - [ ] Implement `src/lib/maintenanceIntel.ts` (Health score & advisor logic)
+    - [ ] Implement `src/services/database/search.ts` (Unified search service)
+    - [ ] Implement `src/lib/i18n.ts` & Locales (Multilingual foundation)
+- [ ] UI Components
+    - [ ] Create `MaintenanceTimeline.tsx`
+    - [ ] Create `GlobalSearch.tsx` components
+    - [ ] Create `MaintenanceAdvisor.tsx` section
+- [ ] Feature Integration & Pages
+    - [ ] Upgrade `Dashboard.tsx` (Command Center)
+    - [ ] Create `/search` page
+    - [ ] Refactor `VehicleDetails.tsx` with Timeline
+    - [ ] Enhance `DiagnosticResult.tsx` (Learning & Repair suggestions)
+    - [ ] Enhance `LearningModule.tsx` (Repair guide suggestions)
+- [ ] Navigation & Routing
+    - [ ] Update `App.tsx` with new routes
+    - [ ] Refine `Navbar.tsx` and Sidebars
+- [ ] Final Verification
+    - [ ] Run build and TypeScript check
+    - [ ] Verify security and user isolation
+    - [ ] Test end-to-end integration flows
