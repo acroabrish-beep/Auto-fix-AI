@@ -6,7 +6,7 @@
  *   GEMINI_API_KEY
  *
  * Optional:
- *   GEMINI_MODEL (defaults to gemini-2.5-flash)
+ *   GEMINI_MODEL (defaults to gemini-3.5-flash-lite)
  *
  * Request:  POST { "message": "My car cranks but won't start" }
  * Response: { "reply": "..." }
@@ -50,7 +50,7 @@ export default async ({ req, res, log, error }) => {
   log(`Chat request accepted (messageLength=${message.length}).`);
 
   try {
-    const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+    const model = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
     const endpoint =
       `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`;
 
@@ -64,12 +64,7 @@ export default async ({ req, res, log, error }) => {
         systemInstruction: {
           parts: [{ text: SYSTEM_INSTRUCTION }],
         },
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: message }],
-          },
-        ],
+        contents: [{ role: "user", parts: [{ text: message }] }],
         generationConfig: {
           temperature: 0.5,
           maxOutputTokens: 500,
