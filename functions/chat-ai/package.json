@@ -1,0 +1,10 @@
+{
+  "name": "autofix-ai-chat-function",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "check": "node --check index.js"
+  }
+}
