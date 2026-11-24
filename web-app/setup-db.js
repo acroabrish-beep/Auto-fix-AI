@@ -347,12 +347,15 @@ const COLLECTIONS = [
     permissions: USERS_CREATE,
     documentSecurity: true,
     attributes: [
+      { key: 'userId', size: 255 },
       { key: 'vehicleId', size: 255 },
       { key: 'garageId', size: 255 },
       { key: 'mechanicId', size: 255 },
       { key: 'description', size: 1000 },
       { key: 'date', size: 255 },
       { key: 'cost', size: 50 },
+      { key: 'createdAt', size: 255 },
+      { key: 'updatedAt', size: 255 },
     ],
   },
   {

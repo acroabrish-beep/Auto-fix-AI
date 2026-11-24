@@ -154,9 +154,23 @@ export default async (context) => {
   }
   const systemPrompt = typeof payload?.systemPrompt === 'string' ? payload.systemPrompt.trim().slice(0, 2000) : '';
 
-  // 2. Authenticate via Appwrite JWT
-  const jwt = req.headers['x-appwrite-user-jwt'];
-  if (!jwt || typeof jwt !== 'string') {
+  // 2. Authenticate via Appwrite JWT.
+  //    The JWT may arrive either as the `x-appwrite-user-jwt` header (Appwrite
+  //    auto-forwards it when the caller is authenticated) or explicitly in the
+  //    request body as `jwt` (the client mints it with account.createJWT()).
+  //    Log header NAMES only — never token or key values.
+  const headerNames = Object.keys(req.headers || {}).join(', ');
+  log(`Auth headers received: ${headerNames}`);
+
+  const jwt =
+    (payload?.jwt && typeof payload.jwt === 'string'
+      ? payload.jwt
+      : req.headers['x-appwrite-user-jwt'] &&
+        typeof req.headers['x-appwrite-user-jwt'] === 'string'
+      ? req.headers['x-appwrite-user-jwt']
+      : null);
+
+  if (!jwt) {
     return res.json({ error: 'Authentication required. Please sign in to continue.' }, 401);
   }
 

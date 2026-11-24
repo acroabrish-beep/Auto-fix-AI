@@ -209,7 +209,7 @@ const am: TranslationResource = {
     could_not_load_history: 'የውይይት ታሪክ ሊጫን አልቻለም። የ"chat_history" ስብስብን ያረጋግጡ።',
     failed_send: 'መልእክት መላክ አልተቻለም።',
     chat_fallback:
-      'የAI ረዳቱን አሁን ማግኘት አልቻልኩም። የእርስዎ መልእክት ("{{message}}") በታሪክዎ ተቀምጧል። "{{id}}" የAppwrite Function ከተሰማራ በኋላ ቀጥታ ምላሾች እዚህ ይታያሉ።',
+      'የAI ረዳቱ ለጊዜው አይገኝም። እባክዎ እንደገና ይሞክሩ።',
     health_optimal: 'በጥሩ ሁኔታ',
     health_fair: 'መካከለኛ',
     health_attention: 'ትኩረት ይፈልጋል',
@@ -305,7 +305,7 @@ const om: TranslationResource = {
     could_not_load_history: 'Seenaan haasawaa fe\'uu hin dandeenye. Walqabata "chat_history" ilaalaa.',
     failed_send: 'Ergaan erguu hin dandeenye.',
     chat_fallback:
-      'Gargaaraa AI amma qunnamuu hin dandeenye. Ergaan keessan ("{{message}}") seenaa keessan keessatti kuufameera. Yeroo "{{id}}" Appwrite Function hojiirra oolu, deebiin kallattii asitti mul\'ata.',
+      "Gargaaraan AI yeroo ammaaf hin argamu. Maaloo irra deebi'ii yaalaa.",
     health_optimal: 'Gaarii',
     health_fair: 'Giddu-galeessa',
     health_attention: 'Xiyyeeffannoo Barbaachisa',
@@ -401,7 +401,7 @@ const sid: TranslationResource = {
     could_not_load_history: 'Seenaan haasawaa fe\'uu hin dandeenye. Walqabata "chat_history" ilaalaa.',
     failed_send: 'Ergaan erguu hin dandeenye.',
     chat_fallback:
-      'Gargaaraa AI amma qunnamuu hin dandeenye. Ergaan keessan ("{{message}}") seenaa keessan keessatti kuufameera. Yeroo "{{id}}" Appwrite Function hojiirra oolu, deebiin kallattii asitti mul\'ata.',
+      'The AI assistant is temporarily unavailable. Please try again.',
     health_optimal: 'Gaarii',
     health_fair: 'Giddu-galeessa',
     health_attention: 'Xiyyeeffannoo Barbaachisa',

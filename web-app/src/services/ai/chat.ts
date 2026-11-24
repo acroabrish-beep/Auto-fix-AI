@@ -1,4 +1,4 @@
-﻿import { client } from '../../lib/appwrite';
+﻿import { client, account } from '../../lib/appwrite';
 import { Functions } from 'appwrite';
 import i18n from '../../lib/i18n';
 
@@ -74,11 +74,28 @@ export async function generateChatReply(message: string, systemPrompt?: string):
     throw new Error('The chat service is not configured. Please contact your administrator.');
   }
 
+  // Mint a fresh JWT so the chat-ai function can authenticate the caller
+  // regardless of whether Appwrite auto-forwards the `x-appwrite-user-jwt`
+  // header. The auth check in the function is preserved — a missing or
+  // invalid JWT yields 401, never a bypass.
+  let jwt: string | undefined;
+  try {
+    const jwtRes = await account.createJWT();
+    jwt = jwtRes.jwt;
+  } catch {
+    // User is not authenticated; proceed without a JWT so the function
+    // returns 401 and the caller sees a sign-in prompt.
+  }
+
   let execution: any;
   try {
     execution = await functions.createExecution(
       CHAT_FUNCTION_ID,
-      JSON.stringify({ message: trimmed, systemPrompt: systemPrompt?.trim() || undefined })
+      JSON.stringify({
+        message: trimmed,
+        systemPrompt: systemPrompt?.trim() || undefined,
+        ...(jwt ? { jwt } : {}),
+      })
     );
   } catch (error: any) {
     console.error('[chat-ai] execution error', {
