@@ -1,2516 +1,0 @@
-web-app/node_modules/.package-lock.json:253: trailing whitespace.
-[32m+[m[32m    "node_modules/@babel/runtime": {[m[41m[m
-web-app/node_modules/.package-lock.json:254: trailing whitespace.
-[32m+[m[32m      "version": "7.29.10",[m[41m[m
-web-app/node_modules/.package-lock.json:255: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.10.tgz",[m[41m[m
-web-app/node_modules/.package-lock.json:256: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-NpugTzbKgGrNe45Ui32cN8vCFFMxVtP/9rtfwv0nP5FRDAjvYBxJcLVpYA9mr1jxP6cnIT7x9LUzuDTbWYYNRA==",[m[41m[m
-web-app/node_modules/.package-lock.json:257: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/node_modules/.package-lock.json:258: trailing whitespace.
-[32m+[m[32m      "engines": {[m[41m[m
-web-app/node_modules/.package-lock.json:259: trailing whitespace.
-[32m+[m[32m        "node": ">=6.9.0"[m[41m[m
-web-app/node_modules/.package-lock.json:260: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/node_modules/.package-lock.json:261: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/node_modules/.package-lock.json:1124: trailing whitespace.
-[32m+[m[32m    "node_modules/html-parse-stringify": {[m[41m[m
-web-app/node_modules/.package-lock.json:1125: trailing whitespace.
-[32m+[m[32m      "version": "4.0.1",[m[41m[m
-web-app/node_modules/.package-lock.json:1126: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/html-parse-stringify/-/html-parse-stringify-4.0.1.tgz",[m[41m[m
-web-app/node_modules/.package-lock.json:1127: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-0zHsZJrK7S3K2aucXWL6ycoYJ/iNtIcFHC/nYQgFklPtrv5LpJctIiSCroWZWeuoXvuyFdzp6KzjJQ+OT5MfFw==",[m[41m[m
-web-app/node_modules/.package-lock.json:1128: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/node_modules/.package-lock.json:1129: trailing whitespace.
-[32m+[m[32m      "funding": {[m[41m[m
-web-app/node_modules/.package-lock.json:1130: trailing whitespace.
-[32m+[m[32m        "url": "https://locize.com"[m[41m[m
-web-app/node_modules/.package-lock.json:1131: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/node_modules/.package-lock.json:1132: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/node_modules/.package-lock.json:1133: trailing whitespace.
-[32m+[m[32m    "node_modules/i18next": {[m[41m[m
-web-app/node_modules/.package-lock.json:1134: trailing whitespace.
-[32m+[m[32m      "version": "26.5.10",[m[41m[m
-web-app/node_modules/.package-lock.json:1135: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/i18next/-/i18next-26.5.10.tgz",[m[41m[m
-web-app/node_modules/.package-lock.json:1136: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-YS4EiLQhhk0wGThm4Zy+BL2c9rBNIK+kAbksi4l/B+D6kVRQLIFZgu2b/MU2LibJJHwWNTYoOYR52T+jfV8kPQ==",[m[41m[m
-web-app/node_modules/.package-lock.json:1137: trailing whitespace.
-[32m+[m[32m      "funding": [[m[41m[m
-web-app/node_modules/.package-lock.json:1138: trailing whitespace.
-[32m+[m[32m        {[m[41m[m
-web-app/node_modules/.package-lock.json:1139: trailing whitespace.
-[32m+[m[32m          "type": "individual",[m[41m[m
-web-app/node_modules/.package-lock.json:1140: trailing whitespace.
-[32m+[m[32m          "url": "https://www.locize.com/i18next"[m[41m[m
-web-app/node_modules/.package-lock.json:1141: trailing whitespace.
-[32m+[m[32m        },[m[41m[m
-web-app/node_modules/.package-lock.json:1142: trailing whitespace.
-[32m+[m[32m        {[m[41m[m
-web-app/node_modules/.package-lock.json:1143: trailing whitespace.
-[32m+[m[32m          "type": "individual",[m[41m[m
-web-app/node_modules/.package-lock.json:1144: trailing whitespace.
-[32m+[m[32m          "url": "https://www.i18next.com/how-to/faq#i18next-is-awesome.-how-can-i-support-the-project"[m[41m[m
-web-app/node_modules/.package-lock.json:1145: trailing whitespace.
-[32m+[m[32m        },[m[41m[m
-web-app/node_modules/.package-lock.json:1146: trailing whitespace.
-[32m+[m[32m        {[m[41m[m
-web-app/node_modules/.package-lock.json:1147: trailing whitespace.
-[32m+[m[32m          "type": "individual",[m[41m[m
-web-app/node_modules/.package-lock.json:1148: trailing whitespace.
-[32m+[m[32m          "url": "https://www.locize.com"[m[41m[m
-web-app/node_modules/.package-lock.json:1149: trailing whitespace.
-[32m+[m[32m        }[m[41m[m
-web-app/node_modules/.package-lock.json:1150: trailing whitespace.
-[32m+[m[32m      ],[m[41m[m
-web-app/node_modules/.package-lock.json:1151: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/node_modules/.package-lock.json:1152: trailing whitespace.
-[32m+[m[32m      "peerDependencies": {[m[41m[m
-web-app/node_modules/.package-lock.json:1153: trailing whitespace.
-[32m+[m[32m        "typescript": "^5 || ^6 || ^7"[m[41m[m
-web-app/node_modules/.package-lock.json:1154: trailing whitespace.
-[32m+[m[32m      },[m[41m[m
-web-app/node_modules/.package-lock.json:1155: trailing whitespace.
-[32m+[m[32m      "peerDependenciesMeta": {[m[41m[m
-web-app/node_modules/.package-lock.json:1156: trailing whitespace.
-[32m+[m[32m        "typescript": {[m[41m[m
-web-app/node_modules/.package-lock.json:1157: trailing whitespace.
-[32m+[m[32m          "optional": true[m[41m[m
-web-app/node_modules/.package-lock.json:1158: trailing whitespace.
-[32m+[m[32m        }[m[41m[m
-web-app/node_modules/.package-lock.json:1159: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/node_modules/.package-lock.json:1160: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/node_modules/.package-lock.json:1286: trailing whitespace.
-[32m+[m[32m    "node_modules/lodash.debounce": {[m[41m[m
-web-app/node_modules/.package-lock.json:1287: trailing whitespace.
-[32m+[m[32m      "version": "4.0.8",[m[41m[m
-web-app/node_modules/.package-lock.json:1288: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz",[m[41m[m
-web-app/node_modules/.package-lock.json:1289: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==",[m[41m[m
-web-app/node_modules/.package-lock.json:1290: trailing whitespace.
-[32m+[m[32m      "license": "MIT"[m[41m[m
-web-app/node_modules/.package-lock.json:1291: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/node_modules/.package-lock.json:1396: trailing whitespace.
-[32m+[m[32m    "node_modules/node-appwrite": {[m[41m[m
-web-app/node_modules/.package-lock.json:1397: trailing whitespace.
-[32m+[m[32m      "version": "30.0.1",[m[41m[m
-web-app/node_modules/.package-lock.json:1398: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/node-appwrite/-/node-appwrite-30.0.1.tgz",[m[41m[m
-web-app/node_modules/.package-lock.json:1399: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-oDsuCZNLHpBswlJWzZW0ZcYU64gE5tuoX13InbFJ4BeHrwBEfxLhD68i83AEStfZVsuHpKM4QXumg7Qx1cp5Ag==",[m[41m[m
-web-app/node_modules/.package-lock.json:1400: trailing whitespace.
-[32m+[m[32m      "dev": true,[m[41m[m
-web-app/node_modules/.package-lock.json:1401: trailing whitespace.
-[32m+[m[32m      "license": "BSD-3-Clause",[m[41m[m
-web-app/node_modules/.package-lock.json:1402: trailing whitespace.
-[32m+[m[32m      "dependencies": {[m[41m[m
-web-app/node_modules/.package-lock.json:1403: trailing whitespace.
-[32m+[m[32m        "json-bigint": "1.0.0",[m[41m[m
-web-app/node_modules/.package-lock.json:1404: trailing whitespace.
-[32m+[m[32m        "undici": "^6.27.0"[m[41m[m
-web-app/node_modules/.package-lock.json:1405: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/node_modules/.package-lock.json:1406: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/node_modules/.package-lock.json:1687: trailing whitespace.
-[32m+[m[32m    "node_modules/react-i18next": {[m[41m[m
-web-app/node_modules/.package-lock.json:1688: trailing whitespace.
-[32m+[m[32m      "version": "17.1.8",[m[41m[m
-web-app/node_modules/.package-lock.json:1689: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/react-i18next/-/react-i18next-17.1.8.tgz",[m[41m[m
-web-app/node_modules/.package-lock.json:1690: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-vGH+Tbhqbv5LdN9KvC9GEmQ6ATxJAjyxPEK0zSCSRlkeDqCPNxVtEOvDNRAz+51HTxc6QPwhnHaFD7ICu6pD1A==",[m[41m[m
-web-app/node_modules/.package-lock.json:1691: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/node_modules/.package-lock.json:1692: trailing whitespace.
-[32m+[m[32m      "dependencies": {[m[41m[m
-web-app/node_modules/.package-lock.json:1693: trailing whitespace.
-[32m+[m[32m        "@babel/runtime": "^7.29.7",[m[41m[m
-web-app/node_modules/.package-lock.json:1694: trailing whitespace.
-[32m+[m[32m        "html-parse-stringify": "^4.0.1",[m[41m[m
-web-app/node_modules/.package-lock.json:1695: trailing whitespace.
-[32m+[m[32m        "use-sync-external-store": "^1.6.0"[m[41m[m
-web-app/node_modules/.package-lock.json:1696: trailing whitespace.
-[32m+[m[32m      },[m[41m[m
-web-app/node_modules/.package-lock.json:1697: trailing whitespace.
-[32m+[m[32m      "peerDependencies": {[m[41m[m
-web-app/node_modules/.package-lock.json:1698: trailing whitespace.
-[32m+[m[32m        "i18next": ">= 26.2.0",[m[41m[m
-web-app/node_modules/.package-lock.json:1699: trailing whitespace.
-[32m+[m[32m        "react": ">= 16.8.0",[m[41m[m
-web-app/node_modules/.package-lock.json:1700: trailing whitespace.
-[32m+[m[32m        "typescript": "^5 || ^6 || ^7"[m[41m[m
-web-app/node_modules/.package-lock.json:1701: trailing whitespace.
-[32m+[m[32m      },[m[41m[m
-web-app/node_modules/.package-lock.json:1702: trailing whitespace.
-[32m+[m[32m      "peerDependenciesMeta": {[m[41m[m
-web-app/node_modules/.package-lock.json:1703: trailing whitespace.
-[32m+[m[32m        "react-dom": {[m[41m[m
-web-app/node_modules/.package-lock.json:1704: trailing whitespace.
-[32m+[m[32m          "optional": true[m[41m[m
-web-app/node_modules/.package-lock.json:1705: trailing whitespace.
-[32m+[m[32m        },[m[41m[m
-web-app/node_modules/.package-lock.json:1706: trailing whitespace.
-[32m+[m[32m        "react-native": {[m[41m[m
-web-app/node_modules/.package-lock.json:1707: trailing whitespace.
-[32m+[m[32m          "optional": true[m[41m[m
-web-app/node_modules/.package-lock.json:1708: trailing whitespace.
-[32m+[m[32m        },[m[41m[m
-web-app/node_modules/.package-lock.json:1709: trailing whitespace.
-[32m+[m[32m        "typescript": {[m[41m[m
-web-app/node_modules/.package-lock.json:1710: trailing whitespace.
-[32m+[m[32m          "optional": true[m[41m[m
-web-app/node_modules/.package-lock.json:1711: trailing whitespace.
-[32m+[m[32m        }[m[41m[m
-web-app/node_modules/.package-lock.json:1712: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/node_modules/.package-lock.json:1713: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/node_modules/.package-lock.json:1762: trailing whitespace.
-[32m+[m[32m    "node_modules/react-speech-recognition": {[m[41m[m
-web-app/node_modules/.package-lock.json:1763: trailing whitespace.
-[32m+[m[32m      "version": "4.0.1",[m[41m[m
-web-app/node_modules/.package-lock.json:1764: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/react-speech-recognition/-/react-speech-recognition-4.0.1.tgz",[m[41m[m
-web-app/node_modules/.package-lock.json:1765: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-0fIqzLtfY8vuYA6AmJVK7qiabZx0oFKOO+rbiBgFI3COWVGREy0A+gdU16hWXmFebeyrI8JsOLYsWk6WaHUXRw==",[m[41m[m
-web-app/node_modules/.package-lock.json:1766: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/node_modules/.package-lock.json:1767: trailing whitespace.
-[32m+[m[32m      "dependencies": {[m[41m[m
-web-app/node_modules/.package-lock.json:1768: trailing whitespace.
-[32m+[m[32m        "lodash.debounce": "^4.0.8"[m[41m[m
-web-app/node_modules/.package-lock.json:1769: trailing whitespace.
-[32m+[m[32m      },[m[41m[m
-web-app/node_modules/.package-lock.json:1770: trailing whitespace.
-[32m+[m[32m      "peerDependencies": {[m[41m[m
-web-app/node_modules/.package-lock.json:1771: trailing whitespace.
-[32m+[m[32m        "react": ">=16.8.0"[m[41m[m
-web-app/node_modules/.package-lock.json:1772: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/node_modules/.package-lock.json:1773: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/node_modules/.package-lock.json:2113: trailing whitespace.
-[32m+[m[32m      "devOptional": true,[m[41m[m
-web-app/node_modules/.package-lock.json:2123: trailing whitespace.
-[32m+[m[32m    "node_modules/undici": {[m[41m[m
-web-app/node_modules/.package-lock.json:2124: trailing whitespace.
-[32m+[m[32m      "version": "6.29.1",[m[41m[m
-web-app/node_modules/.package-lock.json:2125: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/undici/-/undici-6.29.1.tgz",[m[41m[m
-web-app/node_modules/.package-lock.json:2126: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-EvRlUt/QqAEvXdQeRMYUfwOQsfzpDztykrG2owGEE/rBOBoYv9uF39ZzsNDh4lTFHhTr2XOZjKkYgueD12ZmGA==",[m[41m[m
-web-app/node_modules/.package-lock.json:2127: trailing whitespace.
-[32m+[m[32m      "dev": true,[m[41m[m
-web-app/node_modules/.package-lock.json:2128: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/node_modules/.package-lock.json:2129: trailing whitespace.
-[32m+[m[32m      "engines": {[m[41m[m
-web-app/node_modules/.package-lock.json:2130: trailing whitespace.
-[32m+[m[32m        "node": ">=18.17"[m[41m[m
-web-app/node_modules/.package-lock.json:2131: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/node_modules/.package-lock.json:2132: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/node_modules/.package-lock.json:2164: trailing whitespace.
-[32m+[m[32m    "node_modules/use-sync-external-store": {[m[41m[m
-web-app/node_modules/.package-lock.json:2165: trailing whitespace.
-[32m+[m[32m      "version": "1.7.0",[m[41m[m
-web-app/node_modules/.package-lock.json:2166: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.7.0.tgz",[m[41m[m
-web-app/node_modules/.package-lock.json:2167: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-6L+EeigHMQhdaIPNIFUKwfWJSwWFQ8gJbJ2DLOs5sDIegTwR9fRxvnM3uciHKjIZhFz+KAv2emhWMRvDmMcY8A==",[m[41m[m
-web-app/node_modules/.package-lock.json:2168: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/node_modules/.package-lock.json:2169: trailing whitespace.
-[32m+[m[32m      "peerDependencies": {[m[41m[m
-web-app/node_modules/.package-lock.json:2170: trailing whitespace.
-[32m+[m[32m        "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"[m[41m[m
-web-app/node_modules/.package-lock.json:2171: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/node_modules/.package-lock.json:2172: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/package-lock.json:16: trailing whitespace.
-[32m+[m[32m        "i18next": "^26.5.10",[m[41m[m
-web-app/package-lock.json:20: trailing whitespace.
-[32m+[m[32m        "react-i18next": "^17.1.8",[m[41m[m
-web-app/package-lock.json:22: trailing whitespace.
-[32m+[m[32m        "react-speech-recognition": "^4.0.1",[m[41m[m
-web-app/package-lock.json:32: trailing whitespace.
-[32m+[m[32m        "node-appwrite": "^30.0.1",[m[41m[m
-web-app/package-lock.json:285: trailing whitespace.
-[32m+[m[32m    "node_modules/@babel/runtime": {[m[41m[m
-web-app/package-lock.json:286: trailing whitespace.
-[32m+[m[32m      "version": "7.29.10",[m[41m[m
-web-app/package-lock.json:287: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.10.tgz",[m[41m[m
-web-app/package-lock.json:288: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-NpugTzbKgGrNe45Ui32cN8vCFFMxVtP/9rtfwv0nP5FRDAjvYBxJcLVpYA9mr1jxP6cnIT7x9LUzuDTbWYYNRA==",[m[41m[m
-web-app/package-lock.json:289: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/package-lock.json:290: trailing whitespace.
-[32m+[m[32m      "engines": {[m[41m[m
-web-app/package-lock.json:291: trailing whitespace.
-[32m+[m[32m        "node": ">=6.9.0"[m[41m[m
-web-app/package-lock.json:292: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/package-lock.json:293: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/package-lock.json:1925: trailing whitespace.
-[32m+[m[32m    "node_modules/html-parse-stringify": {[m[41m[m
-web-app/package-lock.json:1926: trailing whitespace.
-[32m+[m[32m      "version": "4.0.1",[m[41m[m
-web-app/package-lock.json:1927: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/html-parse-stringify/-/html-parse-stringify-4.0.1.tgz",[m[41m[m
-web-app/package-lock.json:1928: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-0zHsZJrK7S3K2aucXWL6ycoYJ/iNtIcFHC/nYQgFklPtrv5LpJctIiSCroWZWeuoXvuyFdzp6KzjJQ+OT5MfFw==",[m[41m[m
-web-app/package-lock.json:1929: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/package-lock.json:1930: trailing whitespace.
-[32m+[m[32m      "funding": {[m[41m[m
-web-app/package-lock.json:1931: trailing whitespace.
-[32m+[m[32m        "url": "https://locize.com"[m[41m[m
-web-app/package-lock.json:1932: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/package-lock.json:1933: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/package-lock.json:1934: trailing whitespace.
-[32m+[m[32m    "node_modules/i18next": {[m[41m[m
-web-app/package-lock.json:1935: trailing whitespace.
-[32m+[m[32m      "version": "26.5.10",[m[41m[m
-web-app/package-lock.json:1936: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/i18next/-/i18next-26.5.10.tgz",[m[41m[m
-web-app/package-lock.json:1937: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-YS4EiLQhhk0wGThm4Zy+BL2c9rBNIK+kAbksi4l/B+D6kVRQLIFZgu2b/MU2LibJJHwWNTYoOYR52T+jfV8kPQ==",[m[41m[m
-web-app/package-lock.json:1938: trailing whitespace.
-[32m+[m[32m      "funding": [[m[41m[m
-web-app/package-lock.json:1939: trailing whitespace.
-[32m+[m[32m        {[m[41m[m
-web-app/package-lock.json:1940: trailing whitespace.
-[32m+[m[32m          "type": "individual",[m[41m[m
-web-app/package-lock.json:1941: trailing whitespace.
-[32m+[m[32m          "url": "https://www.locize.com/i18next"[m[41m[m
-web-app/package-lock.json:1942: trailing whitespace.
-[32m+[m[32m        },[m[41m[m
-web-app/package-lock.json:1943: trailing whitespace.
-[32m+[m[32m        {[m[41m[m
-web-app/package-lock.json:1944: trailing whitespace.
-[32m+[m[32m          "type": "individual",[m[41m[m
-web-app/package-lock.json:1945: trailing whitespace.
-[32m+[m[32m          "url": "https://www.i18next.com/how-to/faq#i18next-is-awesome.-how-can-i-support-the-project"[m[41m[m
-web-app/package-lock.json:1946: trailing whitespace.
-[32m+[m[32m        },[m[41m[m
-web-app/package-lock.json:1947: trailing whitespace.
-[32m+[m[32m        {[m[41m[m
-web-app/package-lock.json:1948: trailing whitespace.
-[32m+[m[32m          "type": "individual",[m[41m[m
-web-app/package-lock.json:1949: trailing whitespace.
-[32m+[m[32m          "url": "https://www.locize.com"[m[41m[m
-web-app/package-lock.json:1950: trailing whitespace.
-[32m+[m[32m        }[m[41m[m
-web-app/package-lock.json:1951: trailing whitespace.
-[32m+[m[32m      ],[m[41m[m
-web-app/package-lock.json:1952: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/package-lock.json:1953: trailing whitespace.
-[32m+[m[32m      "peerDependencies": {[m[41m[m
-web-app/package-lock.json:1954: trailing whitespace.
-[32m+[m[32m        "typescript": "^5 || ^6 || ^7"[m[41m[m
-web-app/package-lock.json:1955: trailing whitespace.
-[32m+[m[32m      },[m[41m[m
-web-app/package-lock.json:1956: trailing whitespace.
-[32m+[m[32m      "peerDependenciesMeta": {[m[41m[m
-web-app/package-lock.json:1957: trailing whitespace.
-[32m+[m[32m        "typescript": {[m[41m[m
-web-app/package-lock.json:1958: trailing whitespace.
-[32m+[m[32m          "optional": true[m[41m[m
-web-app/package-lock.json:1959: trailing whitespace.
-[32m+[m[32m        }[m[41m[m
-web-app/package-lock.json:1960: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/package-lock.json:1961: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/package-lock.json:2087: trailing whitespace.
-[32m+[m[32m    "node_modules/lodash.debounce": {[m[41m[m
-web-app/package-lock.json:2088: trailing whitespace.
-[32m+[m[32m      "version": "4.0.8",[m[41m[m
-web-app/package-lock.json:2089: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz",[m[41m[m
-web-app/package-lock.json:2090: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==",[m[41m[m
-web-app/package-lock.json:2091: trailing whitespace.
-[32m+[m[32m      "license": "MIT"[m[41m[m
-web-app/package-lock.json:2092: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/package-lock.json:2197: trailing whitespace.
-[32m+[m[32m    "node_modules/node-appwrite": {[m[41m[m
-web-app/package-lock.json:2198: trailing whitespace.
-[32m+[m[32m      "version": "30.0.1",[m[41m[m
-web-app/package-lock.json:2199: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/node-appwrite/-/node-appwrite-30.0.1.tgz",[m[41m[m
-web-app/package-lock.json:2200: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-oDsuCZNLHpBswlJWzZW0ZcYU64gE5tuoX13InbFJ4BeHrwBEfxLhD68i83AEStfZVsuHpKM4QXumg7Qx1cp5Ag==",[m[41m[m
-web-app/package-lock.json:2201: trailing whitespace.
-[32m+[m[32m      "dev": true,[m[41m[m
-web-app/package-lock.json:2202: trailing whitespace.
-[32m+[m[32m      "license": "BSD-3-Clause",[m[41m[m
-web-app/package-lock.json:2203: trailing whitespace.
-[32m+[m[32m      "dependencies": {[m[41m[m
-web-app/package-lock.json:2204: trailing whitespace.
-[32m+[m[32m        "json-bigint": "1.0.0",[m[41m[m
-web-app/package-lock.json:2205: trailing whitespace.
-[32m+[m[32m        "undici": "^6.27.0"[m[41m[m
-web-app/package-lock.json:2206: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/package-lock.json:2207: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/package-lock.json:2488: trailing whitespace.
-[32m+[m[32m    "node_modules/react-i18next": {[m[41m[m
-web-app/package-lock.json:2489: trailing whitespace.
-[32m+[m[32m      "version": "17.1.8",[m[41m[m
-web-app/package-lock.json:2490: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/react-i18next/-/react-i18next-17.1.8.tgz",[m[41m[m
-web-app/package-lock.json:2491: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-vGH+Tbhqbv5LdN9KvC9GEmQ6ATxJAjyxPEK0zSCSRlkeDqCPNxVtEOvDNRAz+51HTxc6QPwhnHaFD7ICu6pD1A==",[m[41m[m
-web-app/package-lock.json:2492: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/package-lock.json:2493: trailing whitespace.
-[32m+[m[32m      "dependencies": {[m[41m[m
-web-app/package-lock.json:2494: trailing whitespace.
-[32m+[m[32m        "@babel/runtime": "^7.29.7",[m[41m[m
-web-app/package-lock.json:2495: trailing whitespace.
-[32m+[m[32m        "html-parse-stringify": "^4.0.1",[m[41m[m
-web-app/package-lock.json:2496: trailing whitespace.
-[32m+[m[32m        "use-sync-external-store": "^1.6.0"[m[41m[m
-web-app/package-lock.json:2497: trailing whitespace.
-[32m+[m[32m      },[m[41m[m
-web-app/package-lock.json:2498: trailing whitespace.
-[32m+[m[32m      "peerDependencies": {[m[41m[m
-web-app/package-lock.json:2499: trailing whitespace.
-[32m+[m[32m        "i18next": ">= 26.2.0",[m[41m[m
-web-app/package-lock.json:2500: trailing whitespace.
-[32m+[m[32m        "react": ">= 16.8.0",[m[41m[m
-web-app/package-lock.json:2501: trailing whitespace.
-[32m+[m[32m        "typescript": "^5 || ^6 || ^7"[m[41m[m
-web-app/package-lock.json:2502: trailing whitespace.
-[32m+[m[32m      },[m[41m[m
-web-app/package-lock.json:2503: trailing whitespace.
-[32m+[m[32m      "peerDependenciesMeta": {[m[41m[m
-web-app/package-lock.json:2504: trailing whitespace.
-[32m+[m[32m        "react-dom": {[m[41m[m
-web-app/package-lock.json:2505: trailing whitespace.
-[32m+[m[32m          "optional": true[m[41m[m
-web-app/package-lock.json:2506: trailing whitespace.
-[32m+[m[32m        },[m[41m[m
-web-app/package-lock.json:2507: trailing whitespace.
-[32m+[m[32m        "react-native": {[m[41m[m
-web-app/package-lock.json:2508: trailing whitespace.
-[32m+[m[32m          "optional": true[m[41m[m
-web-app/package-lock.json:2509: trailing whitespace.
-[32m+[m[32m        },[m[41m[m
-web-app/package-lock.json:2510: trailing whitespace.
-[32m+[m[32m        "typescript": {[m[41m[m
-web-app/package-lock.json:2511: trailing whitespace.
-[32m+[m[32m          "optional": true[m[41m[m
-web-app/package-lock.json:2512: trailing whitespace.
-[32m+[m[32m        }[m[41m[m
-web-app/package-lock.json:2513: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/package-lock.json:2514: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/package-lock.json:2563: trailing whitespace.
-[32m+[m[32m    "node_modules/react-speech-recognition": {[m[41m[m
-web-app/package-lock.json:2564: trailing whitespace.
-[32m+[m[32m      "version": "4.0.1",[m[41m[m
-web-app/package-lock.json:2565: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/react-speech-recognition/-/react-speech-recognition-4.0.1.tgz",[m[41m[m
-web-app/package-lock.json:2566: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-0fIqzLtfY8vuYA6AmJVK7qiabZx0oFKOO+rbiBgFI3COWVGREy0A+gdU16hWXmFebeyrI8JsOLYsWk6WaHUXRw==",[m[41m[m
-web-app/package-lock.json:2567: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/package-lock.json:2568: trailing whitespace.
-[32m+[m[32m      "dependencies": {[m[41m[m
-web-app/package-lock.json:2569: trailing whitespace.
-[32m+[m[32m        "lodash.debounce": "^4.0.8"[m[41m[m
-web-app/package-lock.json:2570: trailing whitespace.
-[32m+[m[32m      },[m[41m[m
-web-app/package-lock.json:2571: trailing whitespace.
-[32m+[m[32m      "peerDependencies": {[m[41m[m
-web-app/package-lock.json:2572: trailing whitespace.
-[32m+[m[32m        "react": ">=16.8.0"[m[41m[m
-web-app/package-lock.json:2573: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/package-lock.json:2574: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/package-lock.json:2914: trailing whitespace.
-[32m+[m[32m      "devOptional": true,[m[41m[m
-web-app/package-lock.json:2924: trailing whitespace.
-[32m+[m[32m    "node_modules/undici": {[m[41m[m
-web-app/package-lock.json:2925: trailing whitespace.
-[32m+[m[32m      "version": "6.29.1",[m[41m[m
-web-app/package-lock.json:2926: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/undici/-/undici-6.29.1.tgz",[m[41m[m
-web-app/package-lock.json:2927: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-EvRlUt/QqAEvXdQeRMYUfwOQsfzpDztykrG2owGEE/rBOBoYv9uF39ZzsNDh4lTFHhTr2XOZjKkYgueD12ZmGA==",[m[41m[m
-web-app/package-lock.json:2928: trailing whitespace.
-[32m+[m[32m      "dev": true,[m[41m[m
-web-app/package-lock.json:2929: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/package-lock.json:2930: trailing whitespace.
-[32m+[m[32m      "engines": {[m[41m[m
-web-app/package-lock.json:2931: trailing whitespace.
-[32m+[m[32m        "node": ">=18.17"[m[41m[m
-web-app/package-lock.json:2932: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/package-lock.json:2933: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/package-lock.json:2965: trailing whitespace.
-[32m+[m[32m    "node_modules/use-sync-external-store": {[m[41m[m
-web-app/package-lock.json:2966: trailing whitespace.
-[32m+[m[32m      "version": "1.7.0",[m[41m[m
-web-app/package-lock.json:2967: trailing whitespace.
-[32m+[m[32m      "resolved": "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.7.0.tgz",[m[41m[m
-web-app/package-lock.json:2968: trailing whitespace.
-[32m+[m[32m      "integrity": "sha512-6L+EeigHMQhdaIPNIFUKwfWJSwWFQ8gJbJ2DLOs5sDIegTwR9fRxvnM3uciHKjIZhFz+KAv2emhWMRvDmMcY8A==",[m[41m[m
-web-app/package-lock.json:2969: trailing whitespace.
-[32m+[m[32m      "license": "MIT",[m[41m[m
-web-app/package-lock.json:2970: trailing whitespace.
-[32m+[m[32m      "peerDependencies": {[m[41m[m
-web-app/package-lock.json:2971: trailing whitespace.
-[32m+[m[32m        "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"[m[41m[m
-web-app/package-lock.json:2972: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/package-lock.json:2973: trailing whitespace.
-[32m+[m[32m    },[m[41m[m
-web-app/package.json:10: trailing whitespace.
-[32m+[m[32m    "preview": "vite preview",[m[41m[m
-web-app/package.json:11: trailing whitespace.
-[32m+[m[32m    "setup:db": "node --env-file=.env setup-db.js",[m[41m[m
-web-app/package.json:12: trailing whitespace.
-[32m+[m[32m    "seed:learning": "node --env-file=.env seed-learning.js",[m[41m[m
-web-app/package.json:13: trailing whitespace.
-[32m+[m[32m    "seed:users": "node --env-file=.env seed-users.js",[m[41m[m
-web-app/package.json:14: trailing whitespace.
-[32m+[m[32m    "seed:data": "node --env-file=.env seed-data.js"[m[41m[m
-web-app/package.json:22: trailing whitespace.
-[32m+[m[32m    "i18next": "^26.5.10",[m[41m[m
-web-app/package.json:26: trailing whitespace.
-[32m+[m[32m    "react-i18next": "^17.1.8",[m[41m[m
-web-app/package.json:28: trailing whitespace.
-[32m+[m[32m    "react-speech-recognition": "^4.0.1",[m[41m[m
-web-app/package.json:38: trailing whitespace.
-[32m+[m[32m    "node-appwrite": "^30.0.1",[m[41m[m
-web-app/src/App.tsx:1: trailing whitespace.
-[32m+[m[32m﻿import React from 'react';[m[41m[m
-web-app/src/App.tsx:3: trailing whitespace.
-[32m+[m[32mimport { useTranslation } from 'react-i18next';[m[41m[m
-web-app/src/App.tsx:24: trailing whitespace.
-[32m+[m[32mimport { VirtualLab } from './pages/VirtualLab';[m[41m[m
-web-app/src/App.tsx:29: trailing whitespace.
-[32m+[m[32mimport { AddVehicle } from './pages/vehicles/AddVehicle';[m[41m[m
-web-app/src/App.tsx:34: trailing whitespace.
-[32m+[m[32mimport { GlobalDashboard } from './pages/admin/GlobalDashboard';[m[41m[m
-web-app/src/App.tsx:35: trailing whitespace.
-[32m+[m[32mimport { SchoolDashboard } from './pages/school-admin/SchoolDashboard';[m[41m[m
-web-app/src/App.tsx:36: trailing whitespace.
-[32m+[m[32mimport { DepartmentAdminDashboard } from './pages/department-admin/DepartmentAdminDashboard';[m[41m[m
-web-app/src/App.tsx:37: trailing whitespace.
-[32m+[m[32mimport { InstructorDashboard } from './pages/instructor/InstructorDashboard';[m[41m[m
-web-app/src/App.tsx:38: trailing whitespace.
-[32m+[m[32mimport { StudentDashboard } from './pages/student/StudentDashboard';[m[41m[m
-web-app/src/App.tsx:39: trailing whitespace.
-[32m+[m[32mimport { GarageDashboard } from './pages/garage-admin/GarageDashboard';[m[41m[m
-web-app/src/App.tsx:40: trailing whitespace.
-[32m+[m[32mimport { MechanicDashboard } from './pages/mechanic/MechanicDashboard';[m[41m[m
-web-app/src/App.tsx:43: trailing whitespace.
-[32m+[m[32mconst LandingPage = () => {[m[41m[m
-web-app/src/App.tsx:44: trailing whitespace.
-[32m+[m[32m  const { t } = useTranslation();[m[41m[m
-web-app/src/App.tsx:45: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/App.tsx:46: trailing whitespace.
-[32m+[m[32m  return ([m[41m[m
-web-app/src/App.tsx:63: trailing whitespace.
-[32m+[m[32m              <h2 className="text-3xl font-bold text-brand-navy mb-4">{t('extras.coming_title')}</h2>[m[41m[m
-web-app/src/App.tsx:64: trailing whitespace.
-[32m+[m[32m              <p className="text-slate-600">{t('extras.coming_subtitle')}</p>[m[41m[m
-web-app/src/App.tsx:68: trailing whitespace.
-[32m+[m[32m                  <div className="font-bold text-slate-900 mb-1">{t('extras.coming_obd_title')}</div>[m[41m[m
-web-app/src/App.tsx:69: trailing whitespace.
-[32m+[m[32m                  <div className="text-xs text-slate-500 uppercase tracking-tighter">{t('extras.coming_obd_desc')}</div>[m[41m[m
-web-app/src/App.tsx:72: trailing whitespace.
-[32m+[m[32m                  <div className="font-bold text-slate-900 mb-1">{t('extras.coming_virtual_title')}</div>[m[41m[m
-web-app/src/App.tsx:73: trailing whitespace.
-[32m+[m[32m                  <div className="text-xs text-slate-500 uppercase tracking-tighter">{t('extras.coming_virtual_desc')}</div>[m[41m[m
-web-app/src/App.tsx:76: trailing whitespace.
-[32m+[m[32m                  <div className="font-bold text-slate-900 mb-1">{t('extras.coming_marketplace_title')}</div>[m[41m[m
-web-app/src/App.tsx:77: trailing whitespace.
-[32m+[m[32m                  <div className="text-xs text-slate-500 uppercase tracking-tighter">{t('extras.coming_marketplace_desc')}</div>[m[41m[m
-web-app/src/App.tsx:80: trailing whitespace.
-[32m+[m[32m                  <div className="font-bold text-slate-900 mb-1">{t('extras.coming_certs_title')}</div>[m[41m[m
-web-app/src/App.tsx:81: trailing whitespace.
-[32m+[m[32m                  <div className="text-xs text-slate-500 uppercase tracking-tighter">{t('extras.coming_certs_desc')}</div>[m[41m[m
-web-app/src/App.tsx:92: trailing whitespace.
-[32m+[m[32m  );[m[41m[m
-web-app/src/App.tsx:93: trailing whitespace.
-[32m+[m[32m};[m[41m[m
-web-app/src/App.tsx:132: trailing whitespace.
-[32m+[m[32m          path="/lab/:moduleId"[m[41m[m
-web-app/src/App.tsx:133: trailing whitespace.
-[32m+[m[32m          element={[m[41m[m
-web-app/src/App.tsx:134: trailing whitespace.
-[32m+[m[32m            <ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:135: trailing whitespace.
-[32m+[m[32m              <VirtualLab />[m[41m[m
-web-app/src/App.tsx:136: trailing whitespace.
-[32m+[m[32m            </ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:137: trailing whitespace.
-[32m+[m[32m          }[m[41m[m
-web-app/src/App.tsx:138: trailing whitespace.
-[32m+[m[32m        />[m[41m[m
-web-app/src/App.tsx:139: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/App.tsx:140: trailing whitespace.
-[32m+[m[32m        <Route[m[41m[m
-web-app/src/App.tsx:168: trailing whitespace.
-[32m+[m[32m          path="/vehicles/add"[m[41m[m
-web-app/src/App.tsx:169: trailing whitespace.
-[32m+[m[32m          element={[m[41m[m
-web-app/src/App.tsx:170: trailing whitespace.
-[32m+[m[32m            <ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:171: trailing whitespace.
-[32m+[m[32m              <AddVehicle />[m[41m[m
-web-app/src/App.tsx:172: trailing whitespace.
-[32m+[m[32m            </ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:173: trailing whitespace.
-[32m+[m[32m          }[m[41m[m
-web-app/src/App.tsx:174: trailing whitespace.
-[32m+[m[32m        />[m[41m[m
-web-app/src/App.tsx:175: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/App.tsx:176: trailing whitespace.
-[32m+[m[32m        <Route[m[41m[m
-web-app/src/App.tsx:221: trailing whitespace.
-[32m+[m[32m        <Route[m[41m[m
-web-app/src/App.tsx:222: trailing whitespace.
-[32m+[m[32m          path="/admin/*"[m[41m[m
-web-app/src/App.tsx:223: trailing whitespace.
-[32m+[m[32m          element={[m[41m[m
-web-app/src/App.tsx:224: trailing whitespace.
-[32m+[m[32m            <ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:225: trailing whitespace.
-[32m+[m[32m              <GlobalDashboard />[m[41m[m
-web-app/src/App.tsx:226: trailing whitespace.
-[32m+[m[32m            </ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:227: trailing whitespace.
-[32m+[m[32m          }[m[41m[m
-web-app/src/App.tsx:228: trailing whitespace.
-[32m+[m[32m        />[m[41m[m
-web-app/src/App.tsx:229: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/App.tsx:230: trailing whitespace.
-[32m+[m[32m        <Route[m[41m[m
-web-app/src/App.tsx:231: trailing whitespace.
-[32m+[m[32m          path="/school-admin/*"[m[41m[m
-web-app/src/App.tsx:232: trailing whitespace.
-[32m+[m[32m          element={[m[41m[m
-web-app/src/App.tsx:233: trailing whitespace.
-[32m+[m[32m            <ProtectedRoute allowedRoles={['tvet_admin']}>[m[41m[m
-web-app/src/App.tsx:234: trailing whitespace.
-[32m+[m[32m              <SchoolDashboard />[m[41m[m
-web-app/src/App.tsx:235: trailing whitespace.
-[32m+[m[32m            </ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:236: trailing whitespace.
-[32m+[m[32m          }[m[41m[m
-web-app/src/App.tsx:237: trailing whitespace.
-[32m+[m[32m        />[m[41m[m
-web-app/src/App.tsx:238: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/App.tsx:247: trailing whitespace.
-[32m+[m[32m        <Route[m[41m[m
-web-app/src/App.tsx:248: trailing whitespace.
-[32m+[m[32m          path="/instructor/*"[m[41m[m
-web-app/src/App.tsx:249: trailing whitespace.
-[32m+[m[32m          element={[m[41m[m
-web-app/src/App.tsx:250: trailing whitespace.
-[32m+[m[32m            <ProtectedRoute allowedRoles={['instructor']}>[m[41m[m
-web-app/src/App.tsx:251: trailing whitespace.
-[32m+[m[32m              <InstructorDashboard />[m[41m[m
-web-app/src/App.tsx:252: trailing whitespace.
-[32m+[m[32m            </ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:253: trailing whitespace.
-[32m+[m[32m          }[m[41m[m
-web-app/src/App.tsx:254: trailing whitespace.
-[32m+[m[32m        />[m[41m[m
-web-app/src/App.tsx:255: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/App.tsx:256: trailing whitespace.
-[32m+[m[32m        <Route[m[41m[m
-web-app/src/App.tsx:257: trailing whitespace.
-[32m+[m[32m          path="/student/*"[m[41m[m
-web-app/src/App.tsx:258: trailing whitespace.
-[32m+[m[32m          element={[m[41m[m
-web-app/src/App.tsx:259: trailing whitespace.
-[32m+[m[32m            <ProtectedRoute allowedRoles={['student']}>[m[41m[m
-web-app/src/App.tsx:260: trailing whitespace.
-[32m+[m[32m              <StudentDashboard />[m[41m[m
-web-app/src/App.tsx:261: trailing whitespace.
-[32m+[m[32m            </ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:262: trailing whitespace.
-[32m+[m[32m          }[m[41m[m
-web-app/src/App.tsx:263: trailing whitespace.
-[32m+[m[32m        />[m[41m[m
-web-app/src/App.tsx:264: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/App.tsx:265: trailing whitespace.
-[32m+[m[32m        <Route[m[41m[m
-web-app/src/App.tsx:266: trailing whitespace.
-[32m+[m[32m          path="/garage-admin/*"[m[41m[m
-web-app/src/App.tsx:267: trailing whitespace.
-[32m+[m[32m          element={[m[41m[m
-web-app/src/App.tsx:268: trailing whitespace.
-[32m+[m[32m            <ProtectedRoute allowedRoles={['garage_admin']}>[m[41m[m
-web-app/src/App.tsx:269: trailing whitespace.
-[32m+[m[32m              <GarageDashboard />[m[41m[m
-web-app/src/App.tsx:270: trailing whitespace.
-[32m+[m[32m            </ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:271: trailing whitespace.
-[32m+[m[32m          }[m[41m[m
-web-app/src/App.tsx:272: trailing whitespace.
-[32m+[m[32m        />[m[41m[m
-web-app/src/App.tsx:273: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/App.tsx:274: trailing whitespace.
-[32m+[m[32m        <Route[m[41m[m
-web-app/src/App.tsx:275: trailing whitespace.
-[32m+[m[32m          path="/mechanic/*"[m[41m[m
-web-app/src/App.tsx:276: trailing whitespace.
-[32m+[m[32m          element={[m[41m[m
-web-app/src/App.tsx:277: trailing whitespace.
-[32m+[m[32m            <ProtectedRoute allowedRoles={['mechanic']}>[m[41m[m
-web-app/src/App.tsx:278: trailing whitespace.
-[32m+[m[32m              <MechanicDashboard />[m[41m[m
-web-app/src/App.tsx:279: trailing whitespace.
-[32m+[m[32m            </ProtectedRoute>[m[41m[m
-web-app/src/App.tsx:280: trailing whitespace.
-[32m+[m[32m          }[m[41m[m
-web-app/src/App.tsx:281: trailing whitespace.
-[32m+[m[32m        />[m[41m[m
-web-app/src/App.tsx:282: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/App.tsx:291: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/App.tsx:291: new blank line at EOF.
-web-app/src/components/diagnostics/DiagnosticForm.tsx:1: trailing whitespace.
-[32m+[m[32mimport React, { useState, useEffect, useRef } from 'react';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:2: trailing whitespace.
-[32m+[m[32mimport { useLocation, useNavigate } from 'react-router-dom';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:3: trailing whitespace.
-[32m+[m[32mimport { useTranslation } from 'react-i18next';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:4: trailing whitespace.
-[32m+[m[32mimport { userVehiclesService } from '../../services/database/userVehicles';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:6: trailing whitespace.
-[32m+[m[32mimport { UserVehicle, DiagnosticRequest } from '../../types';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:8: trailing whitespace.
-[32m+[m[32mimport { Car, ChevronRight, AlertCircle, Loader2, Plus, Bluetooth, Mic, MicOff } from 'lucide-react';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:9: trailing whitespace.
-[32m+[m[32mimport { MOCK_OBD_DATA } from '../../data/mockOBDData';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:10: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:11: trailing whitespace.
-[32m+[m[32m// Values stay in English because they are sent to the diagnostic model.[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:12: trailing whitespace.
-[32m+[m[32mconst TIMING_OPTIONS = [[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:13: trailing whitespace.
-[32m+[m[32m  { value: 'Recently', labelKey: 'diagnostics.timing_recently' },[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:14: trailing whitespace.
-[32m+[m[32m  { value: 'A few days ago', labelKey: 'diagnostics.timing_days' },[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:15: trailing whitespace.
-[32m+[m[32m  { value: 'More than a week ago', labelKey: 'diagnostics.timing_week' },[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:16: trailing whitespace.
-[32m+[m[32m  { value: 'Intermittent problem', labelKey: 'diagnostics.timing_intermittent' },[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:17: trailing whitespace.
-[32m+[m[32m] as const;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:18: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:19: trailing whitespace.
-[32m+[m[32mconst WARNING_LIGHT_OPTIONS = [[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:20: trailing whitespace.
-[32m+[m[32m  { value: 'Check Engine', labelKey: 'diagnostics.light_check_engine' },[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:21: trailing whitespace.
-[32m+[m[32m  { value: 'ABS', labelKey: 'diagnostics.light_abs' },[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:22: trailing whitespace.
-[32m+[m[32m  { value: 'Battery', labelKey: 'diagnostics.light_battery' },[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:23: trailing whitespace.
-[32m+[m[32m  { value: 'Oil', labelKey: 'diagnostics.light_oil' },[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:24: trailing whitespace.
-[32m+[m[32m  { value: 'Brake', labelKey: 'diagnostics.light_brake' },[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:25: trailing whitespace.
-[32m+[m[32m] as const;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:35: trailing whitespace.
-[32m+[m[32m  const navigate = useNavigate();[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:36: trailing whitespace.
-[32m+[m[32m  const { t, i18n } = useTranslation();[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:37: trailing whitespace.
-[32m+[m[32m  const [vehicles, setVehicles] = useState<UserVehicle[]>([]);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:38: trailing whitespace.
-[32m+[m[32m  const [vehiclesLoading, setVehiclesLoading] = useState(true);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:45: trailing whitespace.
-[32m+[m[32m  const [isListening, setIsListening] = useState(false);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:46: trailing whitespace.
-[32m+[m[32m  const [voiceError, setVoiceError] = useState<string | null>(null);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:47: trailing whitespace.
-[32m+[m[32m  const recognitionRef = useRef<any>(null);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:48: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:49: trailing whitespace.
-[32m+[m[32m  const simulationActive = description.startsWith('Simulated OBD-II Code:');[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:50: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:51: trailing whitespace.
-[32m+[m[32m  const handleSimulateOBD = () => {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:52: trailing whitespace.
-[32m+[m[32m    const selected = MOCK_OBD_DATA[Math.floor(Math.random() * MOCK_OBD_DATA.length)];[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:53: trailing whitespace.
-[32m+[m[32m    setDescription(`Simulated OBD-II Code: ${selected.code}. Symptoms: ${selected.symptom}`);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:54: trailing whitespace.
-[32m+[m[32m  };[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:55: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:56: trailing whitespace.
-[32m+[m[32m  const getSpeechLanguage = () => {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:57: trailing whitespace.
-[32m+[m[32m    const language = i18n.language || 'en';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:58: trailing whitespace.
-[32m+[m[32m    if (language === 'am') return 'am-ET';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:59: trailing whitespace.
-[32m+[m[32m    if (language === 'om') return 'om-ET';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:60: trailing whitespace.
-[32m+[m[32m    return 'en-US';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:61: trailing whitespace.
-[32m+[m[32m  };[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:62: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:63: trailing whitespace.
-[32m+[m[32m  const toggleListening = () => {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:64: trailing whitespace.
-[32m+[m[32m    const SpeechRecognition =[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:65: trailing whitespace.
-[32m+[m[32m      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:66: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:67: trailing whitespace.
-[32m+[m[32m    if (!SpeechRecognition) {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:68: trailing whitespace.
-[32m+[m[32m      setVoiceError('Speech recognition is not supported in this browser.');[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:69: trailing whitespace.
-[32m+[m[32m      return;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:70: trailing whitespace.
-[32m+[m[32m    }[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:71: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:72: trailing whitespace.
-[32m+[m[32m    if (isListening && recognitionRef.current) {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:73: trailing whitespace.
-[32m+[m[32m      recognitionRef.current.stop();[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:74: trailing whitespace.
-[32m+[m[32m      setIsListening(false);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:75: trailing whitespace.
-[32m+[m[32m      return;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:76: trailing whitespace.
-[32m+[m[32m    }[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:77: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:78: trailing whitespace.
-[32m+[m[32m    setVoiceError(null);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:79: trailing whitespace.
-[32m+[m[32m    const recognition = new SpeechRecognition();[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:80: trailing whitespace.
-[32m+[m[32m    recognition.lang = getSpeechLanguage();[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:81: trailing whitespace.
-[32m+[m[32m    recognition.interimResults = true;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:82: trailing whitespace.
-[32m+[m[32m    recognition.continuous = false;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:83: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:84: trailing whitespace.
-[32m+[m[32m    recognition.onresult = (event: any) => {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:85: trailing whitespace.
-[32m+[m[32m      const transcript = Array.from(event.results)[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:86: trailing whitespace.
-[32m+[m[32m        .map((result: any) => result[0]?.transcript || '')[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:87: trailing whitespace.
-[32m+[m[32m        .join('');[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:88: trailing whitespace.
-[32m+[m[32m      setDescription(transcript);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:89: trailing whitespace.
-[32m+[m[32m    };[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:90: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:91: trailing whitespace.
-[32m+[m[32m    recognition.onerror = (event: any) => {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:92: trailing whitespace.
-[32m+[m[32m      setVoiceError(event?.error || 'Microphone permission denied or unavailable.');[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:93: trailing whitespace.
-[32m+[m[32m      setIsListening(false);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:94: trailing whitespace.
-[32m+[m[32m    };[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:95: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:96: trailing whitespace.
-[32m+[m[32m    recognition.onend = () => {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:97: trailing whitespace.
-[32m+[m[32m      setIsListening(false);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:98: trailing whitespace.
-[32m+[m[32m    };[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:99: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:100: trailing whitespace.
-[32m+[m[32m    recognitionRef.current = recognition;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:101: trailing whitespace.
-[32m+[m[32m    setIsListening(true);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:102: trailing whitespace.
-[32m+[m[32m    recognition.start();[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:103: trailing whitespace.
-[32m+[m[32m  };[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:104: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:106: trailing whitespace.
-[32m+[m[32m    if (!user) {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:107: trailing whitespace.
-[32m+[m[32m      setVehiclesLoading(false);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:108: trailing whitespace.
-[32m+[m[32m      return;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:110: trailing whitespace.
-[32m+[m[32m    let cancelled = false;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:111: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:112: trailing whitespace.
-[32m+[m[32m    setVehiclesLoading(true);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:113: trailing whitespace.
-[32m+[m[32m    userVehiclesService[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:114: trailing whitespace.
-[32m+[m[32m      .listUserVehicles(user.$id)[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:115: trailing whitespace.
-[32m+[m[32m      .then((result) => {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:116: trailing whitespace.
-[32m+[m[32m        if (!cancelled) {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:117: trailing whitespace.
-[32m+[m[32m          setVehicles(result);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:118: trailing whitespace.
-[32m+[m[32m          setVehiclesLoading(false);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:119: trailing whitespace.
-[32m+[m[32m        }[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:120: trailing whitespace.
-[32m+[m[32m      })[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:121: trailing whitespace.
-[32m+[m[32m      .catch((error) => {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:122: trailing whitespace.
-[32m+[m[32m        console.error('Failed to load vehicles:', error);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:123: trailing whitespace.
-[32m+[m[32m        if (!cancelled) {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:124: trailing whitespace.
-[32m+[m[32m          setVehiclesLoading(false);[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:125: trailing whitespace.
-[32m+[m[32m        }[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:126: trailing whitespace.
-[32m+[m[32m      });[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:127: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:128: trailing whitespace.
-[32m+[m[32m    return () => {[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:129: trailing whitespace.
-[32m+[m[32m      cancelled = true;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:130: trailing whitespace.
-[32m+[m[32m    };[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:135: trailing whitespace.
-[32m+[m[32m    const trimmedDescription = description.trim();[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:136: trailing whitespace.
-[32m+[m[32m    if (!selectedVehicleId || trimmedDescription.length <= 5) return;[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:140: trailing whitespace.
-[32m+[m[32m      description: trimmedDescription,[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:151: trailing whitespace.
-[32m+[m[32m          <Car className="w-6 h-6 text-brand-teal" /> {t('diagnostics.select_vehicle')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:153: trailing whitespace.
-[32m+[m[32m        {vehiclesLoading ? ([m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:154: trailing whitespace.
-[32m+[m[32m          <div className="flex items-center justify-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-6 text-sm font-medium text-slate-500">[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:155: trailing whitespace.
-[32m+[m[32m            <Loader2 className="h-5 w-5 animate-spin text-brand-blue" />[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:156: trailing whitespace.
-[32m+[m[32m            {t('diagnostics.loading_vehicles')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:159: trailing whitespace.
-[32m+[m[32m          <>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:160: trailing whitespace.
-[32m+[m[32m            {vehicles.length === 0 && ([m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:161: trailing whitespace.
-[32m+[m[32m              <Button[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:162: trailing whitespace.
-[32m+[m[32m                type="button"[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:163: trailing whitespace.
-[32m+[m[32m                size="lg"[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:164: trailing whitespace.
-[32m+[m[32m                className="mb-4 w-full gap-2 py-6 text-lg"[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:165: trailing whitespace.
-[32m+[m[32m                onClick={() => navigate('/vehicles/add')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:166: trailing whitespace.
-[32m+[m[32m              >[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:167: trailing whitespace.
-[32m+[m[32m                <Plus className="h-5 w-5" />[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:168: trailing whitespace.
-[32m+[m[32m                {t('diagnostics.add_vehicle_first')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:169: trailing whitespace.
-[32m+[m[32m              </Button>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:170: trailing whitespace.
-[32m+[m[32m            )}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:171: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:172: trailing whitespace.
-[32m+[m[32m            {vehicles.length > 0 ? ([m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:173: trailing whitespace.
-[32m+[m[32m              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:174: trailing whitespace.
-[32m+[m[32m                {vehicles.map((v) => ([m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:175: trailing whitespace.
-[32m+[m[32m                  <button[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:176: trailing whitespace.
-[32m+[m[32m                    key={v.$id}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:177: trailing whitespace.
-[32m+[m[32m                    type="button"[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:178: trailing whitespace.
-[32m+[m[32m                    onClick={() => setSelectedVehicleId(v.$id)}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:179: trailing whitespace.
-[32m+[m[32m                    aria-pressed={selectedVehicleId === v.$id}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:180: trailing whitespace.
-[32m+[m[32m                    className={`p-4 rounded-2xl border-2 text-left transition-all ${[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:181: trailing whitespace.
-[32m+[m[32m                      selectedVehicleId === v.$id[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:182: trailing whitespace.
-[32m+[m[32m                      ? 'border-brand-blue bg-brand-blue/5'[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:183: trailing whitespace.
-[32m+[m[32m                      : 'border-slate-100 hover:border-slate-200'[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:184: trailing whitespace.
-[32m+[m[32m                    }`}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:185: trailing whitespace.
-[32m+[m[32m                  >[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:186: trailing whitespace.
-[32m+[m[32m                    <div className="font-bold text-slate-900">{v.make} {v.model}</div>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:187: trailing whitespace.
-[32m+[m[32m                    <div className="text-xs text-slate-500">[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:188: trailing whitespace.
-[32m+[m[32m                      {v.year}{v.engine ? ` • ${v.engine}` : ''}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:189: trailing whitespace.
-[32m+[m[32m                    </div>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:190: trailing whitespace.
-[32m+[m[32m                  </button>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:191: trailing whitespace.
-[32m+[m[32m                ))}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:192: trailing whitespace.
-[32m+[m[32m              </div>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:193: trailing whitespace.
-[32m+[m[32m            ) : ([m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:194: trailing whitespace.
-[32m+[m[32m              <div className="p-6 bg-slate-50 rounded-2xl border-2 border-dashed text-center">[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:195: trailing whitespace.
-[32m+[m[32m                <p className="text-slate-500">{t('diagnostics.no_vehicles')}</p>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:196: trailing whitespace.
-[32m+[m[32m              </div>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:197: trailing whitespace.
-[32m+[m[32m            )}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:198: trailing whitespace.
-[32m+[m[32m          </>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:203: trailing whitespace.
-[32m+[m[32m        <h3 className="text-xl font-bold text-brand-navy mb-6">{t('diagnostics.describe_problem')}</h3>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:204: trailing whitespace.
-[32m+[m[32m        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:205: trailing whitespace.
-[32m+[m[32m          <Button[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:206: trailing whitespace.
-[32m+[m[32m            type="button"[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:207: trailing whitespace.
-[32m+[m[32m            variant="outline"[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:208: trailing whitespace.
-[32m+[m[32m            size="sm"[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:209: trailing whitespace.
-[32m+[m[32m            onClick={handleSimulateOBD}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:210: trailing whitespace.
-[32m+[m[32m            className="gap-2"[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:211: trailing whitespace.
-[32m+[m[32m          >[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:212: trailing whitespace.
-[32m+[m[32m            <Bluetooth className="h-4 w-4" />[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:213: trailing whitespace.
-[32m+[m[32m            Simulate OBD-II Scan[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:214: trailing whitespace.
-[32m+[m[32m          </Button>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:215: trailing whitespace.
-[32m+[m[32m          {simulationActive && ([m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:216: trailing whitespace.
-[32m+[m[32m            <span className="inline-flex items-center rounded-full bg-teal-50 px-3 py-1 text-xs font-bold text-brand-teal border border-teal-200">[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:217: trailing whitespace.
-[32m+[m[32m              Simulation Mode Active[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:218: trailing whitespace.
-[32m+[m[32m            </span>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:219: trailing whitespace.
-[32m+[m[32m          )}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:220: trailing whitespace.
-[32m+[m[32m        </div>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:221: trailing whitespace.
-[32m+[m[32m        <p className="mb-4 text-xs text-slate-500">[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:222: trailing whitespace.
-[32m+[m[32m          For educational demo purposes. No physical hardware required.[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:223: trailing whitespace.
-[32m+[m[32m        </p>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:224: trailing whitespace.
-[32m+[m[32m        {voiceError && <div className="mb-3 text-sm text-red-600">{voiceError}</div>}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:225: trailing whitespace.
-[32m+[m[32m        {isListening && <div className="mb-3 text-sm text-brand-teal">Listening...</div>}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:226: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:227: trailing whitespace.
-[32m+[m[32m        <div className="mb-3">[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:228: trailing whitespace.
-[32m+[m[32m          <Button type="button" variant="outline" size="sm" onClick={toggleListening} className="gap-2">[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:229: trailing whitespace.
-[32m+[m[32m            {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:230: trailing whitespace.
-[32m+[m[32m            {isListening ? 'Stop Listening' : 'Voice Input'}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:231: trailing whitespace.
-[32m+[m[32m          </Button>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:232: trailing whitespace.
-[32m+[m[32m        </div>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:233: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:237: trailing whitespace.
-[32m+[m[32m          placeholder={t('diagnostics.describe_placeholder')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:245: trailing whitespace.
-[32m+[m[32m            <label className="block text-sm font-bold text-slate-700 mb-4 uppercase tracking-wider">{t('diagnostics.when_started')}</label>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:251: trailing whitespace.
-[32m+[m[32m               {TIMING_OPTIONS.map((option) => ([m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:252: trailing whitespace.
-[32m+[m[32m                 <option key={option.value} value={option.value}>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:253: trailing whitespace.
-[32m+[m[32m                   {t(option.labelKey)}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:254: trailing whitespace.
-[32m+[m[32m                 </option>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:255: trailing whitespace.
-[32m+[m[32m               ))}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:259: trailing whitespace.
-[32m+[m[32m            <label className="block text-sm font-bold text-slate-700 mb-4 uppercase tracking-wider">{t('diagnostics.warning_lights')}</label>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:261: trailing whitespace.
-[32m+[m[32m               {WARNING_LIGHT_OPTIONS.map(({ value, labelKey }) => ([m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:263: trailing whitespace.
-[32m+[m[32m                    key={value}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:267: trailing whitespace.
-[32m+[m[32m                        prev.includes(value) ? prev.filter(l => l !== value) : [...prev, value][m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:271: trailing whitespace.
-[32m+[m[32m                      warningLights.includes(value)[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:276: trailing whitespace.
-[32m+[m[32m                    {t(labelKey)}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:284: trailing whitespace.
-[32m+[m[32m        {!selectedVehicleId && (vehicles.length > 0 || description.trim().length > 0) && ([m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:285: trailing whitespace.
-[32m+[m[32m          <div className="mb-4 p-4 bg-amber-50 border border-amber-200 rounded-2xl flex items-center gap-3">[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:286: trailing whitespace.
-[32m+[m[32m            <AlertCircle className="w-5 h-5 text-amber-600" />[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:287: trailing whitespace.
-[32m+[m[32m            <p className="text-sm font-medium text-amber-800">{t('diagnostics.select_vehicle_required')}</p>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:288: trailing whitespace.
-[32m+[m[32m          </div>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:289: trailing whitespace.
-[32m+[m[32m        )}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:294: trailing whitespace.
-[32m+[m[32m          disabled={loading || !selectedVehicleId || description.trim().length <= 5}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:296: trailing whitespace.
-[32m+[m[32m          {loading ? t('diagnostics.analyzing') : t('diagnostics.start_diagnostic')} <ChevronRight className="ml-2 w-6 h-6" />[m[41m[m
-web-app/src/components/diagnostics/DiagnosticForm.tsx:299: trailing whitespace.
-[32m+[m[32m          <AlertCircle className="w-3 h-3" /> {t('diagnostics.guidance_only')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:3: trailing whitespace.
-[32m+[m[32mimport { useTranslation } from 'react-i18next';[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:27: trailing whitespace.
-[32m+[m[32m  const { t } = useTranslation();[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:70: trailing whitespace.
-[32m+[m[32m            <Badge className="bg-brand-teal text-brand-navy font-bold px-4 py-1">{t('diagnostics_result.analysis_complete')}</Badge>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:71: trailing whitespace.
-[32m+[m[32m            <span className="text-slate-400 font-mono text-sm">{t('diagnostics_result.confidence', { value: Math.round(response.confidence * 100) })}</span>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:73: trailing whitespace.
-[32m+[m[32m          <h2 className="text-3xl font-bold mb-6">{t('diagnostics_result.summary')}</h2>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:85: trailing whitespace.
-[32m+[m[32m              <AlertTriangle className="w-6 h-6 text-red-500" /> {t('diagnostics_result.likely_causes')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:93: trailing whitespace.
-[32m+[m[32m                       {t('diagnostics_result.match', { value: Math.round(cause.probability * 100) })}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:104: trailing whitespace.
-[32m+[m[32m              <Wrench className="w-6 h-6 text-brand-teal" /> {t('diagnostics_result.recommended_checks')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:134: trailing whitespace.
-[32m+[m[32m              <h3 className="font-bold mb-6">{t('diagnostics_result.next_steps')}</h3>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:155: trailing whitespace.
-[32m+[m[32m                         <BookOpen className="w-4 h-4" /> {t('diagnostics_result.open_guide')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:159: trailing whitespace.
-[32m+[m[32m                         <p className="text-xs text-white/60 mb-2">{t('diagnostics_result.guide_unavailable')}</p>[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:161: trailing whitespace.
-[32m+[m[32m                            {t('diagnostics_result.browse_library')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:171: trailing whitespace.
-[32m+[m[32m                         <ShieldAlert className="w-4 h-4" /> {t('diagnostics_result.learn_system')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:175: trailing whitespace.
-[32m+[m[32m                         {t('diagnostics_result.module_soon')}[m[41m[m
-web-app/src/components/diagnostics/DiagnosticResult.tsx:184: trailing whitespace.
-[32m+[m[32m                 <ShieldAlert className="w-5 h-5 text-amber-500" /> {t('diagnostics_result.safety_notes')}[m[41m[m
-web-app/src/contexts/AuthContext.tsx:29: trailing whitespace.
-[32m+[m[32m      if (!currentUser) {[m[41m[m
-web-app/src/contexts/AuthContext.tsx:30: trailing whitespace.
-[32m+[m[32m        setProfile(null);[m[41m[m
-web-app/src/contexts/AuthContext.tsx:31: trailing whitespace.
-[32m+[m[32m        return;[m[41m[m
-web-app/src/contexts/AuthContext.tsx:32: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/src/contexts/AuthContext.tsx:33: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/contexts/AuthContext.tsx:34: trailing whitespace.
-[32m+[m[32m      // A profile/DB failure must NOT log out a valid Appwrite session —[m[41m[m
-web-app/src/contexts/AuthContext.tsx:35: trailing whitespace.
-[32m+[m[32m      // otherwise the dashboard redirect bounces straight back to /login.[m[41m[m
-web-app/src/contexts/AuthContext.tsx:36: trailing whitespace.
-[32m+[m[32m      try {[m[41m[m
-web-app/src/contexts/AuthContext.tsx:48: trailing whitespace.
-[32m+[m[32m      } catch (profileError) {[m[41m[m
-web-app/src/contexts/AuthContext.tsx:49: trailing whitespace.
-[32m+[m[32m        console.error('Failed to load or create profile:', profileError);[m[41m[m
-web-app/src/contexts/AuthContext.tsx:53: trailing whitespace.
-[32m+[m[32m      console.error('Failed to refresh session:', error);[m[41m[m
-web-app/src/hooks/useDiagnostics.ts:8: trailing whitespace.
-[32m+[m[32m  const { user, profile } = useAuth();[m[41m[m
-web-app/src/hooks/useDiagnostics.ts:38: trailing whitespace.
-[32m+[m[32m        description: request.description,[m[41m[m
-web-app/src/hooks/useDiagnostics.ts:39: trailing whitespace.
-[32m+[m[32m        aiResponse: JSON.stringify(result),[m[41m[m
-web-app/src/hooks/useDiagnostics.ts:40: trailing whitespace.
-[32m+[m[32m        institutionId: profile?.institutionId,[m[41m[m
-web-app/src/hooks/useLearning.ts:14: trailing whitespace.
-[32m+[m[32m  const fetchModules = useCallback(async () => {[m[41m[m
-web-app/src/hooks/useLearning.ts:18: trailing whitespace.
-[32m+[m[32m      const data = await learningService.listModules();[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:2: trailing whitespace.
-[32m+[m[32mimport i18n from './i18n';[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:24: trailing whitespace.
-[32m+[m[32m    return {[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:25: trailing whitespace.
-[32m+[m[32m      score: null,[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:26: trailing whitespace.
-[32m+[m[32m      status: 'unknown',[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:27: trailing whitespace.
-[32m+[m[32m      label: i18n.t('dashboard.health_unknown', { defaultValue: 'Not enough data' }),[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:28: trailing whitespace.
-[32m+[m[32m    };[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:39: trailing whitespace.
-[32m+[m[32m  const expectedServices = Math.floor((vehicle.mileage ?? 0) / 10000);[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:55: trailing whitespace.
-[32m+[m[32m    label:[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:56: trailing whitespace.
-[32m+[m[32m      status === 'optimal'[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:57: trailing whitespace.
-[32m+[m[32m        ? i18n.t('dashboard.health_optimal', { defaultValue: 'Optimal' })[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:58: trailing whitespace.
-[32m+[m[32m        : status === 'fair'[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:59: trailing whitespace.
-[32m+[m[32m          ? i18n.t('dashboard.health_fair', { defaultValue: 'Fair' })[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:60: trailing whitespace.
-[32m+[m[32m          : i18n.t('dashboard.health_attention', { defaultValue: 'Attention Needed' })[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:80: trailing whitespace.
-[32m+[m[32m        title: i18n.t('reminders.oil_title', { defaultValue: 'Oil Service Recommended' }),[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:81: trailing whitespace.
-[32m+[m[32m        message: i18n.t('reminders.oil_message', {[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:82: trailing whitespace.
-[32m+[m[32m          months: Math.floor(monthsAgo),[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:83: trailing whitespace.
-[32m+[m[32m          defaultValue: `Last oil service was ${Math.floor(monthsAgo)} months ago.`[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:84: trailing whitespace.
-[32m+[m[32m        }),[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:85: trailing whitespace.
-[32m+[m[32m        reason: i18n.t('reminders.oil_reason', {[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:86: trailing whitespace.
-[32m+[m[32m          defaultValue: 'Regular oil changes extend engine life.'[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:87: trailing whitespace.
-[32m+[m[32m        })[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:94: trailing whitespace.
-[32m+[m[32m      title: i18n.t('reminders.no_history_title', { defaultValue: 'No Service History' }),[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:95: trailing whitespace.
-[32m+[m[32m      message: i18n.t('reminders.no_history_message', {[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:96: trailing whitespace.
-[32m+[m[32m        defaultValue: 'Service history is limited.'[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:97: trailing whitespace.
-[32m+[m[32m      }),[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:98: trailing whitespace.
-[32m+[m[32m      reason: i18n.t('reminders.no_history_reason', {[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:99: trailing whitespace.
-[32m+[m[32m        defaultValue: "Recording maintenance helps track your vehicle's health score."[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:100: trailing whitespace.
-[32m+[m[32m      })[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:109: trailing whitespace.
-[32m+[m[32m      title: i18n.t('reminders.active_title', { defaultValue: 'Active Diagnostic Issue' }),[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:110: trailing whitespace.
-[32m+[m[32m      message: i18n.t('reminders.active_message', {[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:111: trailing whitespace.
-[32m+[m[32m        defaultValue: 'Your vehicle has unresolved diagnostic activity.'[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:112: trailing whitespace.
-[32m+[m[32m      }),[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:113: trailing whitespace.
-[32m+[m[32m      reason: i18n.t('reminders.active_reason', {[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:114: trailing whitespace.
-[32m+[m[32m        defaultValue: 'AI analysis identified potential faults that require attention.'[m[41m[m
-web-app/src/lib/maintenanceIntel.ts:115: trailing whitespace.
-[32m+[m[32m      })[m[41m[m
-web-app/src/main.tsx:5: trailing whitespace.
-[32m+[m[32mimport './lib/i18n'[m[41m[m
-web-app/src/pages/Dashboard.tsx:1: trailing whitespace.
-[32m+[m[32mimport React, { useEffect, useRef, useState } from 'react';[m[41m[m
-web-app/src/pages/Dashboard.tsx:3: trailing whitespace.
-[32m+[m[32mimport { useTranslation } from 'react-i18next';[m[41m[m
-web-app/src/pages/Dashboard.tsx:7: trailing whitespace.
-[32m+[m[32mimport { databaseService, COLLECTIONS, Query } from '../services/database';[m[41m[m
-web-app/src/pages/Dashboard.tsx:8: trailing whitespace.
-[32m+[m[32mimport { Permission, Role } from 'appwrite';[m[41m[m
-web-app/src/pages/Dashboard.tsx:11: trailing whitespace.
-[32m+[m[32mimport { chatService } from '../services/database/chat';[m[41m[m
-web-app/src/pages/Dashboard.tsx:12: trailing whitespace.
-[32m+[m[32mimport { generateChatReply } from '../services/ai/chat';[m[41m[m
-web-app/src/pages/Dashboard.tsx:13: trailing whitespace.
-[32m+[m[32mimport { localizeServiceType } from '../lib/localizeContent';[m[41m[m
-web-app/src/pages/Dashboard.tsx:18: trailing whitespace.
-[32m+[m[32mimport { LanguageSwitcher } from '../components/layout/LanguageSwitcher';[m[41m[m
-web-app/src/pages/Dashboard.tsx:37: trailing whitespace.
-[32m+[m[32m  Brain,[m[41m[m
-web-app/src/pages/Dashboard.tsx:38: trailing whitespace.
-[32m+[m[32m  MessageSquare,[m[41m[m
-web-app/src/pages/Dashboard.tsx:39: trailing whitespace.
-[32m+[m[32m  Send,[m[41m[m
-web-app/src/pages/Dashboard.tsx:40: trailing whitespace.
-[32m+[m[32m  AlertCircle,[m[41m[m
-web-app/src/pages/Dashboard.tsx:41: trailing whitespace.
-[32m+[m[32m  Loader2,[m[41m[m
-web-app/src/pages/Dashboard.tsx:42: trailing whitespace.
-[32m+[m[32m  X[m[41m[m
-web-app/src/pages/Dashboard.tsx:57: trailing whitespace.
-[32m+[m[32minterface ChatMessage {[m[41m[m
-web-app/src/pages/Dashboard.tsx:58: trailing whitespace.
-[32m+[m[32m  id: string;[m[41m[m
-web-app/src/pages/Dashboard.tsx:59: trailing whitespace.
-[32m+[m[32m  role: 'user' | 'assistant';[m[41m[m
-web-app/src/pages/Dashboard.tsx:60: trailing whitespace.
-[32m+[m[32m  content: string;[m[41m[m
-web-app/src/pages/Dashboard.tsx:61: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/pages/Dashboard.tsx:62: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:66: trailing whitespace.
-[32m+[m[32m  const { t } = useTranslation();[m[41m[m
-web-app/src/pages/Dashboard.tsx:76: trailing whitespace.
-[32m+[m[32m  // --- Service request modal state ---[m[41m[m
-web-app/src/pages/Dashboard.tsx:77: trailing whitespace.
-[32m+[m[32m  const [requestModalOpen, setRequestModalOpen] = useState(false);[m[41m[m
-web-app/src/pages/Dashboard.tsx:78: trailing whitespace.
-[32m+[m[32m  const [requestVehicles, setRequestVehicles] = useState<VehicleProfile[]>([]);[m[41m[m
-web-app/src/pages/Dashboard.tsx:79: trailing whitespace.
-[32m+[m[32m  const [requestGarages, setRequestGarages] = useState<any[]>([]);[m[41m[m
-web-app/src/pages/Dashboard.tsx:80: trailing whitespace.
-[32m+[m[32m  const [selectedVehicleId, setSelectedVehicleId] = useState('');[m[41m[m
-web-app/src/pages/Dashboard.tsx:81: trailing whitespace.
-[32m+[m[32m  const [selectedGarageId, setSelectedGarageId] = useState('');[m[41m[m
-web-app/src/pages/Dashboard.tsx:82: trailing whitespace.
-[32m+[m[32m  const [requestDescription, setRequestDescription] = useState('');[m[41m[m
-web-app/src/pages/Dashboard.tsx:83: trailing whitespace.
-[32m+[m[32m  const [requestUrgency, setRequestUrgency] = useState('medium');[m[41m[m
-web-app/src/pages/Dashboard.tsx:84: trailing whitespace.
-[32m+[m[32m  const [requestSubmitting, setRequestSubmitting] = useState(false);[m[41m[m
-web-app/src/pages/Dashboard.tsx:85: trailing whitespace.
-[32m+[m[32m  const [requestError, setRequestError] = useState<string | null>(null);[m[41m[m
-web-app/src/pages/Dashboard.tsx:86: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:87: trailing whitespace.
-[32m+[m[32m  // --- AI Chat state ---[m[41m[m
-web-app/src/pages/Dashboard.tsx:88: trailing whitespace.
-[32m+[m[32m  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);[m[41m[m
-web-app/src/pages/Dashboard.tsx:89: trailing whitespace.
-[32m+[m[32m  const [chatInput, setChatInput] = useState('');[m[41m[m
-web-app/src/pages/Dashboard.tsx:90: trailing whitespace.
-[32m+[m[32m  const [chatLoading, setChatLoading] = useState(false);[m[41m[m
-web-app/src/pages/Dashboard.tsx:91: trailing whitespace.
-[32m+[m[32m  const [chatError, setChatError] = useState<string | null>(null);[m[41m[m
-web-app/src/pages/Dashboard.tsx:92: trailing whitespace.
-[32m+[m[32m  const chatEndRef = useRef<HTMLDivElement | null>(null);[m[41m[m
-web-app/src/pages/Dashboard.tsx:93: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:123: trailing whitespace.
-[32m+[m[32m            subtitle: t('diagnostics_result.match', { value: Math.round(d.result.confidence * 100) }),[m[41m[m
-web-app/src/pages/Dashboard.tsx:130: trailing whitespace.
-[32m+[m[32m            title: localizeServiceType(s.serviceType, t),[m[41m[m
-web-app/src/pages/Dashboard.tsx:146: trailing whitespace.
-[32m+[m[32m  }, [user, t]);[m[41m[m
-web-app/src/pages/Dashboard.tsx:147: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:148: trailing whitespace.
-[32m+[m[32m  // Load the user's saved chat history on mount.[m[41m[m
-web-app/src/pages/Dashboard.tsx:149: trailing whitespace.
-[32m+[m[32m  useEffect(() => {[m[41m[m
-web-app/src/pages/Dashboard.tsx:150: trailing whitespace.
-[32m+[m[32m    if (!user) return;[m[41m[m
-web-app/src/pages/Dashboard.tsx:151: trailing whitespace.
-[32m+[m[32m    let cancelled = false;[m[41m[m
-web-app/src/pages/Dashboard.tsx:152: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:153: trailing whitespace.
-[32m+[m[32m    (async () => {[m[41m[m
-web-app/src/pages/Dashboard.tsx:154: trailing whitespace.
-[32m+[m[32m      try {[m[41m[m
-web-app/src/pages/Dashboard.tsx:155: trailing whitespace.
-[32m+[m[32m        const history = await chatService.listUserChats(user.$id);[m[41m[m
-web-app/src/pages/Dashboard.tsx:156: trailing whitespace.
-[32m+[m[32m        if (cancelled) return;[m[41m[m
-web-app/src/pages/Dashboard.tsx:157: trailing whitespace.
-[32m+[m[32m        // History comes newest-first; render oldest-first, one pair per record.[m[41m[m
-web-app/src/pages/Dashboard.tsx:158: trailing whitespace.
-[32m+[m[32m        const mapped: ChatMessage[] = history[m[41m[m
-web-app/src/pages/Dashboard.tsx:159: trailing whitespace.
-[32m+[m[32m          .slice()[m[41m[m
-web-app/src/pages/Dashboard.tsx:160: trailing whitespace.
-[32m+[m[32m          .reverse()[m[41m[m
-web-app/src/pages/Dashboard.tsx:161: trailing whitespace.
-[32m+[m[32m          .flatMap((record) => [[m[41m[m
-web-app/src/pages/Dashboard.tsx:162: trailing whitespace.
-[32m+[m[32m            { id: `${record.$id}-user`, role: 'user' as const, content: record.userMessage },[m[41m[m
-web-app/src/pages/Dashboard.tsx:163: trailing whitespace.
-[32m+[m[32m            { id: `${record.$id}-ai`, role: 'assistant' as const, content: record.aiResponse },[m[41m[m
-web-app/src/pages/Dashboard.tsx:164: trailing whitespace.
-[32m+[m[32m          ]);[m[41m[m
-web-app/src/pages/Dashboard.tsx:165: trailing whitespace.
-[32m+[m[32m        setChatMessages(mapped);[m[41m[m
-web-app/src/pages/Dashboard.tsx:166: trailing whitespace.
-[32m+[m[32m      } catch (error) {[m[41m[m
-web-app/src/pages/Dashboard.tsx:167: trailing whitespace.
-[32m+[m[32m        console.warn('Could not load chat history:', error);[m[41m[m
-web-app/src/pages/Dashboard.tsx:168: trailing whitespace.
-[32m+[m[32m        setChatError(t('dashboard.could_not_load_history'));[m[41m[m
-web-app/src/pages/Dashboard.tsx:169: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/src/pages/Dashboard.tsx:170: trailing whitespace.
-[32m+[m[32m    })();[m[41m[m
-web-app/src/pages/Dashboard.tsx:171: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:172: trailing whitespace.
-[32m+[m[32m    return () => {[m[41m[m
-web-app/src/pages/Dashboard.tsx:173: trailing whitespace.
-[32m+[m[32m      cancelled = true;[m[41m[m
-web-app/src/pages/Dashboard.tsx:174: trailing whitespace.
-[32m+[m[32m    };[m[41m[m
-web-app/src/pages/Dashboard.tsx:177: trailing whitespace.
-[32m+[m[32m  // Keep the newest message in view.[m[41m[m
-web-app/src/pages/Dashboard.tsx:178: trailing whitespace.
-[32m+[m[32m  useEffect(() => {[m[41m[m
-web-app/src/pages/Dashboard.tsx:179: trailing whitespace.
-[32m+[m[32m    chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });[m[41m[m
-web-app/src/pages/Dashboard.tsx:180: trailing whitespace.
-[32m+[m[32m  }, [chatMessages, chatLoading]);[m[41m[m
-web-app/src/pages/Dashboard.tsx:181: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:182: trailing whitespace.
-[32m+[m[32m  const openRequestModal = async () => {[m[41m[m
-web-app/src/pages/Dashboard.tsx:183: trailing whitespace.
-[32m+[m[32m    setRequestError(null);[m[41m[m
-web-app/src/pages/Dashboard.tsx:184: trailing whitespace.
-[32m+[m[32m    setRequestModalOpen(true);[m[41m[m
-web-app/src/pages/Dashboard.tsx:185: trailing whitespace.
-[32m+[m[32m    setSelectedVehicleId(vehicles[0]?.$id || '');[m[41m[m
-web-app/src/pages/Dashboard.tsx:186: trailing whitespace.
-[32m+[m[32m    setSelectedGarageId(profile?.garageId || '');[m[41m[m
-web-app/src/pages/Dashboard.tsx:187: trailing whitespace.
-[32m+[m[32m    setRequestDescription('');[m[41m[m
-web-app/src/pages/Dashboard.tsx:188: trailing whitespace.
-[32m+[m[32m    setRequestUrgency('medium');[m[41m[m
-web-app/src/pages/Dashboard.tsx:189: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:190: trailing whitespace.
-[32m+[m[32m    try {[m[41m[m
-web-app/src/pages/Dashboard.tsx:191: trailing whitespace.
-[32m+[m[32m      const garages = await databaseService.listDocuments<any>(COLLECTIONS.GARAGES);[m[41m[m
-web-app/src/pages/Dashboard.tsx:192: trailing whitespace.
-[32m+[m[32m      setRequestGarages(garages);[m[41m[m
-web-app/src/pages/Dashboard.tsx:193: trailing whitespace.
-[32m+[m[32m      if (!profile?.garageId && garages.length > 0) {[m[41m[m
-web-app/src/pages/Dashboard.tsx:194: trailing whitespace.
-[32m+[m[32m        setSelectedGarageId(garages[0].$id);[m[41m[m
-web-app/src/pages/Dashboard.tsx:195: trailing whitespace.
-[32m+[m[32m      }[m[41m[m
-web-app/src/pages/Dashboard.tsx:196: trailing whitespace.
-[32m+[m[32m    } catch (err) {[m[41m[m
-web-app/src/pages/Dashboard.tsx:197: trailing whitespace.
-[32m+[m[32m      setRequestError(err instanceof Error ? err.message : 'Failed to load garages.');[m[41m[m
-web-app/src/pages/Dashboard.tsx:198: trailing whitespace.
-[32m+[m[32m    }[m[41m[m
-web-app/src/pages/Dashboard.tsx:199: trailing whitespace.
-[32m+[m[32m  };[m[41m[m
-web-app/src/pages/Dashboard.tsx:200: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:201: trailing whitespace.
-[32m+[m[32m  const handleRequestMechanic = async (e: React.FormEvent) => {[m[41m[m
-web-app/src/pages/Dashboard.tsx:202: trailing whitespace.
-[32m+[m[32m    e.preventDefault();[m[41m[m
-web-app/src/pages/Dashboard.tsx:203: trailing whitespace.
-[32m+[m[32m    if (!user || !selectedVehicleId || !requestDescription.trim()) return;[m[41m[m
-web-app/src/pages/Dashboard.tsx:204: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:205: trailing whitespace.
-[32m+[m[32m    setRequestSubmitting(true);[m[41m[m
-web-app/src/pages/Dashboard.tsx:206: trailing whitespace.
-[32m+[m[32m    setRequestError(null);[m[41m[m
-web-app/src/pages/Dashboard.tsx:207: trailing whitespace.
-[32m+[m[32m    try {[m[41m[m
-web-app/src/pages/Dashboard.tsx:208: trailing whitespace.
-[32m+[m[32m      await databaseService.createDocument([m[41m[m
-web-app/src/pages/Dashboard.tsx:209: trailing whitespace.
-[32m+[m[32m        COLLECTIONS.SERVICE_REQUESTS,[m[41m[m
-web-app/src/pages/Dashboard.tsx:210: trailing whitespace.
-[32m+[m[32m        {[m[41m[m
-web-app/src/pages/Dashboard.tsx:211: trailing whitespace.
-[32m+[m[32m          title: 'Mechanic Request',[m[41m[m
-web-app/src/pages/Dashboard.tsx:212: trailing whitespace.
-[32m+[m[32m          description: `Urgency: ${requestUrgency}. ${requestDescription.trim()}`,[m[41m[m
-web-app/src/pages/Dashboard.tsx:213: trailing whitespace.
-[32m+[m[32m          vehicleId: selectedVehicleId,[m[41m[m
-web-app/src/pages/Dashboard.tsx:214: trailing whitespace.
-[32m+[m[32m          garageId: selectedGarageId || '',[m[41m[m
-web-app/src/pages/Dashboard.tsx:215: trailing whitespace.
-[32m+[m[32m          status: 'pending',[m[41m[m
-web-app/src/pages/Dashboard.tsx:216: trailing whitespace.
-[32m+[m[32m          createdAt: new Date().toISOString(),[m[41m[m
-web-app/src/pages/Dashboard.tsx:217: trailing whitespace.
-[32m+[m[32m        },[m[41m[m
-web-app/src/pages/Dashboard.tsx:218: trailing whitespace.
-[32m+[m[32m        [Permission.read(Role.users()), Permission.update(Role.users())][m[41m[m
-web-app/src/pages/Dashboard.tsx:219: trailing whitespace.
-[32m+[m[32m      );[m[41m[m
-web-app/src/pages/Dashboard.tsx:220: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:221: trailing whitespace.
-[32m+[m[32m      setRequestModalOpen(false);[m[41m[m
-web-app/src/pages/Dashboard.tsx:222: trailing whitespace.
-[32m+[m[32m    } catch (err) {[m[41m[m
-web-app/src/pages/Dashboard.tsx:223: trailing whitespace.
-[32m+[m[32m      setRequestError(err instanceof Error ? err.message : 'Failed to create service request.');[m[41m[m
-web-app/src/pages/Dashboard.tsx:224: trailing whitespace.
-[32m+[m[32m    } finally {[m[41m[m
-web-app/src/pages/Dashboard.tsx:225: trailing whitespace.
-[32m+[m[32m      setRequestSubmitting(false);[m[41m[m
-web-app/src/pages/Dashboard.tsx:226: trailing whitespace.
-[32m+[m[32m    }[m[41m[m
-web-app/src/pages/Dashboard.tsx:227: trailing whitespace.
-[32m+[m[32m  };[m[41m[m
-web-app/src/pages/Dashboard.tsx:228: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:229: trailing whitespace.
-[32m+[m[32m  const handleSendMessage = async (e: React.FormEvent) => {[m[41m[m
-web-app/src/pages/Dashboard.tsx:230: trailing whitespace.
-[32m+[m[32m    e.preventDefault();[m[41m[m
-web-app/src/pages/Dashboard.tsx:231: trailing whitespace.
-[32m+[m[32m    const text = chatInput.trim();[m[41m[m
-web-app/src/pages/Dashboard.tsx:232: trailing whitespace.
-[32m+[m[32m    if (!text || chatLoading || !user) return;[m[41m[m
-web-app/src/pages/Dashboard.tsx:233: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:234: trailing whitespace.
-[32m+[m[32m    setChatInput('');[m[41m[m
-web-app/src/pages/Dashboard.tsx:235: trailing whitespace.
-[32m+[m[32m    setChatError(null);[m[41m[m
-web-app/src/pages/Dashboard.tsx:236: trailing whitespace.
-[32m+[m[32m    setChatLoading(true);[m[41m[m
-web-app/src/pages/Dashboard.tsx:237: trailing whitespace.
-[32m+[m[32m    setChatMessages((prev) => [[m[41m[m
-web-app/src/pages/Dashboard.tsx:238: trailing whitespace.
-[32m+[m[32m      ...prev,[m[41m[m
-web-app/src/pages/Dashboard.tsx:239: trailing whitespace.
-[32m+[m[32m      { id: `local-${Date.now()}-user`, role: 'user', content: text },[m[41m[m
-web-app/src/pages/Dashboard.tsx:240: trailing whitespace.
-[32m+[m[32m    ]);[m[41m[m
-web-app/src/pages/Dashboard.tsx:241: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:242: trailing whitespace.
-[32m+[m[32m    try {[m[41m[m
-web-app/src/pages/Dashboard.tsx:243: trailing whitespace.
-[32m+[m[32m      const reply = await generateChatReply(text);[m[41m[m
-web-app/src/pages/Dashboard.tsx:244: trailing whitespace.
-[32m+[m[32m      setChatMessages((prev) => [[m[41m[m
-web-app/src/pages/Dashboard.tsx:245: trailing whitespace.
-[32m+[m[32m        ...prev,[m[41m[m
-web-app/src/pages/Dashboard.tsx:246: trailing whitespace.
-[32m+[m[32m        { id: `local-${Date.now()}-ai`, role: 'assistant', content: reply },[m[41m[m
-web-app/src/pages/Dashboard.tsx:247: trailing whitespace.
-[32m+[m[32m      ]);[m[41m[m
-web-app/src/pages/Dashboard.tsx:248: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:249: trailing whitespace.
-[32m+[m[32m      // Persist the exchange against the current user.[m[41m[m
-web-app/src/pages/Dashboard.tsx:250: trailing whitespace.
-[32m+[m[32m      await chatService.saveExchange({[m[41m[m
-web-app/src/pages/Dashboard.tsx:251: trailing whitespace.
-[32m+[m[32m        userId: user.$id,[m[41m[m
-web-app/src/pages/Dashboard.tsx:252: trailing whitespace.
-[32m+[m[32m        userMessage: text,[m[41m[m
-web-app/src/pages/Dashboard.tsx:253: trailing whitespace.
-[32m+[m[32m        aiResponse: reply,[m[41m[m
-web-app/src/pages/Dashboard.tsx:254: trailing whitespace.
-[32m+[m[32m      });[m[41m[m
-web-app/src/pages/Dashboard.tsx:255: trailing whitespace.
-[32m+[m[32m    } catch (error: any) {[m[41m[m
-web-app/src/pages/Dashboard.tsx:256: trailing whitespace.
-[32m+[m[32m      setChatError(error?.message || t('dashboard.failed_send'));[m[41m[m
-web-app/src/pages/Dashboard.tsx:257: trailing whitespace.
-[32m+[m[32m    } finally {[m[41m[m
-web-app/src/pages/Dashboard.tsx:258: trailing whitespace.
-[32m+[m[32m      setChatLoading(false);[m[41m[m
-web-app/src/pages/Dashboard.tsx:259: trailing whitespace.
-[32m+[m[32m    }[m[41m[m
-web-app/src/pages/Dashboard.tsx:260: trailing whitespace.
-[32m+[m[32m  };[m[41m[m
-web-app/src/pages/Dashboard.tsx:261: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:264: trailing whitespace.
-[32m+[m[32m    navigate('/login');[m[41m[m
-web-app/src/pages/Dashboard.tsx:267: trailing whitespace.
-[32m+[m[32m  if (loading) return <Loading message={t('dashboard.syncing')} />;[m[41m[m
-web-app/src/pages/Dashboard.tsx:282: trailing whitespace.
-[32m+[m[32m            { icon: LayoutDashboard, key: 'common.dashboard', active: true, href: '/dashboard' },[m[41m[m
-web-app/src/pages/Dashboard.tsx:283: trailing whitespace.
-[32m+[m[32m            { icon: BookOpen, key: 'nav.academy', active: false, href: '/learning' },[m[41m[m
-web-app/src/pages/Dashboard.tsx:284: trailing whitespace.
-[32m+[m[32m            { icon: Activity, key: 'nav.diagnostics', active: false, href: '/diagnostics' },[m[41m[m
-web-app/src/pages/Dashboard.tsx:285: trailing whitespace.
-[32m+[m[32m            { icon: Car, key: 'nav.my_garage', active: false, href: '/vehicles' },[m[41m[m
-web-app/src/pages/Dashboard.tsx:286: trailing whitespace.
-[32m+[m[32m            { icon: Wrench, key: 'nav.repairs', active: false, href: '/repairs' },[m[41m[m
-web-app/src/pages/Dashboard.tsx:287: trailing whitespace.
-[32m+[m[32m            { icon: SettingsIcon, key: 'nav.settings', active: false, href: '/settings' },[m[41m[m
-web-app/src/pages/Dashboard.tsx:290: trailing whitespace.
-[32m+[m[32m              key={item.key}[m[41m[m
-web-app/src/pages/Dashboard.tsx:297: trailing whitespace.
-[32m+[m[32m              <span className="font-medium text-sm">{t(item.key)}</span>[m[41m[m
-web-app/src/pages/Dashboard.tsx:308: trailing whitespace.
-[32m+[m[32m            <span className="font-medium text-sm">{t('common.logout')}</span>[m[41m[m
-web-app/src/pages/Dashboard.tsx:323: trailing whitespace.
-[32m+[m[32m                <span className="text-xs font-bold uppercase tracking-widest">{t('dashboard.command_center')}</span>[m[41m[m
-web-app/src/pages/Dashboard.tsx:328: trailing whitespace.
-[32m+[m[32m             <LanguageSwitcher tone="light" />[m[41m[m
-web-app/src/pages/Dashboard.tsx:335: trailing whitespace.
-[32m+[m[32m                <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">{profile?.role || t('common.user')}</div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:342: trailing whitespace.
-[32m+[m[32m                  <img src={getFilePreview(BUCKETS.AVATARS, profile.avatarFileId)} alt={t('common.avatar')} className="w-full h-full object-cover" />[m[41m[m
-web-app/src/pages/Dashboard.tsx:356: trailing whitespace.
-[32m+[m[32m                  <h3 className="text-3xl font-extrabold text-brand-navy">[m[41m[m
-web-app/src/pages/Dashboard.tsx:357: trailing whitespace.
-[32m+[m[32m                     {t('dashboard.welcome_back', {[m[41m[m
-web-app/src/pages/Dashboard.tsx:358: trailing whitespace.
-[32m+[m[32m                       name: profile?.fullName?.split(' ')[0] || t('dashboard.technician'),[m[41m[m
-web-app/src/pages/Dashboard.tsx:359: trailing whitespace.
-[32m+[m[32m                     })}[m[41m[m
-web-app/src/pages/Dashboard.tsx:360: trailing whitespace.
-[32m+[m[32m                  </h3>[m[41m[m
-web-app/src/pages/Dashboard.tsx:361: trailing whitespace.
-[32m+[m[32m                  <p className="text-slate-600 mt-1">{t('dashboard.intelligence_status')} <span className="text-green-500 font-bold uppercase text-xs tracking-tighter">{t('dashboard.optimal')}</span></p>[m[41m[m
-web-app/src/pages/Dashboard.tsx:365: trailing whitespace.
-[32m+[m[32m                     <BookOpen className="w-4 h-4" /> {t('dashboard.academy')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:368: trailing whitespace.
-[32m+[m[32m                     <Wrench className="w-4 h-4" /> {t('dashboard.library')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:371: trailing whitespace.
-[32m+[m[32m                     <Car className="w-4 h-4" /> {t('dashboard.garage')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:374: trailing whitespace.
-[32m+[m[32m                     <Activity className="w-4 h-4" /> {t('dashboard.new_diagnostic')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:375: trailing whitespace.
-[32m+[m[32m                  </Button>[m[41m[m
-web-app/src/pages/Dashboard.tsx:376: trailing whitespace.
-[32m+[m[32m                  <Button size="sm" variant="outline" className="gap-2 bg-white" onClick={openRequestModal}>[m[41m[m
-web-app/src/pages/Dashboard.tsx:377: trailing whitespace.
-[32m+[m[32m                     <Wrench className="w-4 h-4" /> Request Mechanic[m[41m[m
-web-app/src/pages/Dashboard.tsx:382: trailing whitespace.
-[32m+[m[32m            {requestModalOpen && ([m[41m[m
-web-app/src/pages/Dashboard.tsx:383: trailing whitespace.
-[32m+[m[32m              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">[m[41m[m
-web-app/src/pages/Dashboard.tsx:384: trailing whitespace.
-[32m+[m[32m                <div className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">[m[41m[m
-web-app/src/pages/Dashboard.tsx:385: trailing whitespace.
-[32m+[m[32m                  <div className="mb-4 flex items-center justify-between">[m[41m[m
-web-app/src/pages/Dashboard.tsx:386: trailing whitespace.
-[32m+[m[32m                    <h3 className="text-lg font-bold text-brand-navy">Request a Mechanic</h3>[m[41m[m
-web-app/src/pages/Dashboard.tsx:387: trailing whitespace.
-[32m+[m[32m                    <button type="button" onClick={() => setRequestModalOpen(false)} className="text-slate-400 hover:text-slate-700">[m[41m[m
-web-app/src/pages/Dashboard.tsx:388: trailing whitespace.
-[32m+[m[32m                      <X className="h-5 w-5" />[m[41m[m
-web-app/src/pages/Dashboard.tsx:389: trailing whitespace.
-[32m+[m[32m                    </button>[m[41m[m
-web-app/src/pages/Dashboard.tsx:390: trailing whitespace.
-[32m+[m[32m                  </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:391: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:392: trailing whitespace.
-[32m+[m[32m                  {requestError && ([m[41m[m
-web-app/src/pages/Dashboard.tsx:393: trailing whitespace.
-[32m+[m[32m                    <div className="mb-4 rounded-xl border border-red-100 bg-red-50 p-3 text-sm text-red-700">[m[41m[m
-web-app/src/pages/Dashboard.tsx:394: trailing whitespace.
-[32m+[m[32m                      {requestError}[m[41m[m
-web-app/src/pages/Dashboard.tsx:395: trailing whitespace.
-[32m+[m[32m                    </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:396: trailing whitespace.
-[32m+[m[32m                  )}[m[41m[m
-web-app/src/pages/Dashboard.tsx:397: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:398: trailing whitespace.
-[32m+[m[32m                  <form onSubmit={handleRequestMechanic} className="space-y-4">[m[41m[m
-web-app/src/pages/Dashboard.tsx:399: trailing whitespace.
-[32m+[m[32m                    <div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:400: trailing whitespace.
-[32m+[m[32m                      <label className="mb-2 block text-sm font-medium text-slate-700">Vehicle</label>[m[41m[m
-web-app/src/pages/Dashboard.tsx:401: trailing whitespace.
-[32m+[m[32m                      <select[m[41m[m
-web-app/src/pages/Dashboard.tsx:402: trailing whitespace.
-[32m+[m[32m                        required[m[41m[m
-web-app/src/pages/Dashboard.tsx:403: trailing whitespace.
-[32m+[m[32m                        value={selectedVehicleId}[m[41m[m
-web-app/src/pages/Dashboard.tsx:404: trailing whitespace.
-[32m+[m[32m                        onChange={(e) => setSelectedVehicleId(e.target.value)}[m[41m[m
-web-app/src/pages/Dashboard.tsx:405: trailing whitespace.
-[32m+[m[32m                        className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue outline-none"[m[41m[m
-web-app/src/pages/Dashboard.tsx:406: trailing whitespace.
-[32m+[m[32m                      >[m[41m[m
-web-app/src/pages/Dashboard.tsx:407: trailing whitespace.
-[32m+[m[32m                        <option value="">Select vehicle</option>[m[41m[m
-web-app/src/pages/Dashboard.tsx:408: trailing whitespace.
-[32m+[m[32m                        {vehicles.map((vehicle) => ([m[41m[m
-web-app/src/pages/Dashboard.tsx:409: trailing whitespace.
-[32m+[m[32m                          <option key={vehicle.$id} value={vehicle.$id}>[m[41m[m
-web-app/src/pages/Dashboard.tsx:410: trailing whitespace.
-[32m+[m[32m                            {vehicle.make} {vehicle.model} ({vehicle.year})[m[41m[m
-web-app/src/pages/Dashboard.tsx:411: trailing whitespace.
-[32m+[m[32m                          </option>[m[41m[m
-web-app/src/pages/Dashboard.tsx:412: trailing whitespace.
-[32m+[m[32m                        ))}[m[41m[m
-web-app/src/pages/Dashboard.tsx:413: trailing whitespace.
-[32m+[m[32m                      </select>[m[41m[m
-web-app/src/pages/Dashboard.tsx:414: trailing whitespace.
-[32m+[m[32m                    </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:415: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:416: trailing whitespace.
-[32m+[m[32m                    <div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:417: trailing whitespace.
-[32m+[m[32m                      <label className="mb-2 block text-sm font-medium text-slate-700">Garage</label>[m[41m[m
-web-app/src/pages/Dashboard.tsx:418: trailing whitespace.
-[32m+[m[32m                      <select[m[41m[m
-web-app/src/pages/Dashboard.tsx:419: trailing whitespace.
-[32m+[m[32m                        value={selectedGarageId}[m[41m[m
-web-app/src/pages/Dashboard.tsx:420: trailing whitespace.
-[32m+[m[32m                        onChange={(e) => setSelectedGarageId(e.target.value)}[m[41m[m
-web-app/src/pages/Dashboard.tsx:421: trailing whitespace.
-[32m+[m[32m                        className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue outline-none"[m[41m[m
-web-app/src/pages/Dashboard.tsx:422: trailing whitespace.
-[32m+[m[32m                      >[m[41m[m
-web-app/src/pages/Dashboard.tsx:423: trailing whitespace.
-[32m+[m[32m                        <option value="">General request</option>[m[41m[m
-web-app/src/pages/Dashboard.tsx:424: trailing whitespace.
-[32m+[m[32m                        {requestGarages.map((garage) => ([m[41m[m
-web-app/src/pages/Dashboard.tsx:425: trailing whitespace.
-[32m+[m[32m                          <option key={garage.$id} value={garage.$id}>[m[41m[m
-web-app/src/pages/Dashboard.tsx:426: trailing whitespace.
-[32m+[m[32m                            {garage.name}[m[41m[m
-web-app/src/pages/Dashboard.tsx:427: trailing whitespace.
-[32m+[m[32m                          </option>[m[41m[m
-web-app/src/pages/Dashboard.tsx:428: trailing whitespace.
-[32m+[m[32m                        ))}[m[41m[m
-web-app/src/pages/Dashboard.tsx:429: trailing whitespace.
-[32m+[m[32m                      </select>[m[41m[m
-web-app/src/pages/Dashboard.tsx:430: trailing whitespace.
-[32m+[m[32m                    </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:431: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:432: trailing whitespace.
-[32m+[m[32m                    <div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:433: trailing whitespace.
-[32m+[m[32m                      <label className="mb-2 block text-sm font-medium text-slate-700">Urgency</label>[m[41m[m
-web-app/src/pages/Dashboard.tsx:434: trailing whitespace.
-[32m+[m[32m                      <select[m[41m[m
-web-app/src/pages/Dashboard.tsx:435: trailing whitespace.
-[32m+[m[32m                        value={requestUrgency}[m[41m[m
-web-app/src/pages/Dashboard.tsx:436: trailing whitespace.
-[32m+[m[32m                        onChange={(e) => setRequestUrgency(e.target.value)}[m[41m[m
-web-app/src/pages/Dashboard.tsx:437: trailing whitespace.
-[32m+[m[32m                        className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue outline-none"[m[41m[m
-web-app/src/pages/Dashboard.tsx:438: trailing whitespace.
-[32m+[m[32m                      >[m[41m[m
-web-app/src/pages/Dashboard.tsx:439: trailing whitespace.
-[32m+[m[32m                        <option value="low">Low</option>[m[41m[m
-web-app/src/pages/Dashboard.tsx:440: trailing whitespace.
-[32m+[m[32m                        <option value="medium">Medium</option>[m[41m[m
-web-app/src/pages/Dashboard.tsx:441: trailing whitespace.
-[32m+[m[32m                        <option value="high">High</option>[m[41m[m
-web-app/src/pages/Dashboard.tsx:442: trailing whitespace.
-[32m+[m[32m                      </select>[m[41m[m
-web-app/src/pages/Dashboard.tsx:443: trailing whitespace.
-[32m+[m[32m                    </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:444: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:445: trailing whitespace.
-[32m+[m[32m                    <div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:446: trailing whitespace.
-[32m+[m[32m                      <label className="mb-2 block text-sm font-medium text-slate-700">Problem Description</label>[m[41m[m
-web-app/src/pages/Dashboard.tsx:447: trailing whitespace.
-[32m+[m[32m                      <textarea[m[41m[m
-web-app/src/pages/Dashboard.tsx:448: trailing whitespace.
-[32m+[m[32m                        required[m[41m[m
-web-app/src/pages/Dashboard.tsx:449: trailing whitespace.
-[32m+[m[32m                        value={requestDescription}[m[41m[m
-web-app/src/pages/Dashboard.tsx:450: trailing whitespace.
-[32m+[m[32m                        onChange={(e) => setRequestDescription(e.target.value)}[m[41m[m
-web-app/src/pages/Dashboard.tsx:451: trailing whitespace.
-[32m+[m[32m                        placeholder="Describe the problem..."[m[41m[m
-web-app/src/pages/Dashboard.tsx:452: trailing whitespace.
-[32m+[m[32m                        className="min-h-[120px] w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:ring-2 focus:ring-brand-blue outline-none"[m[41m[m
-web-app/src/pages/Dashboard.tsx:453: trailing whitespace.
-[32m+[m[32m                      />[m[41m[m
-web-app/src/pages/Dashboard.tsx:454: trailing whitespace.
-[32m+[m[32m                    </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:455: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:456: trailing whitespace.
-[32m+[m[32m                    <div className="flex gap-3">[m[41m[m
-web-app/src/pages/Dashboard.tsx:457: trailing whitespace.
-[32m+[m[32m                      <Button type="submit" className="flex-1" disabled={requestSubmitting || !selectedVehicleId}>[m[41m[m
-web-app/src/pages/Dashboard.tsx:458: trailing whitespace.
-[32m+[m[32m                        {requestSubmitting ? 'Submitting...' : 'Submit Request'}[m[41m[m
-web-app/src/pages/Dashboard.tsx:459: trailing whitespace.
-[32m+[m[32m                      </Button>[m[41m[m
-web-app/src/pages/Dashboard.tsx:460: trailing whitespace.
-[32m+[m[32m                      <Button type="button" variant="outline" onClick={() => setRequestModalOpen(false)}>[m[41m[m
-web-app/src/pages/Dashboard.tsx:461: trailing whitespace.
-[32m+[m[32m                        Cancel[m[41m[m
-web-app/src/pages/Dashboard.tsx:462: trailing whitespace.
-[32m+[m[32m                      </Button>[m[41m[m
-web-app/src/pages/Dashboard.tsx:463: trailing whitespace.
-[32m+[m[32m                    </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:464: trailing whitespace.
-[32m+[m[32m                  </form>[m[41m[m
-web-app/src/pages/Dashboard.tsx:465: trailing whitespace.
-[32m+[m[32m                </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:466: trailing whitespace.
-[32m+[m[32m              </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:467: trailing whitespace.
-[32m+[m[32m            )}[m[41m[m
-web-app/src/pages/Dashboard.tsx:468: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:469: trailing whitespace.
-[32m+[m[32m            {/* AI Assistant Chat */}[m[41m[m
-web-app/src/pages/Dashboard.tsx:470: trailing whitespace.
-[32m+[m[32m            <div className="mb-8 bg-white rounded-[32px] border shadow-xl overflow-hidden">[m[41m[m
-web-app/src/pages/Dashboard.tsx:471: trailing whitespace.
-[32m+[m[32m              <div className="p-6 border-b bg-slate-50/50 flex items-center justify-between">[m[41m[m
-web-app/src/pages/Dashboard.tsx:472: trailing whitespace.
-[32m+[m[32m                <div className="flex items-center gap-3">[m[41m[m
-web-app/src/pages/Dashboard.tsx:473: trailing whitespace.
-[32m+[m[32m                  <div className="p-2 bg-brand-teal/10 rounded-xl text-brand-teal">[m[41m[m
-web-app/src/pages/Dashboard.tsx:474: trailing whitespace.
-[32m+[m[32m                    <MessageSquare className="w-6 h-6" />[m[41m[m
-web-app/src/pages/Dashboard.tsx:475: trailing whitespace.
-[32m+[m[32m                  </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:476: trailing whitespace.
-[32m+[m[32m                  <div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:477: trailing whitespace.
-[32m+[m[32m                    <h4 className="font-bold text-slate-900">{t('dashboard.ai_assistant')}</h4>[m[41m[m
-web-app/src/pages/Dashboard.tsx:478: trailing whitespace.
-[32m+[m[32m                    <p className="text-xs text-slate-500">{t('dashboard.ai_assistant_subtitle')}</p>[m[41m[m
-web-app/src/pages/Dashboard.tsx:479: trailing whitespace.
-[32m+[m[32m                  </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:480: trailing whitespace.
-[32m+[m[32m                </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:481: trailing whitespace.
-[32m+[m[32m                <Badge variant="outline" className="uppercase text-[10px] hidden sm:inline-flex">{t('dashboard.chat')}</Badge>[m[41m[m
-web-app/src/pages/Dashboard.tsx:482: trailing whitespace.
-[32m+[m[32m              </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:483: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:484: trailing whitespace.
-[32m+[m[32m              <div className="max-h-80 overflow-y-auto p-6 space-y-4">[m[41m[m
-web-app/src/pages/Dashboard.tsx:485: trailing whitespace.
-[32m+[m[32m                {chatMessages.length === 0 && !chatLoading && ([m[41m[m
-web-app/src/pages/Dashboard.tsx:486: trailing whitespace.
-[32m+[m[32m                  <div className="text-center py-8 text-slate-400 text-sm">[m[41m[m
-web-app/src/pages/Dashboard.tsx:487: trailing whitespace.
-[32m+[m[32m                    {t('dashboard.no_conversations')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:488: trailing whitespace.
-[32m+[m[32m                  </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:489: trailing whitespace.
-[32m+[m[32m                )}[m[41m[m
-web-app/src/pages/Dashboard.tsx:490: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:491: trailing whitespace.
-[32m+[m[32m                {chatMessages.map((message) => ([m[41m[m
-web-app/src/pages/Dashboard.tsx:492: trailing whitespace.
-[32m+[m[32m                  <div[m[41m[m
-web-app/src/pages/Dashboard.tsx:493: trailing whitespace.
-[32m+[m[32m                    key={message.id}[m[41m[m
-web-app/src/pages/Dashboard.tsx:494: trailing whitespace.
-[32m+[m[32m                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}[m[41m[m
-web-app/src/pages/Dashboard.tsx:495: trailing whitespace.
-[32m+[m[32m                  >[m[41m[m
-web-app/src/pages/Dashboard.tsx:496: trailing whitespace.
-[32m+[m[32m                    <div[m[41m[m
-web-app/src/pages/Dashboard.tsx:497: trailing whitespace.
-[32m+[m[32m                      className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm whitespace-pre-wrap ${[m[41m[m
-web-app/src/pages/Dashboard.tsx:498: trailing whitespace.
-[32m+[m[32m                        message.role === 'user'[m[41m[m
-web-app/src/pages/Dashboard.tsx:499: trailing whitespace.
-[32m+[m[32m                          ? 'bg-brand-blue text-white rounded-br-sm'[m[41m[m
-web-app/src/pages/Dashboard.tsx:500: trailing whitespace.
-[32m+[m[32m                          : 'bg-slate-100 text-slate-800 rounded-bl-sm'[m[41m[m
-web-app/src/pages/Dashboard.tsx:501: trailing whitespace.
-[32m+[m[32m                      }`}[m[41m[m
-web-app/src/pages/Dashboard.tsx:502: trailing whitespace.
-[32m+[m[32m                    >[m[41m[m
-web-app/src/pages/Dashboard.tsx:503: trailing whitespace.
-[32m+[m[32m                      {message.content}[m[41m[m
-web-app/src/pages/Dashboard.tsx:504: trailing whitespace.
-[32m+[m[32m                    </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:505: trailing whitespace.
-[32m+[m[32m                  </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:506: trailing whitespace.
-[32m+[m[32m                ))}[m[41m[m
-web-app/src/pages/Dashboard.tsx:507: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:508: trailing whitespace.
-[32m+[m[32m                {chatLoading && ([m[41m[m
-web-app/src/pages/Dashboard.tsx:509: trailing whitespace.
-[32m+[m[32m                  <div className="flex justify-start">[m[41m[m
-web-app/src/pages/Dashboard.tsx:510: trailing whitespace.
-[32m+[m[32m                    <div className="bg-slate-100 rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-2 text-slate-500 text-sm">[m[41m[m
-web-app/src/pages/Dashboard.tsx:511: trailing whitespace.
-[32m+[m[32m                      <Loader2 className="w-4 h-4 animate-spin" /> {t('common.thinking')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:512: trailing whitespace.
-[32m+[m[32m                    </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:513: trailing whitespace.
-[32m+[m[32m                  </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:514: trailing whitespace.
-[32m+[m[32m                )}[m[41m[m
-web-app/src/pages/Dashboard.tsx:515: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:516: trailing whitespace.
-[32m+[m[32m                <div ref={chatEndRef} />[m[41m[m
-web-app/src/pages/Dashboard.tsx:517: trailing whitespace.
-[32m+[m[32m              </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:518: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:519: trailing whitespace.
-[32m+[m[32m              {chatError && ([m[41m[m
-web-app/src/pages/Dashboard.tsx:520: trailing whitespace.
-[32m+[m[32m                <div className="px-6 pb-2 text-xs text-red-600 flex items-center gap-2">[m[41m[m
-web-app/src/pages/Dashboard.tsx:521: trailing whitespace.
-[32m+[m[32m                  <AlertCircle className="w-3.5 h-3.5 shrink-0" /> {chatError}[m[41m[m
-web-app/src/pages/Dashboard.tsx:522: trailing whitespace.
-[32m+[m[32m                </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:523: trailing whitespace.
-[32m+[m[32m              )}[m[41m[m
-web-app/src/pages/Dashboard.tsx:524: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:525: trailing whitespace.
-[32m+[m[32m              <form onSubmit={handleSendMessage} className="p-4 border-t bg-slate-50/50 flex items-center gap-3">[m[41m[m
-web-app/src/pages/Dashboard.tsx:526: trailing whitespace.
-[32m+[m[32m                <input[m[41m[m
-web-app/src/pages/Dashboard.tsx:527: trailing whitespace.
-[32m+[m[32m                  type="text"[m[41m[m
-web-app/src/pages/Dashboard.tsx:528: trailing whitespace.
-[32m+[m[32m                  value={chatInput}[m[41m[m
-web-app/src/pages/Dashboard.tsx:529: trailing whitespace.
-[32m+[m[32m                  onChange={(e) => setChatInput(e.target.value)}[m[41m[m
-web-app/src/pages/Dashboard.tsx:530: trailing whitespace.
-[32m+[m[32m                  placeholder={t('dashboard.chat_placeholder')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:531: trailing whitespace.
-[32m+[m[32m                  className="flex-1 px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none transition-all bg-white text-sm"[m[41m[m
-web-app/src/pages/Dashboard.tsx:532: trailing whitespace.
-[32m+[m[32m                />[m[41m[m
-web-app/src/pages/Dashboard.tsx:533: trailing whitespace.
-[32m+[m[32m                <Button[m[41m[m
-web-app/src/pages/Dashboard.tsx:534: trailing whitespace.
-[32m+[m[32m                  type="submit"[m[41m[m
-web-app/src/pages/Dashboard.tsx:535: trailing whitespace.
-[32m+[m[32m                  className="gap-2 shadow-lg shadow-brand-blue/20"[m[41m[m
-web-app/src/pages/Dashboard.tsx:536: trailing whitespace.
-[32m+[m[32m                  disabled={chatLoading || !chatInput.trim()}[m[41m[m
-web-app/src/pages/Dashboard.tsx:537: trailing whitespace.
-[32m+[m[32m                >[m[41m[m
-web-app/src/pages/Dashboard.tsx:538: trailing whitespace.
-[32m+[m[32m                  {chatLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}[m[41m[m
-web-app/src/pages/Dashboard.tsx:539: trailing whitespace.
-[32m+[m[32m                  {t('common.send')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:540: trailing whitespace.
-[32m+[m[32m                </Button>[m[41m[m
-web-app/src/pages/Dashboard.tsx:541: trailing whitespace.
-[32m+[m[32m              </form>[m[41m[m
-web-app/src/pages/Dashboard.tsx:542: trailing whitespace.
-[32m+[m[32m            </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:543: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Dashboard.tsx:555: trailing whitespace.
-[32m+[m[32m                           <h4 className="font-bold text-slate-900">{t('dashboard.active_vehicle')}</h4>[m[41m[m
-web-app/src/pages/Dashboard.tsx:558: trailing whitespace.
-[32m+[m[32m                          <Badge variant="outline" className="border-brand-blue/20 text-brand-blue uppercase text-[10px]">{t('dashboard.primary_tracked')}</Badge>[m[41m[m
-web-app/src/pages/Dashboard.tsx:568: trailing whitespace.
-[32m+[m[32m                                         <img src={getFilePreview(BUCKETS.VEHICLES, activeVehicle.imageFileId)} className="w-full h-full object-cover" alt={t('nav.vehicles')} />[m[41m[m
-web-app/src/pages/Dashboard.tsx:582: trailing whitespace.
-[32m+[m[32m                                       <div className="text-[10px] font-bold text-slate-400 uppercase mb-1">{t('dashboard.mileage')}</div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:583: trailing whitespace.
-[32m+[m[32m                                       <div className="font-bold text-brand-navy">[m[41m[m
-web-app/src/pages/Dashboard.tsx:584: trailing whitespace.
-[32m+[m[32m                                          {typeof activeVehicle.mileage === 'number'[m[41m[m
-web-app/src/pages/Dashboard.tsx:585: trailing whitespace.
-[32m+[m[32m                                            ? `${activeVehicle.mileage.toLocaleString()} KM`[m[41m[m
-web-app/src/pages/Dashboard.tsx:586: trailing whitespace.
-[32m+[m[32m                                            : '—'}[m[41m[m
-web-app/src/pages/Dashboard.tsx:587: trailing whitespace.
-[32m+[m[32m                                       </div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:590: trailing whitespace.
-[32m+[m[32m                                       <div className="text-[10px] font-bold text-slate-400 uppercase mb-1">{t('dashboard.last_service')}</div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:592: trailing whitespace.
-[32m+[m[32m                                          {services.length > 0 ? new Date(services[0].date).toLocaleDateString() : t('common.none')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:603: trailing whitespace.
-[32m+[m[32m                                    <div className="text-xs font-bold text-white/40 uppercase tracking-widest mb-4">{t('dashboard.maintenance_health')}</div>[m[41m[m
-web-app/src/pages/Dashboard.tsx:608: trailing whitespace.
-[32m+[m[32m                                       {t('dashboard.status')} <span className="text-white">{health ? t(`dashboard.health_${health.status}`) : ''}</span>[m[41m[m
-web-app/src/pages/Dashboard.tsx:615: trailing whitespace.
-[32m+[m[32m                              <p className="text-slate-500">{t('dashboard.no_vehicles')}</p>[m[41m[m
-web-app/src/pages/Dashboard.tsx:616: trailing whitespace.
-[32m+[m[32m                              <Button onClick={() => navigate('/vehicles')} className="mt-4">{t('dashboard.register_first_vehicle')}</Button>[m[41m[m
-web-app/src/pages/Dashboard.tsx:625: trailing whitespace.
-[32m+[m[32m                        <h4 className="font-bold text-slate-900">{t('dashboard.ecosystem_stream')}</h4>[m[41m[m
-web-app/src/pages/Dashboard.tsx:626: trailing whitespace.
-[32m+[m[32m                        <Button variant="ghost" size="sm" className="text-brand-blue" onClick={() => navigate('/diagnostics/history')}>{t('dashboard.full_history')}</Button>[m[41m[m
-web-app/src/pages/Dashboard.tsx:649: trailing whitespace.
-[32m+[m[32m                              {t('dashboard.ecosystem_empty')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:661: trailing whitespace.
-[32m+[m[32m                        <AlertTriangle className="w-5 h-5 text-amber-500" /> {t('dashboard.maintenance_advisor')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:682: trailing whitespace.
-[32m+[m[32m                              <span className="text-sm font-bold text-green-800">{t('dashboard.no_immediate_actions')}</span>[m[41m[m
-web-app/src/pages/Dashboard.tsx:683: trailing whitespace.
-[32m+[m[32m                              <p className="text-[10px] text-green-600 mt-1">{t('dashboard.synchronized')}</p>[m[41m[m
-web-app/src/pages/Dashboard.tsx:694: trailing whitespace.
-[32m+[m[32m                           <BookOpen className="w-5 h-5 text-brand-teal" /> {t('dashboard.academy_status')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:698: trailing whitespace.
-[32m+[m[32m                              <span>{t('dashboard.module_completion')}</span>[m[41m[m
-web-app/src/pages/Dashboard.tsx:706: trailing whitespace.
-[32m+[m[32m                           {t('dashboard.academy_cta')}[m[41m[m
-web-app/src/pages/Dashboard.tsx:709: trailing whitespace.
-[32m+[m[32m                           {t('dashboard.enter_academy')} <Play className="w-3 h-3 fill-current" />[m[41m[m
-web-app/src/pages/Diagnostics.tsx:12: trailing whitespace.
-[32m+[m[32mimport { useTranslation } from 'react-i18next';[m[41m[m
-web-app/src/pages/Diagnostics.tsx:13: trailing whitespace.
-[32m+[m[32mimport { useEffect } from 'react';[m[41m[m
-web-app/src/pages/Diagnostics.tsx:16: trailing whitespace.
-[32m+[m[32m  const { t, i18n } = useTranslation();[m[41m[m
-web-app/src/pages/Diagnostics.tsx:20: trailing whitespace.
-[32m+[m[32m  useEffect(() => {[m[41m[m
-web-app/src/pages/Diagnostics.tsx:21: trailing whitespace.
-[32m+[m[32m    if (!currentSession?.result?.summary) return;[m[41m[m
-web-app/src/pages/Diagnostics.tsx:22: trailing whitespace.
-[32m+[m[32m    if (!('speechSynthesis' in window)) return;[m[41m[m
-web-app/src/pages/Diagnostics.tsx:23: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Diagnostics.tsx:24: trailing whitespace.
-[32m+[m[32m    const language = i18n.language || 'en';[m[41m[m
-web-app/src/pages/Diagnostics.tsx:25: trailing whitespace.
-[32m+[m[32m    const speechLanguage =[m[41m[m
-web-app/src/pages/Diagnostics.tsx:26: trailing whitespace.
-[32m+[m[32m      language === 'am' ? 'am-ET' : language === 'om' ? 'om-ET' : 'en-US';[m[41m[m
-web-app/src/pages/Diagnostics.tsx:27: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Diagnostics.tsx:28: trailing whitespace.
-[32m+[m[32m    window.speechSynthesis.cancel();[m[41m[m
-web-app/src/pages/Diagnostics.tsx:29: trailing whitespace.
-[32m+[m[32m    const utterance = new SpeechSynthesisUtterance(currentSession.result.summary);[m[41m[m
-web-app/src/pages/Diagnostics.tsx:30: trailing whitespace.
-[32m+[m[32m    utterance.lang = speechLanguage;[m[41m[m
-web-app/src/pages/Diagnostics.tsx:31: trailing whitespace.
-[32m+[m[32m    window.speechSynthesis.speak(utterance);[m[41m[m
-web-app/src/pages/Diagnostics.tsx:32: trailing whitespace.
-[32m+[m[32m  }, [currentSession, i18n.language]);[m[41m[m
-web-app/src/pages/Diagnostics.tsx:33: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/pages/Diagnostics.tsx:45: trailing whitespace.
-[32m+[m[32m              <h1 className="text-3xl font-extrabold text-brand-navy">{t('diagnostics.title')}</h1>[m[41m[m
-web-app/src/pages/Diagnostics.tsx:48: trailing whitespace.
-[32m+[m[32m              {t('diagnostics.subtitle')}[m[41m[m
-web-app/src/pages/Diagnostics.tsx:56: trailing whitespace.
-[32m+[m[32m                <History className="w-5 h-5" /> {t('diagnostics.view_history')}[m[41m[m
-web-app/src/pages/Diagnostics.tsx:63: trailing whitespace.
-[32m+[m[32m                  <Plus className="w-5 h-5" /> {t('diagnostics.new_analysis')}[m[41m[m
-web-app/src/pages/Diagnostics.tsx:74: trailing whitespace.
-[32m+[m[32m                title={t('diagnostics.analysis_failed')}[m[41m[m
-web-app/src/pages/auth/Login.tsx:36: trailing whitespace.
-[32m+[m[32m        return '/school-admin';[m[41m[m
-web-app/src/pages/auth/Login.tsx:37: trailing whitespace.
-[32m+[m[32m      case 'department_admin':[m[41m[m
-web-app/src/pages/auth/Login.tsx:178: new blank line at EOF.
-web-app/src/services/database/index.ts:1: trailing whitespace.
-[32m+[m[32mimport { databases, DATABASE_ID, CHAT_COLLECTION_ID } from '../../lib/appwrite';[m[41m[m
-web-app/src/services/database/index.ts:4: trailing whitespace.
-[32m+[m[32m// Re-export so existing `import { DATABASE_ID } from './index'` keeps working.[m[41m[m
-web-app/src/services/database/index.ts:5: trailing whitespace.
-[32m+[m[32mexport { DATABASE_ID };[m[41m[m
-web-app/src/services/database/index.ts:12: trailing whitespace.
-[32m+[m[32m  VEHICLES: 'vehicles',[m[41m[m
-web-app/src/services/database/index.ts:15: trailing whitespace.
-[32m+[m[32m  CHAT_HISTORY: CHAT_COLLECTION_ID,[m[41m[m
-web-app/src/services/database/index.ts:16: trailing whitespace.
-[32m+[m[32m  SCHOOLS: 'schools',[m[41m[m
-web-app/src/services/database/index.ts:17: trailing whitespace.
-[32m+[m[32m  GARAGES: 'garages',[m[41m[m
-web-app/src/services/database/index.ts:18: trailing whitespace.
-[32m+[m[32m  APPLICATIONS: 'applications',[m[41m[m
-web-app/src/services/database/index.ts:19: trailing whitespace.
-[32m+[m[32m  ASSIGNMENTS: 'assignments',[m[41m[m
-web-app/src/services/database/index.ts:20: trailing whitespace.
-[32m+[m[32m  ATTENDANCE: 'attendance',[m[41m[m
-web-app/src/services/database/index.ts:21: trailing whitespace.
-[32m+[m[32m  SUBMISSIONS: 'submissions',[m[41m[m
-web-app/src/services/database/index.ts:22: trailing whitespace.
-[32m+[m[32m  SERVICE_REQUESTS: 'service_requests',[m[41m[m
-web-app/src/services/database/index.ts:23: trailing whitespace.
-[32m+[m[32m  AUDIT_LOGS: 'audit_logs',[m[41m[m
-web-app/src/services/database/index.ts:24: trailing whitespace.
-[32m+[m[32m  DEPARTMENTS: 'departments',[m[41m[m
-web-app/src/services/database/index.ts:25: trailing whitespace.
-[32m+[m[32m  PROGRAMS: 'programs',[m[41m[m
-web-app/src/services/database/index.ts:26: trailing whitespace.
-[32m+[m[32m  CERTIFICATES: 'certificates',[m[41m[m
-web-app/src/services/database/index.ts:27: trailing whitespace.
-[32m+[m[32m  PAYMENTS: 'payments',[m[41m[m
-web-app/src/services/database/index.ts:28: trailing whitespace.
-[32m+[m[32m  COURSE_MATERIALS: 'course_materials',[m[41m[m
-web-app/src/services/database/index.ts:51: trailing whitespace.
-[32m+[m[32m  },[m[41m[m
-web-app/src/services/database/index.ts:52: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/services/database/index.ts:53: trailing whitespace.
-[32m+[m[32m  async countDocuments(collectionId: string, queries: string[] = []): Promise<number> {[m[41m[m
-web-app/src/services/database/index.ts:54: trailing whitespace.
-[32m+[m[32m    const response = await databases.listDocuments(DATABASE_ID, collectionId, [...queries, Query.limit(1)]);[m[41m[m
-web-app/src/services/database/index.ts:55: trailing whitespace.
-[32m+[m[32m    return response.total;[m[41m[m
-web-app/src/services/database/learning.ts:6: trailing whitespace.
-[32m+[m[32m  async listModules(): Promise<LearningModule[]> {[m[41m[m
-web-app/src/services/database/learning.ts:8: trailing whitespace.
-[32m+[m[32m      COLLECTIONS.LEARNING_MODULES[m[41m[m
-web-app/src/services/database/profiles.ts:1: trailing whitespace.
-[32m+[m[32m﻿import { databaseService, COLLECTIONS, Query } from './index';[m[41m[m
-web-app/src/services/database/profiles.ts:23: trailing whitespace.
-[32m+[m[32m    role?: UserRole;[m[41m[m
-web-app/src/services/database/profiles.ts:24: trailing whitespace.
-[32m+[m[32m    institutionId?: string;[m[41m[m
-web-app/src/services/database/profiles.ts:25: trailing whitespace.
-[32m+[m[32m    garageId?: string;[m[41m[m
-web-app/src/services/database/profiles.ts:26: trailing whitespace.
-[32m+[m[32m    phone?: string;[m[41m[m
-web-app/src/services/database/profiles.ts:27: trailing whitespace.
-[32m+[m[32m    specialization?: string;[m[41m[m
-web-app/src/services/database/profiles.ts:28: trailing whitespace.
-[32m+[m[32m    privileged?: boolean;[m[41m[m
-web-app/src/services/database/profiles.ts:30: trailing whitespace.
-[32m+[m[32m    // Non-privileged callers (such as public registration) can only create a[m[41m[m
-web-app/src/services/database/profiles.ts:31: trailing whitespace.
-[32m+[m[32m    // standard student profile. Privileged fields are ignored unless an admin[m[41m[m
-web-app/src/services/database/profiles.ts:32: trailing whitespace.
-[32m+[m[32m    // flow explicitly opts in.[m[41m[m
-web-app/src/services/database/profiles.ts:33: trailing whitespace.
-[32m+[m[32m    const privileged = data.privileged === true;[m[41m[m
-web-app/src/services/database/profiles.ts:34: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/services/database/profiles.ts:35: trailing whitespace.
-[32m+[m[32m    const profileData: Record<string, any> = {[m[41m[m
-web-app/src/services/database/profiles.ts:36: trailing whitespace.
-[32m+[m[32m      userId: data.userId,[m[41m[m
-web-app/src/services/database/profiles.ts:37: trailing whitespace.
-[32m+[m[32m      fullName: data.fullName,[m[41m[m
-web-app/src/services/database/profiles.ts:38: trailing whitespace.
-[32m+[m[32m      email: data.email,[m[41m[m
-web-app/src/services/database/profiles.ts:39: trailing whitespace.
-[32m+[m[32m      role: privileged ? data.role || 'student' : 'student',[m[41m[m
-web-app/src/services/database/profiles.ts:46: trailing whitespace.
-[32m+[m[32m    if (privileged) {[m[41m[m
-web-app/src/services/database/profiles.ts:47: trailing whitespace.
-[32m+[m[32m      if (data.institutionId) profileData.institutionId = data.institutionId;[m[41m[m
-web-app/src/services/database/profiles.ts:48: trailing whitespace.
-[32m+[m[32m      if (data.garageId) profileData.garageId = data.garageId;[m[41m[m
-web-app/src/services/database/profiles.ts:49: trailing whitespace.
-[32m+[m[32m    }[m[41m[m
-web-app/src/services/database/profiles.ts:50: trailing whitespace.
-[32m+[m[32m    if (data.phone) profileData.phone = data.phone;[m[41m[m
-web-app/src/services/database/profiles.ts:51: trailing whitespace.
-[32m+[m[32m    if (data.specialization) profileData.specialization = data.specialization;[m[41m[m
-web-app/src/services/database/profiles.ts:52: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/services/database/profiles.ts:66: trailing whitespace.
-[32m+[m[32m  async updateProfile([m[41m[m
-web-app/src/services/database/profiles.ts:67: trailing whitespace.
-[32m+[m[32m    profileId: string,[m[41m[m
-web-app/src/services/database/profiles.ts:68: trailing whitespace.
-[32m+[m[32m    data: Partial<UserProfile>,[m[41m[m
-web-app/src/services/database/profiles.ts:69: trailing whitespace.
-[32m+[m[32m    options?: { privileged?: boolean }[m[41m[m
-web-app/src/services/database/profiles.ts:70: trailing whitespace.
-[32m+[m[32m  ): Promise<UserProfile> {[m[41m[m
-web-app/src/services/database/profiles.ts:71: trailing whitespace.
-[32m+[m[32m    const privileged = options?.privileged === true;[m[41m[m
-web-app/src/services/database/profiles.ts:72: trailing whitespace.
-[32m+[m[32m    const updateData: Record<string, any> = { ...data };[m[41m[m
-web-app/src/services/database/profiles.ts:73: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/services/database/profiles.ts:74: trailing whitespace.
-[32m+[m[32m    // Prevent non-privileged client flows from escalating roles or moving a[m[41m[m
-web-app/src/services/database/profiles.ts:75: trailing whitespace.
-[32m+[m[32m    // profile between tenants.[m[41m[m
-web-app/src/services/database/profiles.ts:76: trailing whitespace.
-[32m+[m[32m    if (!privileged) {[m[41m[m
-web-app/src/services/database/profiles.ts:77: trailing whitespace.
-[32m+[m[32m      delete updateData.role;[m[41m[m
-web-app/src/services/database/profiles.ts:78: trailing whitespace.
-[32m+[m[32m      delete updateData.institutionId;[m[41m[m
-web-app/src/services/database/profiles.ts:79: trailing whitespace.
-[32m+[m[32m      delete updateData.garageId;[m[41m[m
-web-app/src/services/database/profiles.ts:80: trailing whitespace.
-[32m+[m[32m      delete updateData.departmentId;[m[41m[m
-web-app/src/services/database/profiles.ts:81: trailing whitespace.
-[32m+[m[32m    }[m[41m[m
-web-app/src/services/database/profiles.ts:82: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/services/database/profiles.ts:87: trailing whitespace.
-[32m+[m[32m        ...updateData,[m[41m[m
-web-app/src/services/database/profiles.ts:93: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/services/database/profiles.ts:93: new blank line at EOF.
-web-app/src/services/database/search.ts:43: trailing whitespace.
-[32m+[m[32m        databaseService.listDocuments<VehicleProfile>(COLLECTIONS.VEHICLES, [[m[41m[m
-web-app/src/services/database/search.ts:52: trailing whitespace.
-[32m+[m[32m        (v.make || '').toLowerCase().includes(lowercaseQuery) ||[m[41m[m
-web-app/src/services/database/search.ts:53: trailing whitespace.
-[32m+[m[32m        (v.model || '').toLowerCase().includes(lowercaseQuery)[m[41m[m
-web-app/src/services/storage/index.ts:9: trailing whitespace.
-[32m+[m[32m  COURSE_MATERIALS: 'course-materials',[m[41m[m
-web-app/src/services/storage/index.ts:29: trailing whitespace.
-[32m+[m[32m  getFileView(bucketId: string, fileId: string) {[m[41m[m
-web-app/src/types/index.ts:1: trailing whitespace.
-[32m+[m[32m﻿import { Models } from 'appwrite';[m[41m[m
-web-app/src/types/index.ts:3: trailing whitespace.
-[32m+[m[32mexport type UserRole = 'student' | 'mechanic' | 'teacher' | 'vehicle_owner' | 'admin' | 'global_admin' | 'tvet_admin' | 'department_admin' | 'instructor' | 'garage_admin';[m[41m[m
-web-app/src/types/index.ts:17: trailing whitespace.
-[32m+[m[32m  institutionId?: string;[m[41m[m
-web-app/src/types/index.ts:18: trailing whitespace.
-[32m+[m[32m  departmentId?: string;[m[41m[m
-web-app/src/types/index.ts:19: trailing whitespace.
-[32m+[m[32m  garageId?: string;[m[41m[m
-web-app/src/types/index.ts:20: trailing whitespace.
-[32m+[m[32m  phone?: string;[m[41m[m
-web-app/src/types/index.ts:21: trailing whitespace.
-[32m+[m[32m  specialization?: string;[m[41m[m
-web-app/src/types/index.ts:22: trailing whitespace.
-[32m+[m[32m  status?: string;[m[41m[m
-web-app/src/types/index.ts:23: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:24: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:25: trailing whitespace.
-[32m+[m[32mexport interface Department extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:26: trailing whitespace.
-[32m+[m[32m  name: string;[m[41m[m
-web-app/src/types/index.ts:27: trailing whitespace.
-[32m+[m[32m  institutionId: string;[m[41m[m
-web-app/src/types/index.ts:28: trailing whitespace.
-[32m+[m[32m  headId: string;[m[41m[m
-web-app/src/types/index.ts:29: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:30: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:31: trailing whitespace.
-[32m+[m[32mexport interface Program extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:32: trailing whitespace.
-[32m+[m[32m  name: string;[m[41m[m
-web-app/src/types/index.ts:33: trailing whitespace.
-[32m+[m[32m  departmentId: string;[m[41m[m
-web-app/src/types/index.ts:34: trailing whitespace.
-[32m+[m[32m  institutionId: string;[m[41m[m
-web-app/src/types/index.ts:35: trailing whitespace.
-[32m+[m[32m  level: string;[m[41m[m
-web-app/src/types/index.ts:39: trailing whitespace.
-[32m+[m[32m  programId?: string;[m[41m[m
-web-app/src/types/index.ts:46: trailing whitespace.
-[32m+[m[32m  /** Duration label stored in the `duration` attribute, e.g. "45 min". */[m[41m[m
-web-app/src/types/index.ts:47: trailing whitespace.
-[32m+[m[32m  duration?: string;[m[41m[m
-web-app/src/types/index.ts:48: trailing whitespace.
-[32m+[m[32m  /** Legacy fallback used when `duration` is absent. */[m[41m[m
-web-app/src/types/index.ts:49: trailing whitespace.
-[32m+[m[32m  estimatedMinutes?: number;[m[41m[m
-web-app/src/types/index.ts:50: trailing whitespace.
-[32m+[m[32m  /** Optional â€” the current collection has no publish flag. */[m[41m[m
-web-app/src/types/index.ts:51: trailing whitespace.
-[32m+[m[32m  isPublished?: boolean;[m[41m[m
-web-app/src/types/index.ts:52: trailing whitespace.
-[32m+[m[32m  /** JSON string containing translations for all languages: { en: { title, description, content }, am: { ... }, om: { ... }, sid: { ... } } */[m[41m[m
-web-app/src/types/index.ts:53: trailing whitespace.
-[32m+[m[32m  translations?: string;[m[41m[m
-web-app/src/types/index.ts:67: trailing whitespace.
-[32m+[m[32m  institutionId?: string;[m[41m[m
-web-app/src/types/index.ts:70: trailing whitespace.
-[32m+[m[32m  /** Stored as a string in the `vehicles` collection. */[m[41m[m
-web-app/src/types/index.ts:71: trailing whitespace.
-[32m+[m[32m  year: number | string;[m[41m[m
-web-app/src/types/index.ts:72: trailing whitespace.
-[32m+[m[32m  engine?: string;[m[41m[m
-web-app/src/types/index.ts:73: trailing whitespace.
-[32m+[m[32m  /** Not stored by the current `vehicles` collection; kept optional for legacy UI. */[m[41m[m
-web-app/src/types/index.ts:74: trailing whitespace.
-[32m+[m[32m  fuelType?: string;[m[41m[m
-web-app/src/types/index.ts:75: trailing whitespace.
-[32m+[m[32m  /** Not stored by the current `vehicles` collection; kept optional for legacy UI. */[m[41m[m
-web-app/src/types/index.ts:76: trailing whitespace.
-[32m+[m[32m  mileage?: number;[m[41m[m
-web-app/src/types/index.ts:81: trailing whitespace.
-[32m+[m[32m/**[m[41m[m
-web-app/src/types/index.ts:82: trailing whitespace.
-[32m+[m[32m * Vehicle saved from the free-text "Add Vehicle" form.[m[41m[m
-web-app/src/types/index.ts:83: trailing whitespace.
-[32m+[m[32m * Stored in the `vehicles` collection.[m[41m[m
-web-app/src/types/index.ts:84: trailing whitespace.
-[32m+[m[32m */[m[41m[m
-web-app/src/types/index.ts:85: trailing whitespace.
-[32m+[m[32mexport interface UserVehicle extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:86: trailing whitespace.
-[32m+[m[32m  userId: string;[m[41m[m
-web-app/src/types/index.ts:87: trailing whitespace.
-[32m+[m[32m  make: string;[m[41m[m
-web-app/src/types/index.ts:88: trailing whitespace.
-[32m+[m[32m  model: string;[m[41m[m
-web-app/src/types/index.ts:89: trailing whitespace.
-[32m+[m[32m  year: string;[m[41m[m
-web-app/src/types/index.ts:90: trailing whitespace.
-[32m+[m[32m  engine?: string;[m[41m[m
-web-app/src/types/index.ts:91: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:92: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:126: trailing whitespace.
-[32m+[m[32m  institutionId?: string;[m[41m[m
-web-app/src/types/index.ts:128: trailing whitespace.
-[32m+[m[32m  description: string;[m[41m[m
-web-app/src/types/index.ts:129: trailing whitespace.
-[32m+[m[32m  aiResponse: string;[m[41m[m
-web-app/src/types/index.ts:130: trailing whitespace.
-[32m+[m[32m  // Parsed/client-side fields (derived from the stored attributes above)[m[41m[m
-web-app/src/types/index.ts:131: trailing whitespace.
-[32m+[m[32m  userInput: string;[m[41m[m
-web-app/src/types/index.ts:132: trailing whitespace.
-[32m+[m[32m  requestData: DiagnosticRequest;[m[41m[m
-web-app/src/types/index.ts:133: trailing whitespace.
-[32m+[m[32m  result: DiagnosticResponse;[m[41m[m
-web-app/src/types/index.ts:137: trailing whitespace.
-[32m+[m[32mexport interface School extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:138: trailing whitespace.
-[32m+[m[32m  name: string;[m[41m[m
-web-app/src/types/index.ts:139: trailing whitespace.
-[32m+[m[32m  location: string;[m[41m[m
-web-app/src/types/index.ts:140: trailing whitespace.
-[32m+[m[32m  adminId: string;[m[41m[m
-web-app/src/types/index.ts:141: trailing whitespace.
-[32m+[m[32m  status: string;[m[41m[m
-web-app/src/types/index.ts:142: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:143: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:144: trailing whitespace.
-[32m+[m[32mexport interface Garage extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:145: trailing whitespace.
-[32m+[m[32m  name: string;[m[41m[m
-web-app/src/types/index.ts:146: trailing whitespace.
-[32m+[m[32m  location: string;[m[41m[m
-web-app/src/types/index.ts:147: trailing whitespace.
-[32m+[m[32m  ownerId: string;[m[41m[m
-web-app/src/types/index.ts:148: trailing whitespace.
-[32m+[m[32m  status: string;[m[41m[m
-web-app/src/types/index.ts:149: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:150: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:151: trailing whitespace.
-[32m+[m[32mexport interface CourseMaterial extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:152: trailing whitespace.
-[32m+[m[32m  title: string;[m[41m[m
-web-app/src/types/index.ts:153: trailing whitespace.
-[32m+[m[32m  description: string;[m[41m[m
-web-app/src/types/index.ts:154: trailing whitespace.
-[32m+[m[32m  fileId: string;[m[41m[m
-web-app/src/types/index.ts:155: trailing whitespace.
-[32m+[m[32m  courseId: string;[m[41m[m
-web-app/src/types/index.ts:156: trailing whitespace.
-[32m+[m[32m  institutionId: string;[m[41m[m
-web-app/src/types/index.ts:157: trailing whitespace.
-[32m+[m[32m  instructorId: string;[m[41m[m
-web-app/src/types/index.ts:158: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:159: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:160: trailing whitespace.
-[32m+[m[32mexport interface Submission extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:161: trailing whitespace.
-[32m+[m[32m  assignmentId: string;[m[41m[m
-web-app/src/types/index.ts:162: trailing whitespace.
-[32m+[m[32m  institutionId?: string;[m[41m[m
-web-app/src/types/index.ts:163: trailing whitespace.
-[32m+[m[32m  studentId: string;[m[41m[m
-web-app/src/types/index.ts:164: trailing whitespace.
-[32m+[m[32m  studentName: string;[m[41m[m
-web-app/src/types/index.ts:165: trailing whitespace.
-[32m+[m[32m  content: string;[m[41m[m
-web-app/src/types/index.ts:166: trailing whitespace.
-[32m+[m[32m  status: 'pending' | 'graded';[m[41m[m
-web-app/src/types/index.ts:167: trailing whitespace.
-[32m+[m[32m  grade: string;[m[41m[m
-web-app/src/types/index.ts:168: trailing whitespace.
-[32m+[m[32m  feedback: string;[m[41m[m
-web-app/src/types/index.ts:169: trailing whitespace.
-[32m+[m[32m  submittedAt: string;[m[41m[m
-web-app/src/types/index.ts:170: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:171: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:172: trailing whitespace.
-[32m+[m[32mexport interface Assignment extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:173: trailing whitespace.
-[32m+[m[32m  title: string;[m[41m[m
-web-app/src/types/index.ts:174: trailing whitespace.
-[32m+[m[32m  description: string;[m[41m[m
-web-app/src/types/index.ts:175: trailing whitespace.
-[32m+[m[32m  courseId: string;[m[41m[m
-web-app/src/types/index.ts:176: trailing whitespace.
-[32m+[m[32m  instructorId: string;[m[41m[m
-web-app/src/types/index.ts:177: trailing whitespace.
-[32m+[m[32m  institutionId?: string;[m[41m[m
-web-app/src/types/index.ts:178: trailing whitespace.
-[32m+[m[32m  dueDate: string;[m[41m[m
-web-app/src/types/index.ts:179: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:180: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:181: trailing whitespace.
-[32m+[m[32mexport interface Certificate extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:182: trailing whitespace.
-[32m+[m[32m  studentId: string;[m[41m[m
-web-app/src/types/index.ts:183: trailing whitespace.
-[32m+[m[32m  studentName: string;[m[41m[m
-web-app/src/types/index.ts:184: trailing whitespace.
-[32m+[m[32m  courseId: string;[m[41m[m
-web-app/src/types/index.ts:185: trailing whitespace.
-[32m+[m[32m  courseName: string;[m[41m[m
-web-app/src/types/index.ts:186: trailing whitespace.
-[32m+[m[32m  issueDate: string;[m[41m[m
-web-app/src/types/index.ts:187: trailing whitespace.
-[32m+[m[32m  certificateUrl: string;[m[41m[m
-web-app/src/types/index.ts:188: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:189: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:190: trailing whitespace.
-[32m+[m[32mexport interface Payment extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:191: trailing whitespace.
-[32m+[m[32m  institutionId: string;[m[41m[m
-web-app/src/types/index.ts:192: trailing whitespace.
-[32m+[m[32m  amount: string;[m[41m[m
-web-app/src/types/index.ts:193: trailing whitespace.
-[32m+[m[32m  date: string;[m[41m[m
-web-app/src/types/index.ts:194: trailing whitespace.
-[32m+[m[32m  status: string;[m[41m[m
-web-app/src/types/index.ts:195: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:196: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:197: trailing whitespace.
-[32m+[m[32mexport interface ServiceRequest extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:198: trailing whitespace.
-[32m+[m[32m  title: string;[m[41m[m
-web-app/src/types/index.ts:199: trailing whitespace.
-[32m+[m[32m  description: string;[m[41m[m
-web-app/src/types/index.ts:200: trailing whitespace.
-[32m+[m[32m  vehicleId: string;[m[41m[m
-web-app/src/types/index.ts:201: trailing whitespace.
-[32m+[m[32m  garageId: string;[m[41m[m
-web-app/src/types/index.ts:202: trailing whitespace.
-[32m+[m[32m  status: string;[m[41m[m
-web-app/src/types/index.ts:203: trailing whitespace.
-[32m+[m[32m  createdAt: string;[m[41m[m
-web-app/src/types/index.ts:204: trailing whitespace.
-[32m+[m[32m  assignedMechanicId?: string;[m[41m[m
-web-app/src/types/index.ts:205: trailing whitespace.
-[32m+[m[32m  finalCost?: string;[m[41m[m
-web-app/src/types/index.ts:206: trailing whitespace.
-[32m+[m[32m  notes?: string;[m[41m[m
-web-app/src/types/index.ts:207: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:208: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:209: trailing whitespace.
-[32m+[m[32mexport interface AuditLog extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:210: trailing whitespace.
-[32m+[m[32m  actorId: string;[m[41m[m
-web-app/src/types/index.ts:211: trailing whitespace.
-[32m+[m[32m  action: string;[m[41m[m
-web-app/src/types/index.ts:212: trailing whitespace.
-[32m+[m[32m  targetId: string;[m[41m[m
-web-app/src/types/index.ts:213: trailing whitespace.
-[32m+[m[32m  details: string;[m[41m[m
-web-app/src/types/index.ts:214: trailing whitespace.
-[32m+[m[32m  timestamp: string;[m[41m[m
-web-app/src/types/index.ts:215: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:216: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:217: trailing whitespace.
-[32m+[m[32mexport interface Application extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:218: trailing whitespace.
-[32m+[m[32m  type: 'school' | 'garage';[m[41m[m
-web-app/src/types/index.ts:219: trailing whitespace.
-[32m+[m[32m  applicantId: string;[m[41m[m
-web-app/src/types/index.ts:220: trailing whitespace.
-[32m+[m[32m  details: string;[m[41m[m
-web-app/src/types/index.ts:221: trailing whitespace.
-[32m+[m[32m  status: 'pending' | 'approved' | 'rejected';[m[41m[m
-web-app/src/types/index.ts:222: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:223: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:249: trailing whitespace.
-[32m+[m[32mexport interface ChatRecord extends Models.Document {[m[41m[m
-web-app/src/types/index.ts:250: trailing whitespace.
-[32m+[m[32m  userId: string;[m[41m[m
-web-app/src/types/index.ts:251: trailing whitespace.
-[32m+[m[32m  userMessage: string;[m[41m[m
-web-app/src/types/index.ts:252: trailing whitespace.
-[32m+[m[32m  aiResponse: string;[m[41m[m
-web-app/src/types/index.ts:253: trailing whitespace.
-[32m+[m[32m}[m[41m[m
-web-app/src/types/index.ts:254: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:269: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:270: trailing whitespace.
-[32m+[m[41m[m
-web-app/src/types/index.ts:269: new blank line at EOF.
