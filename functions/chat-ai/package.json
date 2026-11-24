@@ -1,0 +1,12 @@
+﻿{
+    "name":  "chat-ai",
+    "version":  "1.0.0",
+    "main":  "index.js",
+    "type":  "module",
+    "dependencies":  {
+                         "node-appwrite":  "30.0.1"
+                     },
+    "scripts":  {
+                    "check":  "node --check index.js"
+                }
+}
