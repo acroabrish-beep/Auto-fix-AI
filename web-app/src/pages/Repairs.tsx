@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Search, Wrench, SlidersHorizontal, BookOpen } from 'lucide-react';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
@@ -6,7 +7,8 @@ import { useRepairGuides } from '../hooks/useRepairGuides';
 import { RepairCard } from '../components/repairs/RepairCard';
 import { RepairSkeleton } from '../components/repairs/RepairSkeleton';
 import { RepairEmptyState } from '../components/repairs/RepairEmptyState';
-import { ErrorState } from '../components/ui/Error';
+import { MOCK_REPAIR_GUIDES } from '../data/mockRepairGuides';
+import { localizeRepairCategory, localizeRepairGuide } from '../lib/localizeContent';
 
 const REPAIR_CATEGORIES = [
   'All',
@@ -19,21 +21,32 @@ const REPAIR_CATEGORIES = [
 ];
 
 export const Repairs = () => {
+  const { t } = useTranslation();
   const { guides, loading, error } = useRepairGuides();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
+  const guideSource = guides.length > 0 ? guides : MOCK_REPAIR_GUIDES;
 
   const filteredGuides = useMemo(() => {
-    return guides.filter((g) => {
-      const matchesSearch =
-        g.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        g.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const normalizedQuery = searchQuery.toLowerCase();
 
-      const matchesCategory = activeCategory === 'All' || g.category === activeCategory;
+    return guideSource
+      .map((guide) => ({ original: guide, localized: localizeRepairGuide(guide, t) }))
+      .filter(({ original, localized }) => {
+        const matchesSearch = [
+          original.title,
+          original.description,
+          localized.title,
+          localized.description,
+        ].some((value) => value.toLowerCase().includes(normalizedQuery));
 
-      return matchesSearch && matchesCategory;
-    });
-  }, [guides, searchQuery, activeCategory]);
+        const matchesCategory =
+          activeCategory === 'All' || original.category === activeCategory;
+
+        return matchesSearch && matchesCategory;
+      })
+      .map(({ localized }) => localized);
+  }, [guideSource, searchQuery, activeCategory, t]);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -43,10 +56,10 @@ export const Repairs = () => {
         <header className="mb-12">
            <div className="flex items-center gap-3 text-brand-blue mb-4">
               <Wrench className="w-8 h-8" />
-              <h1 className="text-4xl font-extrabold text-brand-navy">Technical Repair Library</h1>
+              <h1 className="text-4xl font-extrabold text-brand-navy">{t('repairs.title')}</h1>
            </div>
            <p className="text-slate-600 max-w-2xl text-lg">
-             Professional step-by-step procedures for automotive repair and maintenance, optimized for TVET standards.
+             {t('repairs.subtitle')}
            </p>
         </header>
 
@@ -56,33 +69,42 @@ export const Repairs = () => {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search procedures (e.g. Brake Pads, Oil Filter, Spark Plugs)..."
+                placeholder={t('repairs.search_placeholder')}
                 className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none transition-all shadow-sm"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
            </div>
            <div className="flex overflow-x-auto pb-2 lg:pb-0 gap-2 no-scrollbar">
-              {REPAIR_CATEGORIES.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`whitespace-nowrap px-6 py-4 rounded-2xl text-sm font-bold transition-all shadow-sm ${
-                    activeCategory === cat
-                    ? 'bg-brand-blue text-white'
-                    : 'bg-white text-slate-600 border border-slate-100 hover:border-brand-blue/30'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+              {REPAIR_CATEGORIES.map((cat) => {
+                const label =
+                  cat === 'All' ? t('repairs.all') : localizeRepairCategory(cat, t);
+
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`whitespace-nowrap px-6 py-4 rounded-2xl text-sm font-bold transition-all shadow-sm ${
+                      activeCategory === cat
+                      ? 'bg-brand-blue text-white'
+                      : 'bg-white text-slate-600 border border-slate-100 hover:border-brand-blue/30'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
            </div>
         </div>
 
+        {!loading && guideSource === MOCK_REPAIR_GUIDES && (
+          <p className="mb-6 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+            {t('repairs.sample_notice')}
+          </p>
+        )}
+
         {loading ? (
           <RepairSkeleton />
-        ) : error ? (
-          <ErrorState message={error} onRetry={() => window.location.reload()} />
         ) : filteredGuides.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredGuides.map((guide) => (
@@ -92,10 +114,14 @@ export const Repairs = () => {
         ) : (
           <RepairEmptyState
             isSearch={!!searchQuery}
-            title={searchQuery ? "No matching procedures found" : "Library is currently empty"}
-            message={searchQuery ? `We couldn't find a repair guide matching "${searchQuery}". Please try broader terms.` : undefined}
+            title={searchQuery ? t('repairs.no_match_title') : t('repairs.empty_title')}
+            message={
+              searchQuery
+                ? t('repairs.no_match_message', { query: searchQuery })
+                : undefined
+            }
             onAction={searchQuery ? () => setSearchQuery('') : undefined}
-            actionText={searchQuery ? "Clear Search" : "Refresh Library"}
+            actionText={searchQuery ? t('repairs.clear_search') : t('repairs.refresh')}
           />
         )}
 
@@ -106,13 +132,13 @@ export const Repairs = () => {
               <BookOpen className="w-8 h-8 text-brand-teal" />
            </div>
            <div>
-              <h3 className="text-xl font-bold mb-2">Can't find a specific guide?</h3>
+              <h3 className="text-xl font-bold mb-2">{t('repairs.cant_find_title')}</h3>
               <p className="text-white/60 text-sm max-w-xl">
-                 Our technical writers and AI training models are updating the library daily. Try using the AI Diagnostic tool for customized troubleshooting guidance.
+                 {t('repairs.cant_find_desc')}
               </p>
            </div>
            <button className="md:ml-auto px-8 py-4 bg-brand-teal text-brand-navy rounded-xl font-bold hover:bg-brand-teal/90 transition-colors whitespace-nowrap">
-              Request Procedure
+              {t('repairs.request')}
            </button>
         </section>
       </main>

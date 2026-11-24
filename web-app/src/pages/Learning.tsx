@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Search, SlidersHorizontal } from 'lucide-react';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
@@ -10,6 +11,7 @@ import { LearningEmptyState } from '../components/learning/LearningEmptyState';
 import { ErrorState } from '../components/ui/Error';
 
 export const Learning = () => {
+  const { t } = useTranslation();
   const { modules, loading, error } = useLearning();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
@@ -20,7 +22,8 @@ export const Learning = () => {
         m.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         m.description.toLowerCase().includes(searchQuery.toLowerCase());
 
-      const matchesCategory = activeCategory === 'All' || m.category === activeCategory;
+      // Category filter is no longer available since category field was removed
+      const matchesCategory = activeCategory === 'All';
 
       return matchesSearch && matchesCategory;
     });
@@ -32,9 +35,9 @@ export const Learning = () => {
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <header className="mb-12">
-           <h1 className="text-4xl font-extrabold text-brand-navy mb-4">AutoFix Learning Academy</h1>
+           <h1 className="text-4xl font-extrabold text-brand-navy mb-4">{t('learning.title')}</h1>
            <p className="text-slate-600 max-w-2xl text-lg">
-             Explore our comprehensive automotive, electrical, and electronics training modules built for modern technical education.
+             {t('learning.subtitle')}
            </p>
         </header>
 
@@ -44,7 +47,7 @@ export const Learning = () => {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search for topics, systems, or tools..."
+                placeholder={t('learning.search_placeholder')}
                 className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none transition-all shadow-sm"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -52,7 +55,7 @@ export const Learning = () => {
            </div>
            <button className="flex items-center gap-2 px-6 py-4 bg-white border border-slate-200 rounded-2xl text-slate-600 hover:bg-slate-50 transition-colors shadow-sm lg:hidden">
               <SlidersHorizontal className="w-5 h-5" />
-              <span className="font-semibold">Filters</span>
+              <span className="font-semibold">{t('learning.filters')}</span>
            </button>
         </div>
 
@@ -73,10 +76,14 @@ export const Learning = () => {
           </div>
         ) : (
           <LearningEmptyState
-            title={searchQuery ? "No results found" : "No modules available"}
-            message={searchQuery ? `We couldn't find anything matching "${searchQuery}".` : undefined}
+            title={searchQuery ? t('learning.no_results_title') : t('learning.no_modules_title')}
+            message={
+              searchQuery
+                ? t('learning.no_results_message', { query: searchQuery })
+                : t('learning.no_modules_message')
+            }
             onAction={searchQuery ? () => setSearchQuery('') : undefined}
-            actionText={searchQuery ? "Clear Search" : undefined}
+            actionText={searchQuery ? t('learning.clear_search') : undefined}
           />
         )}
       </main>

@@ -18,7 +18,6 @@ export const searchService = {
 
     const [modules, guides] = await Promise.all([
       databaseService.listDocuments<LearningModule>(COLLECTIONS.LEARNING_MODULES, [
-        Query.equal('isPublished', true),
         Query.limit(50)
       ]),
       databaseService.listDocuments<RepairGuide>(COLLECTIONS.REPAIR_GUIDES, [
@@ -41,7 +40,7 @@ export const searchService = {
 
     if (userId) {
       const [vehicles, sessions] = await Promise.all([
-        databaseService.listDocuments<VehicleProfile>(COLLECTIONS.VEHICLE_PROFILES, [
+        databaseService.listDocuments<VehicleProfile>(COLLECTIONS.VEHICLES, [
           Query.equal('userId', userId)
         ]),
         databaseService.listDocuments<any>(COLLECTIONS.DIAGNOSTIC_SESSIONS, [
@@ -50,8 +49,8 @@ export const searchService = {
       ]);
 
       results.garage = vehicles.filter(v =>
-        v.make.toLowerCase().includes(lowercaseQuery) ||
-        v.model.toLowerCase().includes(lowercaseQuery)
+        (v.make || '').toLowerCase().includes(lowercaseQuery) ||
+        (v.model || '').toLowerCase().includes(lowercaseQuery)
       );
 
       results.diagnostics = sessions

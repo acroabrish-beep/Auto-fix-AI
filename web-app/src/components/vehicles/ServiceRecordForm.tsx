@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ServiceRecord } from '../../types';
 import { Button } from '../ui/Button';
 import { Loader2, Calendar, Paperclip, X, FileText } from 'lucide-react';
@@ -12,6 +13,16 @@ interface ServiceRecordFormProps {
   loading: boolean;
 }
 
+const SERVICE_TYPES = [
+  { value: 'Oil Change', key: 'vehicles.oil_change' },
+  { value: 'Brake Service', key: 'vehicles.brake_service' },
+  { value: 'Tire Rotation', key: 'vehicles.tire_rotation' },
+  { value: 'Battery Replacement', key: 'vehicles.battery_replacement' },
+  { value: 'Engine Diagnostic', key: 'vehicles.engine_diagnostic' },
+  { value: 'General Maintenance', key: 'vehicles.general_maintenance' },
+  { value: 'Repair', key: 'vehicles.repair' },
+];
+
 export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
   vehicleId,
   initialData,
@@ -19,6 +30,7 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
   onCancel,
   loading
 }) => {
+  const { t } = useTranslation();
   const { uploadFile, BUCKETS } = useStorage();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [attachmentFileId, setAttachmentFileId] = useState(initialData?.attachmentFileId || '');
@@ -44,7 +56,7 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
       const response = await uploadFile(BUCKETS.SERVICE_RECEIPTS, file);
       setAttachmentFileId(response.$id);
     } catch (err) {
-      alert('File upload failed');
+      alert(t('vehicles.upload_failed'));
     } finally {
       setUploadingImage(false);
     }
@@ -67,7 +79,7 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Service Type</label>
+          <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">{t('vehicles.service_type')}</label>
           <select
             name="serviceType"
             required
@@ -75,18 +87,16 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
             value={formData.serviceType}
             onChange={handleChange}
           >
-            <option>Oil Change</option>
-            <option>Brake Service</option>
-            <option>Tire Rotation</option>
-            <option>Battery Replacement</option>
-            <option>Engine Diagnostic</option>
-            <option>General Maintenance</option>
-            <option>Repair</option>
+            {SERVICE_TYPES.map((option) => (
+              <option key={option.value} value={option.value}>
+                {t(option.key)}
+              </option>
+            ))}
           </select>
         </div>
         <div>
           <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide flex items-center gap-2">
-             <Calendar className="w-4 h-4" /> Date
+             <Calendar className="w-4 h-4" /> {t('vehicles.date')}
           </label>
           <input
             name="date"
@@ -100,12 +110,12 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
       </div>
 
       <div>
-        <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Short Description</label>
+        <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">{t('vehicles.short_description')}</label>
         <input
           name="description"
           required
           className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none"
-          placeholder="Brief summary of work done"
+          placeholder={t('vehicles.desc_placeholder')}
           value={formData.description}
           onChange={handleChange}
         />
@@ -113,7 +123,7 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div>
-          <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Mileage</label>
+          <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">{t('vehicles.mileage')}</label>
           <input
             name="mileage"
             type="number"
@@ -123,7 +133,7 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
           />
         </div>
         <div>
-          <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Cost</label>
+          <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">{t('vehicles.cost')}</label>
           <input
             name="cost"
             type="number"
@@ -134,11 +144,11 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
           />
         </div>
         <div>
-          <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Provider</label>
+          <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">{t('vehicles.provider')}</label>
           <input
             name="provider"
             className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none"
-            placeholder="Service center name"
+            placeholder={t('vehicles.provider_placeholder')}
             value={formData.provider}
             onChange={handleChange}
           />
@@ -147,32 +157,32 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
 
       <div>
         <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide flex items-center justify-between">
-           <span>Notes</span>
+           <span>{t('vehicles.notes')}</span>
            <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
               className="text-xs text-brand-blue hover:underline flex items-center gap-1 font-bold"
            >
-              <Paperclip className="w-3 h-3" /> Attach Receipt
+              <Paperclip className="w-3 h-3" /> {t('vehicles.attach_receipt')}
            </button>
         </label>
 
         {attachmentFileId && (
           <div className="mb-3 p-3 bg-slate-50 rounded-xl border flex items-center justify-between">
              <div className="flex items-center gap-2 text-xs font-bold text-slate-600 uppercase">
-                <FileText className="w-4 h-4 text-brand-blue" /> Document Attached
+                <FileText className="w-4 h-4 text-brand-blue" /> {t('vehicles.document_attached')}
              </div>
              <button type="button" onClick={() => setAttachmentFileId('')} className="text-red-500 hover:text-red-600">
                 <X className="w-4 h-4" />
              </button>
           </div>
         )}
-        {uploadingFile && <div className="mb-3 text-xs text-brand-blue animate-pulse font-bold">Uploading attachment...</div>}
+        {uploadingFile && <div className="mb-3 text-xs text-brand-blue animate-pulse font-bold">{t('vehicles.uploading')}</div>}
 
         <textarea
           name="notes"
           className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none min-h-[100px]"
-          placeholder="Additional details, parts used, etc."
+          placeholder={t('vehicles.notes_placeholder')}
           value={formData.notes}
           onChange={handleChange}
         />
@@ -188,7 +198,7 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
           onClick={onCancel}
           disabled={loading}
         >
-          Cancel
+          {t('shared.cancel')}
         </Button>
         <Button
           type="submit"
@@ -196,7 +206,7 @@ export const ServiceRecordForm: React.FC<ServiceRecordFormProps> = ({
           disabled={loading}
         >
           {loading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-          {initialData?.$id ? 'Update Record' : 'Save Record'}
+          {initialData?.$id ? t('vehicles.update_record') : t('vehicles.save_record')}
         </Button>
       </div>
     </form>

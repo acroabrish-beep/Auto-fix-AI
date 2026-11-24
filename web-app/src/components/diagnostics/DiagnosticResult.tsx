@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { DiagnosticResponse, RepairGuide } from '../../types';
 import { Badge } from '../ui/Badge';
 import {
@@ -23,6 +24,7 @@ interface DiagnosticResultProps {
 
 export const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ response }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [matchingGuide, setMatchingGuide] = useState<RepairGuide | null>(null);
   const [matchingModule, setMatchingModule] = useState<any | null>(null);
   const [searching, setSearching] = useState(true);
@@ -65,10 +67,10 @@ export const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ response }) 
         </div>
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-6">
-            <Badge className="bg-brand-teal text-brand-navy font-bold px-4 py-1">AI ANALYSIS COMPLETE</Badge>
-            <span className="text-slate-400 font-mono text-sm">Confidence: {Math.round(response.confidence * 100)}%</span>
+            <Badge className="bg-brand-teal text-brand-navy font-bold px-4 py-1">{t('diagnostics_result.analysis_complete')}</Badge>
+            <span className="text-slate-400 font-mono text-sm">{t('diagnostics_result.confidence', { value: Math.round(response.confidence * 100) })}</span>
           </div>
-          <h2 className="text-3xl font-bold mb-6">Diagnostic Summary</h2>
+          <h2 className="text-3xl font-bold mb-6">{t('diagnostics_result.summary')}</h2>
           <p className="text-xl text-slate-300 leading-relaxed max-w-3xl">
             {response.summary}
           </p>
@@ -80,7 +82,7 @@ export const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ response }) 
         <div className="lg:col-span-2 space-y-8">
           <section className="bg-white rounded-3xl border p-8 shadow-sm">
             <h3 className="text-xl font-bold text-brand-navy mb-8 flex items-center gap-3">
-              <AlertTriangle className="w-6 h-6 text-red-500" /> Likely Causes
+              <AlertTriangle className="w-6 h-6 text-red-500" /> {t('diagnostics_result.likely_causes')}
             </h3>
             <div className="space-y-6">
               {response.possibleCauses.map((cause, idx) => (
@@ -88,7 +90,7 @@ export const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ response }) 
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="font-bold text-slate-900 text-lg">{cause.title}</h4>
                     <span className="text-xs font-bold text-brand-blue bg-brand-blue/5 px-3 py-1 rounded-full">
-                       {Math.round(cause.probability * 100)}% Match
+                       {t('diagnostics_result.match', { value: Math.round(cause.probability * 100) })}
                     </span>
                   </div>
                   <p className="text-slate-600 text-sm leading-relaxed">{cause.description}</p>
@@ -99,7 +101,7 @@ export const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ response }) 
 
           <section className="bg-white rounded-3xl border p-8 shadow-sm">
             <h3 className="text-xl font-bold text-brand-navy mb-8 flex items-center gap-3">
-              <Wrench className="w-6 h-6 text-brand-teal" /> Recommended Checks
+              <Wrench className="w-6 h-6 text-brand-teal" /> {t('diagnostics_result.recommended_checks')}
             </h3>
             <div className="space-y-4">
               {response.recommendedChecks.map((check, idx) => (
@@ -129,7 +131,7 @@ export const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ response }) 
         {/* Action Sidebar */}
         <div className="space-y-8">
            <section className="bg-brand-blue text-white rounded-3xl p-8 shadow-lg">
-              <h3 className="font-bold mb-6">Immediate Next Steps</h3>
+              <h3 className="font-bold mb-6">{t('diagnostics_result.next_steps')}</h3>
               <div className="space-y-4 mb-8">
                  {response.nextSteps.map((step, idx) => (
                    <div key={idx} className="flex items-start gap-3">
@@ -150,13 +152,13 @@ export const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ response }) 
                          onClick={() => navigate(`/repairs/${matchingGuide.$id}`)}
                          className="w-full py-4 bg-white text-brand-blue rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-white/90 transition-all shadow-md group"
                       >
-                         <BookOpen className="w-4 h-4" /> Open Repair Guide <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                         <BookOpen className="w-4 h-4" /> {t('diagnostics_result.open_guide')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
                    ) : (
                       <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                         <p className="text-xs text-white/60 mb-2">Detailed guide not available yet</p>
+                         <p className="text-xs text-white/60 mb-2">{t('diagnostics_result.guide_unavailable')}</p>
                          <button onClick={() => navigate('/repairs')} className="text-xs font-bold text-brand-teal hover:underline">
-                            Browse Library Hub
+                            {t('diagnostics_result.browse_library')}
                          </button>
                       </div>
                    )}
@@ -166,11 +168,11 @@ export const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ response }) 
                          onClick={() => navigate(`/learning/${matchingModule.$id}`)}
                          className="w-full py-4 bg-brand-teal text-brand-navy rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand-teal/90 transition-all shadow-md"
                       >
-                         <ShieldAlert className="w-4 h-4" /> Learn About This System
+                         <ShieldAlert className="w-4 h-4" /> {t('diagnostics_result.learn_system')}
                       </button>
                    ) : (
                       <div className="text-center p-3 text-[10px] text-white/40 uppercase tracking-widest border border-white/5 rounded-xl">
-                         Related academy module coming soon
+                         {t('diagnostics_result.module_soon')}
                       </div>
                    )}
                 </div>
@@ -179,7 +181,7 @@ export const DiagnosticResult: React.FC<DiagnosticResultProps> = ({ response }) 
 
            <div className="bg-white rounded-3xl border p-8">
               <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                 <ShieldAlert className="w-5 h-5 text-amber-500" /> Safety Notes
+                 <ShieldAlert className="w-5 h-5 text-amber-500" /> {t('diagnostics_result.safety_notes')}
               </h3>
               <ul className="space-y-3">
                  {response.safetyNotes.map((note, idx) => (

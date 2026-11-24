@@ -9,10 +9,27 @@ import { ErrorState } from '../components/ui/Error';
 import { useDiagnostics } from '../hooks/useDiagnostics';
 import { Brain, History, Plus } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 export const Diagnostics = () => {
+  const { t, i18n } = useTranslation();
   const { analyzeSymptoms, currentSession, loading, error, setCurrentSession } = useDiagnostics();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!currentSession?.result?.summary) return;
+    if (!('speechSynthesis' in window)) return;
+
+    const language = i18n.language || 'en';
+    const speechLanguage =
+      language === 'am' ? 'am-ET' : language === 'om' ? 'om-ET' : 'en-US';
+
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(currentSession.result.summary);
+    utterance.lang = speechLanguage;
+    window.speechSynthesis.speak(utterance);
+  }, [currentSession, i18n.language]);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -25,10 +42,10 @@ export const Diagnostics = () => {
               <div className="bg-brand-blue/10 p-2 rounded-xl">
                  <Brain className="w-8 h-8" />
               </div>
-              <h1 className="text-3xl font-extrabold text-brand-navy">AI Diagnostics Workspace</h1>
+              <h1 className="text-3xl font-extrabold text-brand-navy">{t('diagnostics.title')}</h1>
             </div>
             <p className="text-slate-600 max-w-xl">
-              Professional automotive troubleshooting powered by intelligent models. Describe your vehicle symptoms to get structured guidance.
+              {t('diagnostics.subtitle')}
             </p>
           </div>
           <div className="flex gap-4">
@@ -36,14 +53,14 @@ export const Diagnostics = () => {
                 onClick={() => navigate('/diagnostics/history')}
                 className="flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 rounded-xl text-slate-700 font-bold hover:bg-slate-50 transition-all shadow-sm"
              >
-                <History className="w-5 h-5" /> View History
+                <History className="w-5 h-5" /> {t('diagnostics.view_history')}
              </button>
              {currentSession && (
                <button
                   onClick={() => setCurrentSession(null)}
                   className="flex items-center gap-2 px-6 py-3 bg-brand-blue text-white rounded-xl font-bold hover:bg-brand-blue/90 transition-all shadow-lg"
                >
-                  <Plus className="w-5 h-5" /> New Analysis
+                  <Plus className="w-5 h-5" /> {t('diagnostics.new_analysis')}
                </button>
              )}
           </div>
@@ -54,7 +71,7 @@ export const Diagnostics = () => {
         ) : error ? (
           <div className="max-w-2xl mx-auto py-12">
              <ErrorState
-                title="Analysis Failed"
+                title={t('diagnostics.analysis_failed')}
                 message={error}
                 onRetry={() => window.location.reload()}
              />

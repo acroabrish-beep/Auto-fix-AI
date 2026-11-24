@@ -1,22 +1,24 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../components/ui/Button';
 import { ArrowRight, Sparkles, Activity, Zap, Cpu, Languages, WifiOff, GraduationCap, ShieldCheck } from 'lucide-react';
 
 const HIGHLIGHTS = [
-  { icon: Languages, label: 'Multilingual', detail: 'EN · AM · SW · FR' },
-  { icon: WifiOff, label: 'Offline-first', detail: 'Works without internet' },
-  { icon: GraduationCap, label: 'TVET-aligned', detail: 'Curriculum ready' },
+  { icon: Languages, labelKey: 'hero.highlight_multilingual', detailKey: 'hero.highlight_multilingual_detail' },
+  { icon: WifiOff, labelKey: 'hero.highlight_offline', detailKey: 'hero.highlight_offline_detail' },
+  { icon: GraduationCap, labelKey: 'hero.highlight_tvet', detailKey: 'hero.highlight_tvet_detail' },
 ] as const;
 
 const DIAGNOSTIC_CODES = [
-  { code: 'P0301', text: 'Cylinder 1 misfire', severity: 'Amber' },
-  { code: 'P0171', text: 'System too lean', severity: 'Teal' },
-  { code: 'U0100', text: 'Lost comms with ECU', severity: 'Amber' },
+  { code: 'P0301', textKey: 'hero.code_misfire', severity: 'Amber' },
+  { code: 'P0171', textKey: 'hero.code_lean', severity: 'Teal' },
+  { code: 'U0100', textKey: 'hero.code_comms', severity: 'Amber' },
 ] as const;
 
 export const Hero = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const scrollToFeatures = useCallback(() => {
     document.getElementById('features')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -31,6 +33,8 @@ export const Hero = () => {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         {/* Base gradient wash */}
         <div className="absolute inset-0 bg-[linear-gradient(160deg,#0A1628_0%,#0A1628_45%,#0B1C33_70%,#0A1628_100%)]" />
+        {/* Teal signature glow behind the headline */}
+        <div className="absolute left-1/2 top-0 h-[560px] w-[900px] max-w-full -translate-x-1/2 -translate-y-1/3 rounded-full bg-brand-teal/[0.13] blur-[150px]" />
         {/* Blue glow from the top */}
         <div className="absolute inset-0 bg-radial-fade" />
         {/* Abstract tech grid */}
@@ -39,6 +43,7 @@ export const Hero = () => {
         <div className="absolute -left-32 top-10 h-80 w-80 rounded-full bg-brand-teal/20 blur-[120px] animate-float-slow" />
         <div className="absolute -right-24 top-1/3 h-96 w-96 rounded-full bg-brand-blue/30 blur-[130px] animate-float" />
         <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-brand-bright/10 blur-[120px]" />
+        <div className="absolute bottom-10 right-1/4 h-64 w-64 rounded-full bg-brand-teal/[0.14] blur-[110px]" />
       </div>
 
       {/* Accent hairline at the very top of the hero */}
@@ -50,7 +55,7 @@ export const Hero = () => {
           <div className="lg:col-span-6 xl:col-span-6">
             <span className="inline-flex animate-fade-up items-center gap-2 rounded-full border border-brand-teal/30 bg-brand-teal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal">
               <Sparkles className="h-3.5 w-3.5" />
-              AI-Powered Automotive Platform
+              {t('hero.badge')}
             </span>
 
             <h1 className="mt-7 animate-fade-up text-balance text-6xl font-extrabold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
@@ -60,18 +65,17 @@ export const Hero = () => {
             </h1>
 
             <p className="mt-6 max-w-xl animate-fade-up text-pretty text-xl font-medium leading-snug text-slate-200 sm:text-2xl">
-              AI-Powered Automotive Learning, Diagnosis &amp; Repair Platform
+              {t('hero.subtitle')}
             </p>
 
             <p className="mt-5 animate-fade-up text-sm font-semibold uppercase tracking-[0.35em] text-brand-teal sm:text-base">
-              Learn <span className="text-brand-teal/50">·</span> Diagnose{' '}
-              <span className="text-brand-teal/50">·</span> Repair{' '}
-              <span className="text-brand-teal/50">·</span> Empower
+              {t('hero.tag_learn')} <span className="text-brand-teal/50">·</span> {t('hero.tag_diagnose')}{' '}
+              <span className="text-brand-teal/50">·</span> {t('hero.tag_repair')}{' '}
+              <span className="text-brand-teal/50">·</span> {t('hero.tag_empower')}
             </p>
 
             <p className="mt-6 max-w-xl animate-fade-up text-pretty text-base leading-relaxed text-slate-400 sm:text-lg">
-              Transforming TVET education in Africa through multilingual, offline-first AI
-              technology.
+              {t('hero.description')}
             </p>
 
             <div className="mt-10 flex animate-fade-up flex-col gap-4 sm:flex-row sm:items-center">
@@ -80,7 +84,7 @@ export const Hero = () => {
                 onClick={() => navigate('/register')}
                 className="group h-14 rounded-xl bg-brand-teal px-8 text-base font-semibold text-ink shadow-glow transition-all hover:bg-brand-teal/90 hover:shadow-glow-lg"
               >
-                Start Learning
+                {t('hero.start_learning')}
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
               </Button>
               <Button
@@ -89,20 +93,20 @@ export const Hero = () => {
                 onClick={scrollToFeatures}
                 className="h-14 rounded-xl border-2 border-white/25 bg-white/5 px-8 text-base font-semibold text-white backdrop-blur-sm transition-all hover:border-white/45 hover:bg-white/10 hover:text-white"
               >
-                See Features
+                {t('hero.see_features')}
               </Button>
             </div>
 
             {/* Trust / capability strip */}
             <dl className="mt-12 grid max-w-xl animate-fade-up grid-cols-1 gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
-              {HIGHLIGHTS.map(({ icon: Icon, label, detail }) => (
-                <div key={label} className="flex items-start gap-3">
+              {HIGHLIGHTS.map(({ icon: Icon, labelKey, detailKey }) => (
+                <div key={labelKey} className="flex items-start gap-3">
                   <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-brand-teal">
                     <Icon className="h-4 w-4" />
                   </span>
                   <div>
-                    <dt className="text-sm font-semibold text-white">{label}</dt>
-                    <dd className="text-xs text-slate-400">{detail}</dd>
+                    <dt className="text-sm font-semibold text-white">{t(labelKey)}</dt>
+                    <dd className="text-xs text-slate-400">{t(detailKey)}</dd>
                   </div>
                 </div>
               ))}
@@ -133,11 +137,11 @@ export const Hero = () => {
                       <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-brand-teal" />
                     </span>
                     <span className="text-sm font-semibold tracking-wide text-white">
-                      Live Diagnostics
+                      {t('hero.live_diagnostics')}
                     </span>
                   </div>
                   <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-slate-400">
-                    ECU · Online
+                    {t('hero.ecu_online')}
                   </span>
                 </div>
 
@@ -146,14 +150,14 @@ export const Hero = () => {
                   <div className="rounded-2xl border border-white/10 bg-ink/60 p-4">
                     <Activity className="mb-2 h-5 w-5 text-brand-teal" />
                     <div className="text-[10px] uppercase tracking-widest text-slate-400">
-                      Engine RPM
+                      {t('hero.engine_rpm')}
                     </div>
                     <div className="font-mono text-2xl text-white">4,250</div>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-ink/60 p-4">
                     <Zap className="mb-2 h-5 w-5 text-amber-400" />
                     <div className="text-[10px] uppercase tracking-widest text-slate-400">
-                      Battery
+                      {t('hero.battery')}
                     </div>
                     <div className="font-mono text-2xl text-white">14.2V</div>
                   </div>
@@ -184,7 +188,7 @@ export const Hero = () => {
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
                       <span className="font-mono text-4xl font-bold text-white">85%</span>
                       <span className="text-[10px] uppercase tracking-[0.2em] text-slate-400">
-                        Vehicle health
+                        {t('hero.vehicle_health')}
                       </span>
                     </div>
                   </div>
@@ -194,7 +198,7 @@ export const Hero = () => {
                 <div className="relative space-y-2">
                   <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
                     <Cpu className="h-4 w-4 text-brand-teal" />
-                    Detected fault codes
+                    {t('hero.detected_codes')}
                   </div>
                   {DIAGNOSTIC_CODES.map((item) => (
                     <div
@@ -202,7 +206,7 @@ export const Hero = () => {
                       className="flex items-center justify-between rounded-xl border border-white/10 bg-ink/50 px-3.5 py-2.5"
                     >
                       <span className="font-mono text-sm text-brand-teal">{item.code}</span>
-                      <span className="text-xs text-slate-300">{item.text}</span>
+                      <span className="text-xs text-slate-300">{t(item.textKey)}</span>
                       <span
                         className={
                           item.severity === 'Teal'
@@ -219,7 +223,7 @@ export const Hero = () => {
                   <div className="flex items-center justify-between text-xs">
                     <span className="flex items-center gap-2 font-semibold text-white">
                       <ShieldCheck className="h-4 w-4 text-brand-teal" />
-                      Repair confidence
+                      {t('hero.repair_confidence')}
                     </span>
                     <span className="font-mono text-brand-teal">92%</span>
                   </div>
@@ -233,8 +237,8 @@ export const Hero = () => {
               <div className="absolute -bottom-5 -left-4 hidden animate-float items-center gap-2 rounded-2xl border border-white/10 bg-ink/90 px-4 py-3 shadow-2xl backdrop-blur-xl sm:flex">
                 <WifiOff className="h-4 w-4 text-brand-teal" />
                 <div className="leading-tight">
-                  <div className="text-xs font-semibold text-white">Offline mode active</div>
-                  <div className="text-[10px] text-slate-400">Cached · Swahili</div>
+                  <div className="text-xs font-semibold text-white">{t('hero.offline_active')}</div>
+                  <div className="text-[10px] text-slate-400">{t('hero.cached_swahili')}</div>
                 </div>
               </div>
             </div>

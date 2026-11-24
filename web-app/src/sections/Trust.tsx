@@ -1,27 +1,30 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Sparkles, Gauge, Globe, Smartphone } from 'lucide-react';
 
 export const Trust = () => {
+  const { t } = useTranslation();
+
   const features = [
     {
       icon: <Sparkles className="h-6 w-6 text-brand-teal" />,
-      title: 'AI Powered',
-      description: 'Smart diagnostics and intelligent learning.',
+      title: t('extras.trust_ai_title'),
+      description: t('extras.trust_ai_desc'),
     },
     {
       icon: <Gauge className="h-6 w-6 text-brand-teal" />,
-      title: 'Practical Learning',
-      description: 'Turn theory into hands-on skills.',
+      title: t('extras.trust_practical_title'),
+      description: t('extras.trust_practical_desc'),
     },
     {
       icon: <Globe className="h-6 w-6 text-brand-teal" />,
-      title: 'Multilingual',
-      description: 'Make technical education accessible.',
+      title: t('extras.trust_multilingual_title'),
+      description: t('extras.trust_multilingual_desc'),
     },
     {
       icon: <Smartphone className="h-6 w-6 text-brand-teal" />,
-      title: 'Accessible',
-      description: 'Designed for students, mechanics and owners.',
+      title: t('extras.trust_accessible_title'),
+      description: t('extras.trust_accessible_desc'),
     },
   ];
 
@@ -29,7 +32,7 @@ export const Trust = () => {
     <section id="about" className="py-12 bg-slate-50 border-y">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-slate-500 font-semibold uppercase tracking-widest text-sm mb-12">
-          Built for the Future of Automotive Skills
+          {t('extras.trust_title')}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, idx) => (

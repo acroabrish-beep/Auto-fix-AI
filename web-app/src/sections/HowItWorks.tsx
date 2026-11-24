@@ -1,17 +1,22 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const HowItWorks = () => {
+  const { t } = useTranslation();
+
   const steps = [
-    { number: '01', title: 'LEARN', description: 'Build automotive knowledge.' },
-    { number: '02', title: 'DIAGNOSE', description: 'Understand vehicle problems with AI.' },
-    { number: '03', title: 'REPAIR', description: 'Follow practical repair guidance.' },
-    { number: '04', title: 'EMPOWER', description: 'Build real-world technical skills.' },
+    { number: '01', title: t('extras.how_learn'), description: t('extras.how_learn_desc') },
+    { number: '02', title: t('extras.how_diagnose'), description: t('extras.how_diagnose_desc') },
+    { number: '03', title: t('extras.how_repair'), description: t('extras.how_repair_desc') },
+    { number: '04', title: t('extras.how_empower'), description: t('extras.how_empower_desc') },
   ];
 
   return (
     <section id="learning" className="py-24 bg-brand-navy text-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold mb-16 text-center lg:text-left">How It Works</h2>
+        <h2 className="text-3xl font-bold mb-16 text-center lg:text-left">
+          {t('extras.how_title')}
+        </h2>
 
         <div className="relative flex flex-col lg:flex-row gap-12 lg:gap-0">
           {/* Connector Line (Desktop) */}

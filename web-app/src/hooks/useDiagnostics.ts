@@ -5,7 +5,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { DiagnosticRequest, DiagnosticResponse, DiagnosticSession } from '../types';
 
 export const useDiagnostics = () => {
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
   const [sessions, setSessions] = useState<DiagnosticSession[]>([]);
   const [currentSession, setCurrentSession] = useState<DiagnosticSession | null>(null);
   const [loading, setLoading] = useState(false);
@@ -35,6 +35,9 @@ export const useDiagnostics = () => {
       // 2. Save Session to Appwrite
       const session = await diagnosticsService.saveSession(user.$id, {
         vehicleId: request.vehicleId,
+        description: request.description,
+        aiResponse: JSON.stringify(result),
+        institutionId: profile?.institutionId,
         userInput: request.description,
         requestData: request,
         result: result,

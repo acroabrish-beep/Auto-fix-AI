@@ -1,32 +1,105 @@
-import React, { useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { appwriteAuth } from '../../services/auth/appwriteAuth';
+import { account } from '../../lib/appwrite';
+import { isNetworkError } from '../../lib/isNetworkError';
 import { useAuth } from '../../contexts/AuthContext';
+import { profilesService } from '../../services/database/profiles';
 import { Button } from '../../components/ui/Button';
 import { Logo } from '../../components/ui/Logo';
 import { AlertCircle, Loader2 } from 'lucide-react';
 
+/** Fail the request instead of leaving the button stuck forever. */
+const AUTH_TIMEOUT_MS = 20_000;
+
+const withTimeout = <T,>(promise: Promise<T>, ms: number, message: string): Promise<T> =>
+  Promise.race([
+    promise,
+    new Promise<T>((_, reject) => setTimeout(() => reject(new Error(message)), ms)),
+  ]);
+
 export const Login = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
   const { refreshUser } = useAuth();
 
+  const getRolePath = (role?: string) => {
+    switch (role) {
+      case 'global_admin':
+        return '/admin';
+      case 'tvet_admin':
+        return '/school-admin';
+      case 'department_admin':
+        return '/department-admin';
+      case 'instructor':
+        return '/instructor';
+      case 'garage_admin':
+        return '/garage-admin';
+      case 'mechanic':
+        return '/mechanic';
+      case 'student':
+        return '/student';
+      default:
+        return '/dashboard';
+    }
+  };
+
+  // If a session is already active, skip the login form.
+  useEffect(() => {
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const currentUser = await account.get();
+        if (!cancelled && currentUser) {
+          const profile = await profilesService.getProfile(currentUser.$id);
+          navigate(getRolePath(profile?.role), { replace: true });
+        }
+      } catch {
+        // No active session â€” stay on the login page.
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [navigate]);
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    setIsLoading(true);
     setError(null);
 
     try {
-      await appwriteAuth.login(email, password);
+      // Appwrite SDK 26+: `createEmailSession` no longer exists.
+      // `appwriteAuth.login` calls `account.createEmailPasswordSession`.
+      await withTimeout(
+        appwriteAuth.login(email, password),
+        AUTH_TIMEOUT_MS,
+        t('auth.timeout')
+      );
+
       await refreshUser();
-      navigate('/dashboard');
-    } catch (err: any) {
-      setError(err.message || 'Invalid email or password');
+      const currentUser = await appwriteAuth.getCurrentUser();
+      const userProfile = currentUser ? await profilesService.getProfile(currentUser.$id) : null;
+      navigate(getRolePath(userProfile?.role), { replace: true });
+    } catch (err: unknown) {
+      console.error('Login failed:', err);
+
+      if (isNetworkError(err)) {
+        setError(t('auth.network_error'));
+      } else {
+        const message = err instanceof Error ? err.message : '';
+        setError(message || t('auth.invalid_credentials'));
+      }
     } finally {
-      setLoading(false);
+      // Always runs â€” resolved, rejected, or timed out.
+      setIsLoading(false);
     }
   };
 
@@ -35,8 +108,8 @@ export const Login = () => {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Logo className="justify-center mb-4" />
-          <h2 className="text-2xl font-bold text-brand-navy">Welcome Back</h2>
-          <p className="text-slate-600 mt-2">Sign in to your AutoFix AI account</p>
+          <h2 className="text-2xl font-bold text-brand-navy">{t('auth.login_title')}</h2>
+          <p className="text-slate-600 mt-2">{t('auth.login_subtitle')}</p>
         </div>
 
         <div className="bg-white p-8 rounded-2xl shadow-xl border">
@@ -49,7 +122,9 @@ export const Login = () => {
 
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                {t('auth.email')}
+              </label>
               <input
                 type="email"
                 required
@@ -62,8 +137,10 @@ export const Login = () => {
 
             <div>
               <div className="flex justify-between mb-2">
-                <label className="text-sm font-medium text-slate-700">Password</label>
-                <Link to="/forgot-password" className="text-sm text-brand-blue hover:underline">Forgot password?</Link>
+                <label className="text-sm font-medium text-slate-700">{t('auth.password')}</label>
+                <Link to="/forgot-password" className="text-sm text-brand-blue hover:underline">
+                  {t('auth.forgot_password')}
+                </Link>
               </div>
               <input
                 type="password"
@@ -71,30 +148,32 @@ export const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none transition-all"
-                placeholder="••••••••"
+                placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
               />
             </div>
 
-            <Button type="submit" className="w-full py-6 text-lg" disabled={loading}>
-              {loading ? <Loader2 className="h-5 w-5 animate-spin mr-2" /> : null}
-              Sign In
+            <Button type="submit" className="w-full py-6 text-lg" disabled={isLoading}>
+              {isLoading ? <Loader2 className="h-5 w-5 animate-spin mr-2" /> : null}
+              {isLoading ? t('auth.signing_in') : t('auth.sign_in')}
             </Button>
           </form>
 
           <div className="mt-8 text-center text-sm text-slate-600">
-            Don't have an account?{' '}
+            {t('auth.no_account')}{' '}
             <Link to="/register" className="text-brand-blue font-semibold hover:underline">
-              Create one for free
+              {t('auth.create_free')}
             </Link>
           </div>
         </div>
 
         <div className="mt-8 text-center">
-            <Link to="/" className="text-slate-500 hover:text-brand-navy text-sm transition-colors">
-                ← Back to Landing Page
-            </Link>
+          <Link to="/" className="text-slate-500 hover:text-brand-navy text-sm transition-colors">
+            â† {t('auth.back_landing')}
+          </Link>
         </div>
       </div>
     </div>
   );
 };
+
+

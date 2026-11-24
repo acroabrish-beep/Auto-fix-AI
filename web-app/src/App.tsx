@@ -1,5 +1,6 @@
-import React from 'react';
+﻿import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './sections/Hero';
@@ -20,18 +21,29 @@ import { ForgotPassword } from './pages/auth/ForgotPassword';
 import { Dashboard } from './pages/Dashboard';
 import { Learning } from './pages/Learning';
 import { LearningModule } from './pages/LearningModule';
+import { VirtualLab } from './pages/VirtualLab';
 import { Diagnostics } from './pages/Diagnostics';
 import { DiagnosticHistory } from './pages/DiagnosticHistory';
 import { Vehicles } from './pages/Vehicles';
 import { VehicleDetails } from './pages/VehicleDetails';
+import { AddVehicle } from './pages/vehicles/AddVehicle';
 import { Settings } from './pages/Settings';
 import { Repairs } from './pages/Repairs';
 import { RepairDetail } from './pages/RepairDetail';
 import { Search } from './pages/Search';
+import { GlobalDashboard } from './pages/admin/GlobalDashboard';
+import { SchoolDashboard } from './pages/school-admin/SchoolDashboard';
+import { DepartmentAdminDashboard } from './pages/department-admin/DepartmentAdminDashboard';
+import { InstructorDashboard } from './pages/instructor/InstructorDashboard';
+import { StudentDashboard } from './pages/student/StudentDashboard';
+import { GarageDashboard } from './pages/garage-admin/GarageDashboard';
+import { MechanicDashboard } from './pages/mechanic/MechanicDashboard';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 
-const LandingPage = () => (
-// ... existing LandingPage component ...
+const LandingPage = () => {
+  const { t } = useTranslation();
+
+  return (
   <div className="min-h-screen bg-white">
     <Navbar />
     <main>
@@ -48,25 +60,25 @@ const LandingPage = () => (
       <section className="py-24 bg-white border-t">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-brand-navy mb-4">Coming Soon to Your Toolkit</h2>
-              <p className="text-slate-600">We're building the most comprehensive automotive ecosystem.</p>
+              <h2 className="text-3xl font-bold text-brand-navy mb-4">{t('extras.coming_title')}</h2>
+              <p className="text-slate-600">{t('extras.coming_subtitle')}</p>
            </div>
            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
               <div className="text-center p-6 border rounded-2xl">
-                  <div className="font-bold text-slate-900 mb-1">OBD-II Integration</div>
-                  <div className="text-xs text-slate-500 uppercase tracking-tighter">Real-time Data</div>
+                  <div className="font-bold text-slate-900 mb-1">{t('extras.coming_obd_title')}</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-tighter">{t('extras.coming_obd_desc')}</div>
               </div>
               <div className="text-center p-6 border rounded-2xl">
-                  <div className="font-bold text-slate-900 mb-1">Virtual Engines</div>
-                  <div className="text-xs text-slate-500 uppercase tracking-tighter">AR Simulation</div>
+                  <div className="font-bold text-slate-900 mb-1">{t('extras.coming_virtual_title')}</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-tighter">{t('extras.coming_virtual_desc')}</div>
               </div>
               <div className="text-center p-6 border rounded-2xl">
-                  <div className="font-bold text-slate-900 mb-1">Marketplace</div>
-                  <div className="text-xs text-slate-500 uppercase tracking-tighter">Tools & Parts</div>
+                  <div className="font-bold text-slate-900 mb-1">{t('extras.coming_marketplace_title')}</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-tighter">{t('extras.coming_marketplace_desc')}</div>
               </div>
               <div className="text-center p-6 border rounded-2xl">
-                  <div className="font-bold text-slate-900 mb-1">Certifications</div>
-                  <div className="text-xs text-slate-500 uppercase tracking-tighter">Verified Skills</div>
+                  <div className="font-bold text-slate-900 mb-1">{t('extras.coming_certs_title')}</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-tighter">{t('extras.coming_certs_desc')}</div>
               </div>
            </div>
         </div>
@@ -77,7 +89,8 @@ const LandingPage = () => (
     </main>
     <Footer />
   </div>
-);
+  );
+};
 
 function App() {
   return (
@@ -116,6 +129,15 @@ function App() {
         />
 
         <Route
+          path="/lab/:moduleId"
+          element={
+            <ProtectedRoute>
+              <VirtualLab />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/diagnostics"
           element={
             <ProtectedRoute>
@@ -138,6 +160,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Vehicles />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/vehicles/add"
+          element={
+            <ProtectedRoute>
+              <AddVehicle />
             </ProtectedRoute>
           }
         />
@@ -187,6 +218,68 @@ function App() {
           }
         />
 
+        <Route
+          path="/admin/*"
+          element={
+            <ProtectedRoute allowedRoles={['global_admin']}>
+              <GlobalDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/school-admin/*"
+          element={
+            <ProtectedRoute allowedRoles={['tvet_admin']}>
+              <SchoolDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/department-admin/*"
+          element={
+            <ProtectedRoute allowedRoles={['department_admin']}>
+              <DepartmentAdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/instructor/*"
+          element={
+            <ProtectedRoute allowedRoles={['instructor']}>
+              <InstructorDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/student/*"
+          element={
+            <ProtectedRoute allowedRoles={['student']}>
+              <StudentDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/garage-admin/*"
+          element={
+            <ProtectedRoute allowedRoles={['garage_admin']}>
+              <GarageDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/mechanic/*"
+          element={
+            <ProtectedRoute allowedRoles={['mechanic']}>
+              <MechanicDashboard />
+            </ProtectedRoute>
+          }
+        />
+
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
@@ -195,3 +288,4 @@ function App() {
 }
 
 export default App;
+

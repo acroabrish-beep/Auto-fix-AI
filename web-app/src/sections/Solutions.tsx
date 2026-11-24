@@ -1,30 +1,33 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Cpu, ClipboardList, Zap, Wrench } from 'lucide-react';
 
 export const Solutions = () => {
+  const { t } = useTranslation();
+
   const solutions = [
     {
       icon: <Cpu className="h-8 w-8 text-white" />,
-      title: 'AI Automotive Tutor',
-      description: 'Learn automotive systems with an intelligent AI tutor tailored to your pace.',
+      titleKey: 'features.tutor_title',
+      descriptionKey: 'features.tutor_description',
       color: 'bg-brand-blue',
     },
     {
       icon: <ClipboardList className="h-8 w-8 text-white" />,
-      title: 'Smart Diagnostics',
-      description: 'Understand vehicle problems, symptoms and diagnostic codes instantly.',
+      titleKey: 'features.diagnostics_title',
+      descriptionKey: 'features.diagnostics_description',
       color: 'bg-brand-teal',
     },
     {
       icon: <Zap className="h-8 w-8 text-white" />,
-      title: 'Electrical & Electronics Lab',
-      description: 'Practice circuits, electrical systems and electronics concepts virtually.',
+      titleKey: 'features.lab_title',
+      descriptionKey: 'features.lab_description',
       color: 'bg-brand-bright',
     },
     {
       icon: <Wrench className="h-8 w-8 text-white" />,
-      title: 'Practical Repair Guidance',
-      description: 'Get step-by-step guidance from initial diagnosis to final repair.',
+      titleKey: 'features.repair_title',
+      descriptionKey: 'features.repair_description',
       color: 'bg-brand-navy',
     },
   ];
@@ -33,8 +36,8 @@ export const Solutions = () => {
     <section id="features" className="py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-brand-navy mb-4">One Platform. Complete Automotive Intelligence.</h2>
-          <p className="text-slate-600">Empowering automotive professionals with the tools they need to excel in a rapidly evolving industry.</p>
+          <h2 className="text-4xl font-bold text-brand-navy mb-4">{t('features.title')}</h2>
+          <p className="text-slate-600">{t('features.subtitle')}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -46,11 +49,11 @@ export const Solutions = () => {
               <div className={`${item.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-              <p className="text-slate-600 leading-relaxed text-sm">{item.description}</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">{t(item.titleKey)}</h3>
+              <p className="text-slate-600 leading-relaxed text-sm">{t(item.descriptionKey)}</p>
 
               <div className="mt-8 flex items-center text-brand-blue font-semibold text-sm group-hover:underline">
-                Learn more
+                {t('features.learn_more')}
                 <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

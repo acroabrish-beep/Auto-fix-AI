@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   Wrench,
   Brain,
@@ -9,6 +10,7 @@ import {
   History as HistoryIcon
 } from 'lucide-react';
 import { ServiceRecord, DiagnosticSession } from '../../types';
+import { localizeServiceType } from '../../lib/localizeContent';
 
 interface TimelineEvent {
   id: string;
@@ -26,21 +28,22 @@ interface MaintenanceTimelineProps {
 
 export const MaintenanceTimeline: React.FC<MaintenanceTimelineProps> = ({ services, diagnostics }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const events: TimelineEvent[] = [
     ...services.map(s => ({
       id: s.$id,
       date: s.date,
       type: 'SERVICE' as const,
-      title: s.serviceType,
-      summary: s.description || 'Maintenance record',
+      title: localizeServiceType(s.serviceType, t),
+      summary: s.description || t('vehicles.maintenance_record'),
       data: s
     })),
     ...diagnostics.map(d => ({
       id: d.$id,
       date: d.$createdAt,
       type: 'DIAGNOSTIC' as const,
-      title: 'AI Diagnostic',
+      title: t('vehicles.ai_diagnostic'),
       summary: d.userInput,
       data: d
     }))
@@ -50,7 +53,7 @@ export const MaintenanceTimeline: React.FC<MaintenanceTimelineProps> = ({ servic
     return (
       <div className="text-center py-12 bg-white rounded-3xl border-2 border-dashed border-slate-100">
          <HistoryIcon className="w-12 h-12 text-slate-200 mx-auto mb-4" />
-         <p className="text-slate-400 font-medium">No technical events recorded yet.</p>
+         <p className="text-slate-400 font-medium">{t('vehicles.timeline_empty')}</p>
       </div>
     );
   }
@@ -73,7 +76,9 @@ export const MaintenanceTimeline: React.FC<MaintenanceTimelineProps> = ({ servic
                <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                   <Calendar className="w-3 h-3" /> {new Date(event.date).toLocaleDateString()}
                   <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
-                  <span className={event.type === 'SERVICE' ? 'text-teal-600' : 'text-brand-blue'}>{event.type}</span>
+                  <span className={event.type === 'SERVICE' ? 'text-teal-600' : 'text-brand-blue'}>
+                    {event.type === 'SERVICE' ? t('vehicles.repair') : t('vehicles.ai_diagnostic')}
+                  </span>
                </div>
             </div>
 
@@ -81,7 +86,7 @@ export const MaintenanceTimeline: React.FC<MaintenanceTimelineProps> = ({ servic
             <p className="text-slate-500 text-sm line-clamp-2">{event.summary}</p>
 
             <div className="mt-4 flex items-center justify-end text-brand-blue text-xs font-bold group-hover:underline">
-               {event.type === 'DIAGNOSTIC' ? 'View Analysis' : 'Service Details'} <ChevronRight className="w-3.5 h-3.5 ml-1" />
+               {event.type === 'DIAGNOSTIC' ? t('vehicles.view_analysis') : t('vehicles.service_details')} <ChevronRight className="w-3.5 h-3.5 ml-1" />
             </div>
           </div>
         </div>

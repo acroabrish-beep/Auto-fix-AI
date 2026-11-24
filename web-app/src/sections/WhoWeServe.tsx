@@ -1,30 +1,33 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { GraduationCap, Wrench, Car, Truck } from 'lucide-react';
 
 const AUDIENCES = [
   {
     icon: GraduationCap,
-    title: 'TVET Students',
-    description: 'Practical skills development',
+    titleKey: 'who.students',
+    descriptionKey: 'who.students_description',
   },
   {
     icon: Wrench,
-    title: 'Mechanics',
-    description: 'Professional diagnosis tools',
+    titleKey: 'who.mechanics',
+    descriptionKey: 'who.mechanics_description',
   },
   {
     icon: Car,
-    title: 'Car Owners',
-    description: 'Affordable diagnostics & trusted mechanics',
+    titleKey: 'who.owners',
+    descriptionKey: 'who.owners_description',
   },
   {
     icon: Truck,
-    title: 'Fleet Companies',
-    description: 'Predictive maintenance & fuel efficiency',
+    titleKey: 'who.fleets',
+    descriptionKey: 'who.fleets_description',
   },
 ] as const;
 
 export const WhoWeServe = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="who-we-serve" className="relative overflow-hidden bg-brand-blue py-24 text-white">
       {/* ---------- Background layers ---------- */}
@@ -37,26 +40,26 @@ export const WhoWeServe = () => {
         {/* ---------- Header ---------- */}
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-balance text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Who We Serve
+            {t('who.title')}
           </h2>
           <p className="mt-5 text-pretty text-base leading-relaxed text-slate-300 sm:text-lg">
-            Built for everyone in the automotive ecosystem — from the classroom to the fleet yard.
+            {t('who.subtitle')}
           </p>
         </div>
 
         {/* ---------- Audience cards ---------- */}
         <ul className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {AUDIENCES.map(({ icon: Icon, title, description }) => (
+          {AUDIENCES.map(({ icon: Icon, titleKey, descriptionKey }) => (
             <li
-              key={title}
+              key={titleKey}
               className="group relative flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.05] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal/40 hover:bg-white/[0.09]"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-brand-teal/25 bg-brand-teal/15 text-brand-teal transition-colors duration-300 group-hover:bg-brand-teal/25">
                 <Icon className="h-6 w-6" />
               </span>
 
-              <h3 className="mt-5 text-lg font-bold tracking-tight text-white">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-300">{description}</p>
+              <h3 className="mt-5 text-lg font-bold tracking-tight text-white">{t(titleKey)}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">{t(descriptionKey)}</p>
             </li>
           ))}
         </ul>

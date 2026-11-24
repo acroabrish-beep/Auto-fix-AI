@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { AvatarUpload } from '../components/profile/AvatarUpload';
@@ -8,6 +9,7 @@ import { Button } from '../components/ui/Button';
 import { User, Settings as SettingsIcon, Mail, Shield, Globe, Loader2 } from 'lucide-react';
 
 export const Settings = () => {
+  const { t } = useTranslation();
   const { user, profile, refreshUser } = useAuth();
   const [updating, setUpdating] = useState(false);
   const [fullName, setFullName] = useState(profile?.fullName || '');
@@ -24,9 +26,9 @@ export const Settings = () => {
         preferredLanguage: language
       });
       await refreshUser();
-      alert('Profile updated successfully');
+      alert(t('settings.profile_updated'));
     } catch (err) {
-      alert('Failed to update profile');
+      alert(t('settings.profile_update_failed'));
     } finally {
       setUpdating(false);
     }
@@ -52,9 +54,9 @@ export const Settings = () => {
         <div className="max-w-4xl mx-auto">
           <header className="mb-12">
             <h1 className="text-3xl font-extrabold text-brand-navy flex items-center gap-3">
-              <SettingsIcon className="w-8 h-8 text-brand-blue" /> Account Settings
+              <SettingsIcon className="w-8 h-8 text-brand-blue" /> {t('settings.title')}
             </h1>
-            <p className="text-slate-500 mt-2">Manage your profile, preferences, and account security.</p>
+            <p className="text-slate-500 mt-2">{t('settings.subtitle')}</p>
           </header>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -68,19 +70,26 @@ export const Settings = () => {
                    />
                    <div className="mt-6">
                       <h3 className="font-bold text-slate-900 text-lg">{profile?.fullName}</h3>
-                      <span className="text-xs font-bold text-brand-blue uppercase tracking-widest">{profile?.role}</span>
+                      <span className="text-xs font-bold text-brand-blue uppercase tracking-widest">
+                        {profile?.role
+                          ? t(
+                              `auth.role_${profile.role === 'vehicle_owner' ? 'owner' : profile.role}`,
+                              { defaultValue: profile.role }
+                            )
+                          : ''}
+                      </span>
                    </div>
                 </div>
 
                 <div className="bg-brand-blue p-6 rounded-3xl text-white shadow-lg">
                    <div className="flex items-center gap-3 mb-4 font-bold">
-                      <Shield className="w-5 h-5 text-brand-teal" /> Account Status
+                      <Shield className="w-5 h-5 text-brand-teal" /> {t('settings.account_status')}
                    </div>
                    <p className="text-sm text-white/80 leading-relaxed mb-6">
-                      Your account is active and connected to the AutoFix AI Global Network.
+                      {t('settings.account_active')}
                    </p>
                    <div className="text-xs font-mono bg-white/10 p-3 rounded-xl border border-white/10">
-                      ID: {user?.$id.slice(0, 12)}...
+                      {t('settings.account_id')}: {user?.$id.slice(0, 12)}...
                    </div>
                 </div>
              </div>
@@ -89,12 +98,12 @@ export const Settings = () => {
              <div className="lg:col-span-2 space-y-8">
                 <div className="bg-white p-8 lg:p-10 rounded-3xl border shadow-sm">
                    <h2 className="text-xl font-bold text-brand-navy mb-8 flex items-center gap-2">
-                      <User className="w-5 h-5 text-brand-blue" /> Personal Information
+                      <User className="w-5 h-5 text-brand-blue" /> {t('settings.personal_info')}
                    </h2>
                    <form onSubmit={handleUpdateProfile} className="space-y-6">
                       <div className="grid sm:grid-cols-2 gap-6">
                          <div>
-                            <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Full Name</label>
+                            <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">{t('settings.full_name')}</label>
                             <input
                                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none"
                                value={fullName}
@@ -102,7 +111,7 @@ export const Settings = () => {
                             />
                          </div>
                          <div>
-                            <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Email Address</label>
+                            <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">{t('settings.email')}</label>
                             <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-50 border border-slate-100 text-slate-500 cursor-not-allowed">
                                <Mail className="w-4 h-4" /> {user?.email}
                             </div>
@@ -111,35 +120,35 @@ export const Settings = () => {
 
                       <div className="pt-4">
                          <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide flex items-center gap-2">
-                            <Globe className="w-4 h-4" /> Preferred Language
+                            <Globe className="w-4 h-4" /> {t('settings.preferred_language')}
                          </label>
                          <select
                             className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none bg-white"
                             value={language}
                             onChange={(e) => setLanguage(e.target.value)}
                          >
-                            <option value="en">English (Global)</option>
-                            <option value="am">Amharic (Ethiopia)</option>
-                            <option value="om">Afaan Oromo (Ethiopia)</option>
-                            <option value="sid">Sidama (Ethiopia)</option>
+                            <option value="en">{t('settings.english_global')}</option>
+                            <option value="am">{t('settings.amharic')}</option>
+                            <option value="om">{t('settings.oromo')}</option>
+                            <option value="sid">{t('settings.sidama')}</option>
                          </select>
-                         <p className="text-xs text-slate-400 mt-2">Used for technical terminology and AI diagnostic reports.</p>
+                         <p className="text-xs text-slate-400 mt-2">{t('settings.language_hint')}</p>
                       </div>
 
                       <div className="pt-6 border-t border-slate-50 flex justify-end">
                          <Button type="submit" disabled={updating} className="px-10">
                             {updating && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-                            Save Profile
+                            {t('settings.save_profile')}
                          </Button>
                       </div>
                    </form>
                 </div>
 
                 <div className="bg-white p-8 lg:p-10 rounded-3xl border shadow-sm border-red-100">
-                   <h2 className="text-xl font-bold text-red-600 mb-2">Danger Zone</h2>
-                   <p className="text-sm text-slate-500 mb-8">Permanently delete your account and all automotive data.</p>
+                   <h2 className="text-xl font-bold text-red-600 mb-2">{t('settings.danger_zone')}</h2>
+                   <p className="text-sm text-slate-500 mb-8">{t('settings.danger_desc')}</p>
                    <Button variant="outline" className="text-red-500 hover:bg-red-50 border-red-200 hover:text-red-600">
-                      Delete Account...
+                      {t('settings.delete_account')}
                    </Button>
                 </div>
              </div>

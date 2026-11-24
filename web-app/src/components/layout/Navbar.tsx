@@ -1,18 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Logo } from '../ui/Logo';
 import { Button } from '../ui/Button';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { Menu, X, User, Search, ArrowRight } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useStorage } from '../../hooks/useStorage';
 import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
-  { name: 'Home', href: '#home' },
-  { name: 'Features', href: '#features' },
-  { name: 'Modules', href: '#modules' },
-  { name: 'About', href: '#about' },
-  { name: 'Contact', href: '#contact' },
+  { key: 'nav.home', href: '#home' },
+  { key: 'nav.features', href: '#features' },
+  { key: 'nav.modules', href: '#modules' },
+  { key: 'nav.about', href: '#about' },
+  { key: 'nav.contact', href: '#contact' },
 ] as const;
 
 export const Navbar = () => {
@@ -21,6 +23,7 @@ export const Navbar = () => {
   const [activeHref, setActiveHref] = useState<string>('#home');
 
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { profile, isAuthenticated } = useAuth();
   const { getFilePreview, BUCKETS } = useStorage();
 
@@ -95,7 +98,7 @@ export const Navbar = () => {
             <Link
               to="/"
               className="flex shrink-0 items-center rounded-lg outline-none ring-brand-teal/60 transition-opacity hover:opacity-90 focus-visible:ring-2"
-              aria-label="AutoFix AI home"
+              aria-label={t('common.home_aria')}
             >
               <Logo tone="dark" />
             </Link>
@@ -106,7 +109,7 @@ export const Navbar = () => {
                 const isActive = activeHref === link.href;
                 return (
                   <a
-                    key={link.name}
+                    key={link.key}
                     href={link.href}
                     onClick={(event) => handleAnchorClick(event, link.href)}
                     aria-current={isActive ? 'page' : undefined}
@@ -120,7 +123,7 @@ export const Navbar = () => {
                     {isActive && (
                       <span className="absolute inset-0 rounded-full bg-white/10 ring-1 ring-inset ring-brand-teal/30" />
                     )}
-                    <span className="relative">{link.name}</span>
+                    <span className="relative">{t(link.key)}</span>
                   </a>
                 );
               })}
@@ -128,24 +131,26 @@ export const Navbar = () => {
 
             {/* Desktop actions */}
             <div className="hidden items-center gap-2 lg:flex xl:gap-3">
+              <LanguageSwitcher className="mr-1" />
+
               {isAuthenticated ? (
                 <>
                   <button
                     onClick={() => navigate('/search')}
-                    aria-label="Search"
+                    aria-label={t('common.search')}
                     className="rounded-lg p-2 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
                   >
                     <Search className="h-5 w-5" />
                   </button>
                   <button
                     onClick={() => navigate('/settings')}
-                    aria-label="Your profile"
+                    aria-label={t('nav.profile')}
                     className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-white/5 transition-colors hover:border-brand-teal/50"
                   >
                     {profile?.avatarFileId ? (
                       <img
                         src={getFilePreview(BUCKETS.AVATARS, profile.avatarFileId)}
-                        alt="Avatar"
+                        alt={t('common.avatar')}
                         className="h-full w-full object-cover"
                       />
                     ) : (
@@ -157,7 +162,7 @@ export const Navbar = () => {
                     onClick={() => navigate('/dashboard')}
                     className="rounded-full bg-brand-teal font-semibold text-ink hover:bg-brand-teal/90"
                   >
-                    Dashboard
+                    {t('common.dashboard')}
                   </Button>
                 </>
               ) : (
@@ -166,15 +171,15 @@ export const Navbar = () => {
                     to="/login"
                     className="rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:text-white"
                   >
-                    Login
+                    {t('common.login')}
                   </Link>
                   <Button
                     size="sm"
                     onClick={() => navigate('/register')}
-                    aria-label="Get Started"
+                    aria-label={t('common.get_started')}
                     className="group h-10 rounded-full bg-brand-teal px-4 font-semibold text-ink shadow-glow transition-all hover:bg-brand-teal/90 hover:shadow-glow-lg xl:px-5"
                   >
-                    <span className="hidden xl:inline">Get Started</span>
+                    <span className="hidden xl:inline">{t('common.get_started')}</span>
                     <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 xl:ml-1.5" />
                   </Button>
                 </>
@@ -184,7 +189,7 @@ export const Navbar = () => {
             {/* Mobile toggle */}
             <button
               onClick={() => setIsOpen((prev) => !prev)}
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-label={isOpen ? t('common.close_menu') : t('common.open_menu')}
               aria-expanded={isOpen}
               className="inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2 text-white transition-colors hover:bg-white/10 lg:hidden"
             >
@@ -206,7 +211,7 @@ export const Navbar = () => {
         <div className="space-y-1">
           {NAV_LINKS.map((link) => (
             <a
-              key={link.name}
+              key={link.key}
               href={link.href}
               onClick={(event) => handleAnchorClick(event, link.href)}
               className={cn(
@@ -216,12 +221,14 @@ export const Navbar = () => {
                   : 'text-slate-300 hover:bg-white/5 hover:text-white'
               )}
             >
-              {link.name}
+              {t(link.key)}
             </a>
           ))}
         </div>
 
         <div className="mt-4 space-y-3 border-t border-white/10 pt-4">
+          <LanguageSwitcher fullWidth />
+
           {isAuthenticated ? (
             <Button
               onClick={() => {
@@ -230,7 +237,7 @@ export const Navbar = () => {
               }}
               className="h-12 w-full rounded-xl bg-brand-teal font-semibold text-ink hover:bg-brand-teal/90"
             >
-              Go to Dashboard
+              {t('nav.go_to_dashboard')}
             </Button>
           ) : (
             <>
@@ -241,7 +248,7 @@ export const Navbar = () => {
                 }}
                 className="h-12 w-full rounded-xl bg-brand-teal font-semibold text-ink hover:bg-brand-teal/90"
               >
-                Get Started
+                {t('common.get_started')}
               </Button>
               <Button
                 variant="outline"
@@ -251,7 +258,7 @@ export const Navbar = () => {
                 }}
                 className="h-12 w-full rounded-xl border-white/20 bg-white/5 font-semibold text-white hover:bg-white/10 hover:text-white"
               >
-                Login
+                {t('common.login')}
               </Button>
             </>
           )}

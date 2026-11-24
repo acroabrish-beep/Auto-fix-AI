@@ -1,14 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../components/ui/Button';
 import { CheckCircle2 } from 'lucide-react';
 
 export const TVET = () => {
+  const { t } = useTranslation();
+
   const highlights = [
-    'Students',
-    'Teachers',
-    'Practical Labs',
-    'AI Learning',
-    'Skills Development',
+    t('extras.tvet_highlight_1'),
+    t('extras.tvet_highlight_2'),
+    t('extras.tvet_highlight_3'),
+    t('extras.tvet_highlight_4'),
+    t('extras.tvet_highlight_5'),
   ];
 
   return (
@@ -17,10 +20,11 @@ export const TVET = () => {
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-1/2">
             <h2 className="text-4xl font-bold text-brand-navy mb-6 leading-tight">
-              Reimagining TVET <br />Automotive Education
+              {t('extras.tvet_title_1')} <br />
+              {t('extras.tvet_title_2')}
             </h2>
             <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              AutoFix AI connects classroom theory with practical automotive skills, helping TVET students learn faster, practice smarter and prepare for the real world.
+              {t('extras.tvet_desc')}
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-10">
@@ -33,7 +37,7 @@ export const TVET = () => {
             </div>
 
             <Button size="lg" variant="secondary" className="px-10">
-              Explore TVET Learning
+              {t('extras.tvet_button')}
             </Button>
           </div>
 
@@ -47,13 +51,13 @@ export const TVET = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                     </div>
-                    <span className="text-slate-500 font-medium">Virtual Laboratory Preview</span>
+                    <span className="text-slate-500 font-medium">{t('extras.tvet_preview')}</span>
                 </div>
 
                 {/* Floating UI elements */}
                 <div className="absolute top-8 right-8 bg-white p-3 rounded-lg shadow-lg border border-slate-200 flex items-center gap-3 animate-bounce">
                     <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">100</div>
-                    <span className="text-xs font-semibold">Practical Skill Unlocked</span>
+                    <span className="text-xs font-semibold">{t('extras.tvet_unlocked')}</span>
                 </div>
              </div>
           </div>

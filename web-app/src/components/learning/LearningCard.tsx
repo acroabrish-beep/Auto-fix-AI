@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Clock, BarChart, ChevronRight } from 'lucide-react';
 import { LearningModule } from '../../types';
 import { Badge } from '../ui/Badge';
 import { LearningProgress } from './LearningProgress';
+import { localizeLearningCategory, localizeLevel, localizeLearningModule } from '../../lib/localizeContent';
 
 interface LearningCardProps {
   module: LearningModule;
@@ -12,6 +14,12 @@ interface LearningCardProps {
 
 export const LearningCard: React.FC<LearningCardProps> = ({ module, progressPercent = 0 }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const localizedModule = useMemo(
+    () => localizeLearningModule(module, t),
+    [module, t]
+  );
 
   return (
     <div
@@ -20,28 +28,20 @@ export const LearningCard: React.FC<LearningCardProps> = ({ module, progressPerc
     >
       <div className="relative w-full h-48 bg-slate-100 rounded-2xl mb-6 overflow-hidden">
         {module.thumbnail ? (
-          <img src={module.thumbnail} alt={module.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          <img src={module.thumbnail} alt={localizedModule.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-slate-300">
              <BarChart className="w-12 h-12" />
           </div>
         )}
-        <div className="absolute top-4 left-4">
-           <Badge variant="secondary" className="shadow-sm">{module.category}</Badge>
-        </div>
       </div>
 
       <div className="flex-1">
-        <div className="flex items-center gap-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">
-          <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {module.estimatedMinutes} MIN</span>
-          <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
-          <span>{module.level}</span>
-        </div>
         <h3 className="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
-          {module.title}
+          {localizedModule.title}
         </h3>
         <p className="text-slate-500 text-sm leading-relaxed mb-8 line-clamp-2">
-          {module.description}
+          {localizedModule.description}
         </p>
       </div>
 
@@ -51,7 +51,7 @@ export const LearningCard: React.FC<LearningCardProps> = ({ module, progressPerc
         ) : (
           <div className="flex items-center justify-between">
             <span className="text-sm font-bold text-brand-blue group-hover:underline flex items-center">
-              Start Module <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+              {t('learning.start_module')} <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
             </span>
           </div>
         )}

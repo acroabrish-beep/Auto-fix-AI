@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Camera, User, Loader2, Trash2 } from 'lucide-react';
 import { useStorage } from '../../hooks/useStorage';
 import { Button } from '../ui/Button';
@@ -10,6 +11,7 @@ interface AvatarUploadProps {
 }
 
 export const AvatarUpload: React.FC<AvatarUploadProps> = ({ currentFileId, onUploadComplete, onRemove }) => {
+  const { t } = useTranslation();
   const { uploadFile, deleteFile, getFilePreview, uploading, BUCKETS } = useStorage();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [localError, setError] = useState<string | null>(null);
@@ -20,11 +22,11 @@ export const AvatarUpload: React.FC<AvatarUploadProps> = ({ currentFileId, onUpl
 
     // Validation
     if (!file.type.startsWith('image/')) {
-      setError('Please select an image file (JPG, PNG).');
+      setError(t('shared.image_only'));
       return;
     }
     if (file.size > 5 * 1024 * 1024) {
-      setError('File size must be less than 5MB.');
+      setError(t('shared.file_too_large'));
       return;
     }
 
@@ -38,7 +40,7 @@ export const AvatarUpload: React.FC<AvatarUploadProps> = ({ currentFileId, onUpl
         await deleteFile(BUCKETS.AVATARS, currentFileId);
       }
     } catch (err: any) {
-      setError(err.message || 'Upload failed');
+      setError(err.message || t('shared.upload_failed'));
     }
   };
 
@@ -48,7 +50,7 @@ export const AvatarUpload: React.FC<AvatarUploadProps> = ({ currentFileId, onUpl
       await onRemove();
       await deleteFile(BUCKETS.AVATARS, currentFileId);
     } catch (err: any) {
-      setError(err.message || 'Removal failed');
+      setError(err.message || t('shared.remove_failed'));
     }
   };
 
@@ -59,7 +61,7 @@ export const AvatarUpload: React.FC<AvatarUploadProps> = ({ currentFileId, onUpl
       <div className="relative group">
         <div className="w-32 h-32 rounded-full bg-slate-100 border-4 border-white shadow-xl overflow-hidden flex items-center justify-center">
           {avatarUrl ? (
-            <img src={avatarUrl} alt="Avatar" className="w-full h-full object-cover" />
+            <img src={avatarUrl} alt={t('common.avatar')} className="w-full h-full object-cover" />
           ) : (
             <User className="w-16 h-16 text-slate-300" />
           )}
@@ -89,7 +91,7 @@ export const AvatarUpload: React.FC<AvatarUploadProps> = ({ currentFileId, onUpl
       />
 
       <div className="flex flex-col items-center gap-2">
-        <p className="text-xs text-slate-500">JPG, PNG or WEBP. Max 5MB.</p>
+        <p className="text-xs text-slate-500">{t('shared.avatar_hint')}</p>
         {currentFileId && (
           <Button
             variant="ghost"
@@ -98,7 +100,7 @@ export const AvatarUpload: React.FC<AvatarUploadProps> = ({ currentFileId, onUpl
             onClick={handleRemove}
             disabled={uploading}
           >
-            <Trash2 className="w-4 h-4" /> Remove Photo
+            <Trash2 className="w-4 h-4" /> {t('shared.remove_photo')}
           </Button>
         )}
         {localError && <p className="text-xs text-red-500 font-medium">{localError}</p>}

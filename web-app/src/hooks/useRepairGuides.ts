@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { repairGuidesService } from '../services/database/repairGuides';
+import { findMockRepairGuide } from '../data/mockRepairGuides';
 import { RepairGuide } from '../types';
 
 export const useRepairGuides = (guideId?: string) => {
@@ -24,11 +25,29 @@ export const useRepairGuides = (guideId?: string) => {
   const fetchGuideDetail = useCallback(async (id: string) => {
     setLoading(true);
     setError(null);
+    setCurrentGuide(null);
+
+    // Demo ids never exist in Appwrite — render the bundled guide directly.
+    if (id.startsWith('demo-')) {
+      const mock = findMockRepairGuide(id);
+      if (mock) {
+        setCurrentGuide(mock);
+        setLoading(false);
+        return;
+      }
+    }
+
     try {
       const data = await repairGuidesService.getGuide(id);
       setCurrentGuide(data);
     } catch (err: any) {
-      setError(err.message || 'Failed to load guide details');
+      // Fall back to local data when the document is missing or the request fails.
+      const mock = findMockRepairGuide(id);
+      if (mock) {
+        setCurrentGuide(mock);
+      } else {
+        setError(err?.message || 'Failed to load guide details');
+      }
     } finally {
       setLoading(false);
     }

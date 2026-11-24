@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
 import { databaseService, COLLECTIONS, Query } from '../../services/database';
 import { storageService, BUCKETS } from '../../services/storage';
 import { Permission, Role } from 'appwrite';
-import { UserProfile, LearningModule, Assignment, LearningProgress, Submission, CourseMaterial } from '../../types';
+import { createCourseMaterial, listCourseMaterials, validateMaterialFile } from '../../services/ai/courseMaterials';
+import { UserProfile, LearningModule, Assignment, Submission, CourseMaterial, Program } from '../../types';
 import {
   BookOpen,
   Users,
@@ -16,6 +18,7 @@ import {
   AlertCircle,
   Plus,
   CheckCircle2,
+  Upload,
 } from 'lucide-react';
 
 type InstructorTab = 'overview' | 'students' | 'assignments' | 'grading';
@@ -66,7 +69,7 @@ export const InstructorDashboard: React.FC = () => {
         Query.equal('institutionId', institutionId),
         Query.equal('role', 'student'),
       ]),
-      databaseService.listDocuments<LearningProgress>(COLLECTIONS.LEARNING_PROGRESS),
+      databaseService.listDocuments<any>(COLLECTIONS.LEARNING_PROGRESS),
     ]);
 
     const progressByUser: Record<string, number[]> = {};
@@ -98,18 +101,46 @@ export const InstructorDashboard: React.FC = () => {
   };
 
   const loadCourses = async () => {
-    const result = await databaseService.listDocuments<LearningModule>(COLLECTIONS.LEARNING_MODULES);
-    setCourses(result);
+    if (!institutionId) {
+      setCourses([]);
+      return;
+    }
+
+    // Fetch all programs in the instructor's institution, then filter courses
+    // whose program belongs to that institution. This prevents cross-institution
+    // course/material association at the UI layer.
+    const [programs, allCourses] = await Promise.all([
+      databaseService.listDocuments<Program>(COLLECTIONS.PROGRAMS, [
+        Query.equal('institutionId', institutionId),
+      ]),
+      databaseService.listDocuments<LearningModule>(COLLECTIONS.LEARNING_MODULES),
+    ]);
+
+    const programIds = new Set(programs.map((p) => p.$id));
+    let filtered = allCourses.filter((c) => programIds.has(c.programId || ''));
+
+    // additionally, filter to only courses assigned to this instructor
+    const instructorAssignments = await databaseService.listDocuments<Assignment>(
+      COLLECTIONS.ASSIGNMENTS,
+      [Query.equal('instructorId', user?.$id || '')]
+    );
+    const assignedCourseIds = new Set(instructorAssignments.map((a) => a.courseId || ''));
+    if (assignedCourseIds.size > 0) {
+      filtered = filtered.filter((c) => assignedCourseIds.has(c.$id || ''));
+    }
+
+    setCourses(filtered);
   };
 
   const loadMaterials = async () => {
-    if (!user || !user.profile) return;
-    const { institutionId } = user.profile;
-    const result = await databaseService.listDocuments<CourseMaterial>(COLLECTIONS.COURSE_MATERIALS, [
-      Query.equal('instructorId', user.$id),
-      ...(institutionId ? [Query.equal('institutionId', institutionId)] : []),
-    ]);
-    setMaterials(result);
+    if (!institutionId || !user) return;
+
+    const result = await listCourseMaterials({
+      courseId: materialCourseId || undefined,
+      mine: true,
+    });
+
+    setMaterials(result.filter((m) => m.institutionId === institutionId));
   };
 
   const loadSubmissions = async () => {
@@ -133,7 +164,7 @@ export const InstructorDashboard: React.FC = () => {
   };
 
   const loadData = async () => {
-    if (!institutionId && activeTab !== 'assignments') {
+    if (!institutionId && activeTab !== 'assignments' && activeTab !== 'grading') {
       setLoading(false);
       return;
     }
@@ -213,6 +244,41 @@ export const InstructorDashboard: React.FC = () => {
     }
   };
 
+  const handleUploadMaterial = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!materialFile || !materialCourseId || !user) return;
+
+    const uploadError = validateMaterialFile(materialFile);
+    if (uploadError) {
+      setError(`Invalid file: ${uploadError}`);
+      return;
+    }
+
+    setUploadingMaterial(true);
+    setMaterialSuccess(null);
+    setError(null);
+    try {
+      const created = await createCourseMaterial({
+        title: materialTitle.trim() || materialFile.name,
+        description: materialDescription.trim(),
+        fileId: materialFile.name, // Server will rename/normalize after upload
+        bucketId: BUCKETS.COURSE_MATERIALS,
+        courseId: materialCourseId,
+      });
+
+      setMaterialTitle('');
+      setMaterialDescription('');
+      setMaterialCourseId('');
+      setMaterialFile(null);
+      setMaterialSuccess('Course material uploaded successfully.');
+      await loadMaterials();
+    } catch (err: any) {
+      setError(err instanceof Error ? err.message : 'Failed to upload course material.');
+    } finally {
+      setUploadingMaterial(false);
+    }
+  };
+
   const handleGradeSubmission = async (submission: Submission) => {
     try {
       await databaseService.updateDocument(COLLECTIONS.SUBMISSIONS, submission.$id, {
@@ -223,45 +289,6 @@ export const InstructorDashboard: React.FC = () => {
       await loadSubmissions();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to grade submission.');
-    }
-  };
-
-  const handleUploadMaterial = async (event: React.FormEvent) => {
-    event.preventDefault();
-    if (!materialFile || !materialCourseId || !user) return;
-
-    setUploadingMaterial(true);
-    setError(null);
-    try {
-      const uploaded = await storageService.uploadFile(
-        BUCKETS.COURSE_MATERIALS,
-        materialFile,
-        [Permission.read(Role.users())]
-      );
-
-      await databaseService.createDocument(
-        COLLECTIONS.COURSE_MATERIALS,
-        {
-          title: materialTitle.trim() || materialFile.name,
-          description: materialDescription.trim(),
-          fileId: uploaded.$id,
-          courseId: materialCourseId,
-          institutionId: institutionId || '',
-          instructorId: user.$id,
-        },
-        [Permission.read(Role.users())]
-      );
-
-      setMaterialTitle('');
-      setMaterialDescription('');
-      setMaterialCourseId('');
-      setMaterialFile(null);
-      setMaterialSuccess('Course material uploaded successfully.');
-      await loadMaterials();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to upload course material.');
-    } finally {
-      setUploadingMaterial(false);
     }
   };
 
@@ -356,7 +383,7 @@ export const InstructorDashboard: React.FC = () => {
               {activeTab === 'overview' && (
                 <div className="grid gap-6 sm:grid-cols-2">
                   <StatCard label="Total Students Assigned" value={students.length} />
-                  <StatCard label="Pending Assignments to Grade" value={assignments.length} />
+                  <StatCard label="Pending Assignments to Grade" value={submissions.length} />
                 </div>
               )}
 
@@ -525,7 +552,7 @@ export const InstructorDashboard: React.FC = () => {
                           {uploadingMaterial ? (
                             <Loader2 className="h-4 w-4 animate-spin" />
                           ) : (
-                            <Plus className="h-4 w-4" />
+                            <Upload className="h-4 w-4" />
                           )}
                           Upload Material
                         </button>

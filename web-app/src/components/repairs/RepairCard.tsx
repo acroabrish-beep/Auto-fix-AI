@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Wrench, ChevronRight, Clock, ShieldAlert } from 'lucide-react';
 import { RepairGuide } from '../../types';
 import { Badge } from '../ui/Badge';
@@ -10,6 +11,7 @@ interface RepairCardProps {
 
 export const RepairCard: React.FC<RepairCardProps> = ({ guide }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div
@@ -39,10 +41,10 @@ export const RepairCard: React.FC<RepairCardProps> = ({ guide }) => {
 
       <div className="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
         <div className="flex items-center gap-1.5 text-xs font-bold text-slate-400">
-           <ShieldAlert className="w-3.5 h-3.5 text-amber-500" /> Technical Guide
+           <ShieldAlert className="w-3.5 h-3.5 text-amber-500" /> {t('repairs.technical_guide')}
         </div>
         <span className="text-brand-blue font-bold text-sm flex items-center group-hover:translate-x-1 transition-transform">
-           View Steps <ChevronRight className="w-4 h-4 ml-1" />
+           {t('repairs.view_steps')} <ChevronRight className="w-4 h-4 ml-1" />
         </span>
       </div>
     </div>

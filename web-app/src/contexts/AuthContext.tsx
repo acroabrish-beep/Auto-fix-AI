@@ -26,23 +26,40 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const currentUser = await appwriteAuth.getCurrentUser();
       setUser(currentUser);
 
-      if (currentUser) {
+      if (!currentUser) {
+        setProfile(null);
+        return;
+      }
+
+      // A profile/DB failure must NOT log out a valid Appwrite session —
+      // otherwise the dashboard redirect bounces straight back to /login.
+      // Also, do not create a profile merely because the database request failed;
+      // let the admin-actions backend handle profile creation after JWT verification.
+      try {
         let userProfile = await profilesService.getProfile(currentUser.$id);
 
-        // If profile doesn't exist (e.g. signup failed to create it), create one
+        // Only provision a profile if it genuinely doesn't exist (not due to DB error).
+        // The server verifies the JWT and always creates a student profile.
         if (!userProfile) {
-          userProfile = await profilesService.createProfile({
-            userId: currentUser.$id,
-            fullName: currentUser.name || 'User',
-            email: currentUser.email,
-            role: (currentUser.prefs as any)?.role || 'student'
-          });
+          try {
+            userProfile = await profilesService.ensureMyProfile();
+          } catch (createError) {
+            // Database/function unavailable — do not crash a valid auth session.
+            console.error('Profile provisioning failed:', createError);
+            setProfile(null);
+            setLoading(false);
+            return;
+          }
         }
         setProfile(userProfile);
-      } else {
-        setProfile(null);
+      } catch (profileError) {
+        console.error('Failed to load profile:', profileError);
+        // Keep existing session alive; profile creation is server-side responsibility.
+        // Do NOT setUser(null) / setProfile(null) here, which would log out a valid Appwrite user.
+        setProfile(profile); // preserve whatever profile we had before
       }
     } catch (error) {
+      console.error('Failed to refresh session:', error);
       setUser(null);
       setProfile(null);
     } finally {

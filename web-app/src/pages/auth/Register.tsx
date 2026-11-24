@@ -1,21 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { appwriteAuth } from '../../services/auth/appwriteAuth';
+import { account } from '../../lib/appwrite';
+import { isNetworkError } from '../../lib/isNetworkError';
 import { profilesService } from '../../services/database/profiles';
+import { useAuth } from '../../contexts/AuthContext';
 import { Button } from '../../components/ui/Button';
 import { Logo } from '../../components/ui/Logo';
-import { AlertCircle, Loader2, CheckCircle2 } from 'lucide-react';
-import { UserRole } from '../../types';
+import { AlertCircle, Loader2 } from 'lucide-react';
+
 
 export const Register = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
-  const [role, setRole] = useState<UserRole>('student');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
+  const { refreshUser } = useAuth();
+
+  // If a session is already active, skip the registration form.
+  useEffect(() => {
+    let cancelled = false;
+
+    (async () => {
+      try {
+        await account.get();
+        if (!cancelled) {
+          navigate('/dashboard', { replace: true });
+        }
+      } catch {
+        // No active session — stay on the registration page.
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [navigate]);
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,50 +47,56 @@ export const Register = () => {
     setError(null);
 
     try {
-      const account = await appwriteAuth.register(email, password, fullName);
+      // 0. Clear any ghost/active session first. Appwrite rejects
+      //    createEmailPasswordSession while another session is active.
+      try {
+        await account.deleteSession('current');
+      } catch {
+        // No active session to delete — safe to continue.
+      }
 
-      // Create the database profile
-      await profilesService.createProfile({
-        userId: account.$id,
-        fullName: fullName,
-        email: email,
-        role: role
-      });
+      // 1. Create the Appwrite account.
+      await appwriteAuth.register(email, password, fullName);
 
-      setSuccess(true);
-    } catch (err: any) {
-      setError(err.message || 'Registration failed');
+      // 2. Immediately start a session so the new user is logged in.
+      //    (SDK 26 renamed createEmailSession -> createEmailPasswordSession.)
+      await appwriteAuth.login(email, password);
+
+      // 3. Ask the server to provision the profile after login. The server
+      //    verifies the session JWT and always creates a student profile; the
+      //    browser never writes role or tenant fields directly.
+      try {
+        await profilesService.ensureMyProfile();
+      } catch (profileError) {
+        // Don't block sign-up if server provisioning is temporarily unavailable;
+        // AuthContext will retry it on the next session hydration.
+        console.warn('Server profile provisioning failed:', profileError);
+      }
+
+      // 4. Hydrate the auth context and go straight to the dashboard.
+      await refreshUser();
+      navigate('/dashboard');
+    } catch (err: unknown) {
+      console.error('Registration failed:', err);
+
+      if (isNetworkError(err)) {
+        setError(t('auth.network_error'));
+      } else {
+        const message = err instanceof Error ? err.message : '';
+        setError(message || t('auth.registration_failed'));
+      }
     } finally {
       setLoading(false);
     }
   };
-
-  if (success) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 px-4">
-        <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl border text-center">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle2 className="h-10 w-10 text-green-600" />
-            </div>
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Registration Successful</h2>
-            <p className="text-slate-600 mb-8">
-                Your account has been created. You can now sign in to AutoFix AI.
-            </p>
-            <Button onClick={() => navigate('/login')} className="w-full">
-                Go to Login
-            </Button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 py-12 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Logo className="justify-center mb-4" />
-          <h2 className="text-2xl font-bold text-brand-navy">Create Your Account</h2>
-          <p className="text-slate-600 mt-2">Join AutoFix AI today</p>
+          <h2 className="text-2xl font-bold text-brand-navy">{t('auth.register_title')}</h2>
+          <p className="text-slate-600 mt-2">{t('auth.register_subtitle')}</p>
         </div>
 
         <div className="bg-white p-8 rounded-2xl shadow-xl border">
@@ -79,19 +109,23 @@ export const Register = () => {
 
           <form onSubmit={handleRegister} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Full Name</label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                {t('auth.full_name')}
+              </label>
               <input
                 type="text"
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none transition-all"
-                placeholder="John Doe"
+                placeholder={t('auth.name_placeholder')}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                {t('auth.email')}
+              </label>
               <input
                 type="email"
                 required
@@ -103,42 +137,30 @@ export const Register = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Password</label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">
+                {t('auth.password')}
+              </label>
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none transition-all"
-                placeholder="Min. 8 characters"
+                placeholder={t('auth.password_hint')}
                 minLength={8}
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">I am a...</label>
-              <select
-                value={role}
-                onChange={(e) => setRole(e.target.value as UserRole)}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-blue outline-none bg-white transition-all"
-              >
-                <option value="student">Student</option>
-                <option value="mechanic">Professional Mechanic</option>
-                <option value="teacher">Instructor/Teacher</option>
-                <option value="vehicle_owner">Vehicle Owner</option>
-              </select>
-            </div>
-
             <Button type="submit" className="w-full py-6 text-lg" disabled={loading}>
               {loading ? <Loader2 className="h-5 w-5 animate-spin mr-2" /> : null}
-              Create Account
+              {loading ? t('auth.creating') : t('auth.create_account')}
             </Button>
           </form>
 
           <div className="mt-8 text-center text-sm text-slate-600">
-            Already have an account?{' '}
+            {t('auth.have_account')}{' '}
             <Link to="/login" className="text-brand-blue font-semibold hover:underline">
-              Sign In
+              {t('auth.sign_in')}
             </Link>
           </div>
         </div>

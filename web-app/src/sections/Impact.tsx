@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowUpRight, GraduationCap, TrendingDown, Users, Target } from 'lucide-react';
 
 /* ------------------------------------------------------------------ */
@@ -59,23 +60,20 @@ const Counter: React.FC<CounterProps> = ({ value, suffix = '', started, duration
 const SDGS = [
   {
     number: '4',
-    title: 'Quality Education',
-    description:
-      'Equipping TVET learners with practical, industry-relevant automotive skills — anywhere, online or off.',
+    titleKey: 'extras.sdg4_title',
+    descriptionKey: 'extras.sdg4_desc',
     color: '#C5192D',
   },
   {
     number: '8',
-    title: 'Decent Work and Economic Growth',
-    description:
-      'Creating pathways to skilled employment and self-employment for Africa’s growing technician workforce.',
+    titleKey: 'extras.sdg8_title',
+    descriptionKey: 'extras.sdg8_desc',
     color: '#A21942',
   },
   {
     number: '9',
-    title: 'Industry, Innovation and Infrastructure',
-    description:
-      'Bringing AI-driven diagnostics and resilient digital infrastructure to workshops across the continent.',
+    titleKey: 'extras.sdg9_title',
+    descriptionKey: 'extras.sdg9_desc',
     color: '#FD6925',
   },
 ] as const;
@@ -85,25 +83,25 @@ const STATS = [
     icon: Users,
     value: 500000,
     suffix: '+',
-    label: 'Students to Impact',
+    labelKey: 'extras.stat_students',
   },
   {
     icon: TrendingDown,
     value: 30,
     suffix: '%',
-    label: 'Reduction in Repair Costs',
+    labelKey: 'extras.stat_costs',
   },
   {
     icon: GraduationCap,
     value: 10000,
     suffix: '+',
-    label: 'Certified Graduates',
+    labelKey: 'extras.stat_graduates',
   },
   {
     icon: Target,
     value: 1000000,
     suffix: '+',
-    label: 'Users by 2030',
+    labelKey: 'extras.stat_users',
   },
 ] as const;
 
@@ -112,6 +110,7 @@ const STATS = [
 /* ------------------------------------------------------------------ */
 
 export const Impact = () => {
+  const { t } = useTranslation();
   const [started, setStarted] = useState(false);
   const statsRef = useRef<HTMLDivElement | null>(null);
 
@@ -155,15 +154,15 @@ export const Impact = () => {
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-teal/30 bg-brand-teal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal">
             <Target className="h-3.5 w-3.5" />
-            Aligned with the UN SDGs
+            {t('extras.impact_badge')}
           </span>
 
           <h2 className="mt-6 text-balance text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Our Impact
+            {t('extras.impact_title')}
           </h2>
 
           <p className="mt-5 text-pretty text-base leading-relaxed text-slate-400 sm:text-lg">
-            Driving measurable change in TVET education across Africa.
+            {t('extras.impact_desc')}
           </p>
         </div>
 
@@ -189,18 +188,18 @@ export const Impact = () => {
                   {sdg.number}
                 </span>
                 <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  UN SDG
+                  {t('extras.un_sdg')}
                 </span>
               </div>
 
               <h3 className="mt-5 text-lg font-bold leading-snug tracking-tight text-white">
-                {sdg.title}
+                {t(sdg.titleKey)}
               </h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-slate-400">{sdg.description}</p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-400">{t(sdg.descriptionKey)}</p>
 
               <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 transition-colors group-hover:text-brand-teal">
-                SDG {sdg.number}
+                {t('extras.sdg_number', { number: sdg.number })}
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </span>
             </li>
@@ -212,9 +211,9 @@ export const Impact = () => {
           ref={statsRef}
           className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {STATS.map(({ icon: Icon, value, suffix, label }) => (
+          {STATS.map(({ icon: Icon, value, suffix, labelKey }) => (
             <div
-              key={label}
+              key={labelKey}
               className="flex flex-col items-center bg-ink px-6 py-10 text-center transition-colors duration-300 hover:bg-ink-soft"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-teal/25 bg-brand-teal/10 text-brand-teal">
@@ -227,12 +226,12 @@ export const Impact = () => {
                 </span>
                 <span className="sr-only">
                   {value.toLocaleString('en-US')}
-                  {suffix} {label}
+                  {suffix} {t(labelKey)}
                 </span>
               </div>
 
               <div className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
-                {label}
+                {t(labelKey)}
               </div>
             </div>
           ))}

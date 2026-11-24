@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { VehicleCard } from '../components/vehicles/VehicleCard';
@@ -12,6 +13,7 @@ import { VehicleProfile } from '../types';
 import { Car, Plus, LayoutGrid, List } from 'lucide-react';
 
 export const Vehicles = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const [vehicles, setVehicles] = useState<VehicleProfile[]>([]);
   const [loading, setLoading] = useState(true);
@@ -21,11 +23,12 @@ export const Vehicles = () => {
   const fetchVehicles = async () => {
     if (!user) return;
     setLoading(true);
+    setError(null);
     try {
       const data = await vehiclesService.listUserVehicles(user.$id);
       setVehicles(data);
     } catch (err: any) {
-      setError(err.message || 'Failed to load vehicles');
+      setError(err.message || t('vehicles.failed_load'));
     } finally {
       setLoading(false);
     }
@@ -38,12 +41,13 @@ export const Vehicles = () => {
   const handleAddVehicle = async (data: any) => {
     if (!user) return;
     setLoading(true);
+    setError(null);
     try {
       await vehiclesService.addVehicle(user.$id, data);
       setIsAdding(false);
       fetchVehicles();
     } catch (err: any) {
-      setError(err.message || 'Failed to add vehicle');
+      setError(err.message || t('vehicles.failed_add'));
     } finally {
       setLoading(false);
     }
@@ -57,13 +61,13 @@ export const Vehicles = () => {
         <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
           <div>
             <h1 className="text-3xl font-extrabold text-brand-navy flex items-center gap-3">
-              <Car className="w-8 h-8 text-brand-blue" /> My Vehicles
+              <Car className="w-8 h-8 text-brand-blue" /> {t('vehicles.title')}
             </h1>
-            <p className="text-slate-500 mt-2">Manage your vehicle profiles and diagnostic history.</p>
+            <p className="text-slate-500 mt-2">{t('vehicles.subtitle')}</p>
           </div>
           {!isAdding && (
             <Button onClick={() => setIsAdding(true)} className="gap-2 shadow-lg shadow-brand-blue/20">
-              <Plus className="w-5 h-5" /> Add New Vehicle
+              <Plus className="w-5 h-5" /> {t('vehicles.add_new')}
             </Button>
           )}
         </header>
@@ -71,8 +75,8 @@ export const Vehicles = () => {
         {isAdding ? (
           <div className="max-w-3xl mx-auto bg-white p-8 lg:p-12 rounded-3xl border shadow-xl animate-in fade-in zoom-in-95 duration-300">
              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-brand-navy">Add Vehicle Profile</h2>
-                <p className="text-slate-500 mt-1">Provide basic information about your vehicle to enable AI diagnostics.</p>
+                <h2 className="text-2xl font-bold text-brand-navy">{t('vehicles.add_profile_title')}</h2>
+                <p className="text-slate-500 mt-1">{t('vehicles.add_profile_desc')}</p>
              </div>
              <VehicleForm
                 onSubmit={handleAddVehicle}
@@ -81,7 +85,7 @@ export const Vehicles = () => {
              />
           </div>
         ) : loading ? (
-          <Loading message="Fetching your garage..." />
+          <Loading message={t('vehicles.fetching')} />
         ) : error ? (
           <ErrorState message={error} onRetry={fetchVehicles} />
         ) : vehicles.length > 0 ? (
@@ -95,10 +99,10 @@ export const Vehicles = () => {
              <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Car className="w-10 h-10 text-slate-300" />
              </div>
-             <h3 className="text-xl font-bold text-brand-navy mb-2">Your Garage is Empty</h3>
-             <p className="text-slate-500 max-w-sm mx-auto mb-8">Add your first vehicle to start tracking maintenance and running AI diagnostics.</p>
+             <h3 className="text-xl font-bold text-brand-navy mb-2">{t('vehicles.empty_title')}</h3>
+             <p className="text-slate-500 max-w-sm mx-auto mb-8">{t('vehicles.empty_desc')}</p>
              <Button onClick={() => setIsAdding(true)} size="lg" className="px-10">
-                Add Your First Vehicle
+                {t('vehicles.add_first')}
              </Button>
           </div>
         )}

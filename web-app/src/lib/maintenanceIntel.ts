@@ -1,4 +1,5 @@
 import { VehicleProfile, ServiceRecord, DiagnosticSession } from '../types';
+import i18n from './i18n';
 
 export interface MaintenanceReminder {
   id: string;
@@ -20,7 +21,11 @@ export const calculateVehicleHealth = (
   diagnostics: DiagnosticSession[]
 ): HealthScoreResult => {
   if (services.length === 0 && diagnostics.length === 0) {
-    return { score: null, status: 'unknown', label: 'Not enough data' };
+    return {
+      score: null,
+      status: 'unknown',
+      label: i18n.t('dashboard.health_unknown', { defaultValue: 'Not enough data' }),
+    };
   }
 
   let score = 100;
@@ -31,7 +36,7 @@ export const calculateVehicleHealth = (
 
   // Deduct based on lack of service history vs mileage
   // Assuming a rough check: every 10k km should have at least 1 service record
-  const expectedServices = Math.floor(vehicle.mileage / 10000);
+  const expectedServices = Math.floor((vehicle.mileage ?? 0) / 10000);
   if (expectedServices > services.length) {
     const missing = expectedServices - services.length;
     score -= Math.min(missing * 10, 40);
@@ -47,7 +52,12 @@ export const calculateVehicleHealth = (
   return {
     score,
     status,
-    label: status === 'optimal' ? 'Optimal' : status === 'fair' ? 'Fair' : 'Attention Needed'
+    label:
+      status === 'optimal'
+        ? i18n.t('dashboard.health_optimal', { defaultValue: 'Optimal' })
+        : status === 'fair'
+          ? i18n.t('dashboard.health_fair', { defaultValue: 'Fair' })
+          : i18n.t('dashboard.health_attention', { defaultValue: 'Attention Needed' })
   };
 };
 
@@ -67,18 +77,27 @@ export const generateReminders = (
       reminders.push({
         id: 'oil-overdue',
         type: 'warning',
-        title: 'Oil Service Recommended',
-        message: `Last oil service was ${Math.floor(monthsAgo)} months ago.`,
-        reason: 'Regular oil changes extend engine life.'
+        title: i18n.t('reminders.oil_title', { defaultValue: 'Oil Service Recommended' }),
+        message: i18n.t('reminders.oil_message', {
+          months: Math.floor(monthsAgo),
+          defaultValue: `Last oil service was ${Math.floor(monthsAgo)} months ago.`
+        }),
+        reason: i18n.t('reminders.oil_reason', {
+          defaultValue: 'Regular oil changes extend engine life.'
+        })
       });
     }
   } else {
     reminders.push({
       id: 'no-service-history',
       type: 'info',
-      title: 'No Service History',
-      message: 'Service history is limited.',
-      reason: 'Recording maintenance helps track your vehicle\'s health score.'
+      title: i18n.t('reminders.no_history_title', { defaultValue: 'No Service History' }),
+      message: i18n.t('reminders.no_history_message', {
+        defaultValue: 'Service history is limited.'
+      }),
+      reason: i18n.t('reminders.no_history_reason', {
+        defaultValue: "Recording maintenance helps track your vehicle's health score."
+      })
     });
   }
 
@@ -87,9 +106,13 @@ export const generateReminders = (
     reminders.push({
       id: 'active-diagnostic',
       type: 'critical',
-      title: 'Active Diagnostic Issue',
-      message: 'Your vehicle has unresolved diagnostic activity.',
-      reason: 'AI analysis identified potential faults that require attention.'
+      title: i18n.t('reminders.active_title', { defaultValue: 'Active Diagnostic Issue' }),
+      message: i18n.t('reminders.active_message', {
+        defaultValue: 'Your vehicle has unresolved diagnostic activity.'
+      }),
+      reason: i18n.t('reminders.active_reason', {
+        defaultValue: 'AI analysis identified potential faults that require attention.'
+      })
     });
   }
 

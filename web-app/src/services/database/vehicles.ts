@@ -2,15 +2,49 @@ import { databaseService, COLLECTIONS, Query } from './index';
 import { VehicleProfile } from '../../types';
 import { Permission, Role } from 'appwrite';
 
+/**
+ * Fields actually stored by the `vehicles` collection.
+ *
+ * Anything else (mileage, fuelType, notes, imageFileId) is intentionally
+ * dropped so Appwrite never rejects the request with "Unknown attribute".
+ */
+export interface VehicleInput {
+  make: string;
+  model: string;
+  year: string | number;
+  engine?: string;
+}
+
+const toVehicleAttributes = (data: Partial<VehicleInput>): Record<string, string> => {
+  const attributes: Record<string, string> = {};
+
+  if (data.make !== undefined) attributes.make = data.make;
+  if (data.model !== undefined) attributes.model = data.model;
+  if (data.year !== undefined) attributes.year = String(data.year);
+  if (data.engine !== undefined) attributes.engine = data.engine;
+
+  return attributes;
+};
+
 export const vehiclesService = {
   async listUserVehicles(userId: string): Promise<VehicleProfile[]> {
     return await databaseService.listDocuments<VehicleProfile>(
-      COLLECTIONS.VEHICLE_PROFILES,
-      [Query.equal('userId', userId)]
+      COLLECTIONS.VEHICLES,
+      [Query.equal('userId', userId), Query.orderDesc('$createdAt')]
     );
   },
 
-  async addVehicle(userId: string, data: Omit<VehicleProfile, keyof import('appwrite').Models.Document | 'userId'>): Promise<VehicleProfile> {
+  async getVehicle(vehicleId: string): Promise<VehicleProfile> {
+    return await databaseService.getDocument<VehicleProfile>(
+      COLLECTIONS.VEHICLES,
+      vehicleId
+    );
+  },
+
+  async addVehicle(
+    userId: string,
+    data: Partial<VehicleInput> & { make: string; model: string }
+  ): Promise<VehicleProfile> {
     const permissions = [
       Permission.read(Role.user(userId)),
       Permission.update(Role.user(userId)),
@@ -18,29 +52,27 @@ export const vehiclesService = {
     ];
 
     return await databaseService.createDocument<VehicleProfile>(
-      COLLECTIONS.VEHICLE_PROFILES,
+      COLLECTIONS.VEHICLES,
       {
-        ...data,
+        ...toVehicleAttributes(data),
         userId,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
       },
       permissions
     );
   },
 
-  async updateVehicle(vehicleId: string, data: Partial<VehicleProfile>): Promise<VehicleProfile> {
+  async updateVehicle(
+    vehicleId: string,
+    data: Partial<VehicleInput>
+  ): Promise<VehicleProfile> {
     return await databaseService.updateDocument<VehicleProfile>(
-      COLLECTIONS.VEHICLE_PROFILES,
+      COLLECTIONS.VEHICLES,
       vehicleId,
-      {
-        ...data,
-        updatedAt: new Date().toISOString(),
-      }
+      toVehicleAttributes(data)
     );
   },
 
   async deleteVehicle(vehicleId: string): Promise<void> {
-    await databaseService.deleteDocument(COLLECTIONS.VEHICLE_PROFILES, vehicleId);
+    await databaseService.deleteDocument(COLLECTIONS.VEHICLES, vehicleId);
   }
 };
