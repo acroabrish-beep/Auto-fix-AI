@@ -45,7 +45,7 @@ export async function runAdminAction<T = unknown>(
   }
 
   if (!execution.responseBody) {
-    return null;
+    throw new Error('Admin action returned an empty response.');
   }
 
   if (parsedBody?.error) {
@@ -58,3 +58,4 @@ export async function runAdminAction<T = unknown>(
 
   return parsedBody as T;
 }
+

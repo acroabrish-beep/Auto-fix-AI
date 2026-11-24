@@ -1,5 +1,8 @@
-import { client } from '../../lib/appwrite';
+﻿import { client } from '../../lib/appwrite';
+import { Functions } from 'appwrite';
 import i18n from '../../lib/i18n';
+
+const functions = new Functions(client);
 
 /**
  * Appwrite Function ID for the chat AI.
@@ -43,7 +46,7 @@ export function parseChatResponse(responseBody?: string | null): string | null {
   try {
     parsed = JSON.parse(trimmed);
   } catch {
-    // Not JSON — the function returned plain text.
+    // Not JSON â€” the function returned plain text.
     // If the plain text resembles a fallback message, return null so the
     // caller can show the standard offline fallback instead of raw text.
     if (trimmed.includes('Chat AI is temporarily unavailable')) {
@@ -100,14 +103,14 @@ export function parseChatResponse(responseBody?: string | null): string | null {
  *   4. The function returns `{ reply: string }` on success, or `{ error: string }`,
  *     or `{ fallback: string }` when the provider is unavailable.
  *   5. The frontend parses the response and either shows the AI reply or the
- *     offline fallback — never mixes the two.
+ *     offline fallback â€” never mixes the two.
  * 
  * The function requires a verified Appwrite JWT (automatic when the user is
  * signed in via Appwrite SDK). Unauthenticated calls are rejected at the
  * server with a 401, which manifests as an error caught below.
  */
 export async function generateChatReply(message: string): Promise<string> {
-  // 1. Frontend validation — must not be empty and must respect the length limit.
+  // 1. Frontend validation â€” must not be empty and must respect the length limit.
   const trimmed = message.trim();
   if (!trimmed) {
     return i18n.t('dashboard.chat_fallback', {
@@ -129,7 +132,7 @@ export async function generateChatReply(message: string): Promise<string> {
     // x-appwrite-user-jwt). If the user is not signed in, the function returns
     // a 401, which we catch and fall back to the offline reply.
     try {
-      const execution = await client.createExecution(
+      const execution = await functions.createExecution(
         CHAT_FUNCTION_ID,
         JSON.stringify({ message })
       );
@@ -152,7 +155,7 @@ export async function generateChatReply(message: string): Promise<string> {
         execution.responseStatusCode,
         execution.responseBody,
       ].filter(Boolean).join(' ');
-      // Log operatively — do not expose raw bodies in production logs.
+      // Log operatively â€” do not expose raw bodies in production logs.
       // In a production build, this would go through a secure logger.
       // eslint-disable-next-line no-console
       console.warn('[chat-ai] Unexpected response:', warnMsg);

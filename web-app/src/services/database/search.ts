@@ -1,5 +1,5 @@
-import { Query } from 'appwrite';
-import { databaseService, COLLECTIONS } from './index';
+﻿import { Query } from 'appwrite';
+import { databaseService, COLLECTIONS } from './core';
 import { LearningModule, RepairGuide, VehicleProfile, DiagnosticSession } from '../../types';
 
 export interface GlobalSearchResults {
@@ -64,3 +64,4 @@ export const searchService = {
     return results;
   }
 };
+

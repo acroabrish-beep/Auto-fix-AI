@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { RepairGuide } from '../../types';
 
 export const repairGuidesService = {
@@ -20,3 +20,4 @@ export const repairGuidesService = {
     );
   }
 };
+

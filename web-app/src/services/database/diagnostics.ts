@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { DiagnosticSession, DiagnosticResponse } from '../../types';
 import { Permission, Role } from 'appwrite';
 
@@ -146,3 +146,4 @@ export const diagnosticsService = {
     } as DiagnosticSession;
   }
 };
+

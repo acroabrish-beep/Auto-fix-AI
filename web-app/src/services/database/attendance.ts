@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { UserProfile, UserRole } from '../../types';
 
 interface AttendanceRecord {
@@ -21,7 +21,7 @@ interface AttendanceSummary {
 }
 
 export const attendanceService = {
-  // Record attendance — INSTRUCTOR or DEPT_ADMIN only, routed through function
+  // Record attendance â€” INSTRUCTOR or DEPT_ADMIN only, routed through function
   async recordAttendance(_attendanceData: {
     studentId: string;
     departmentId: string;
@@ -34,7 +34,7 @@ export const attendanceService = {
     throw new Error('Attendance recording must use record-attendance Appwrite Function');
   },
 
-  // Get attendance for a specific student — student can view only their own
+  // Get attendance for a specific student â€” student can view only their own
   async getStudentAttendance(studentId: string) {
     const queries = [
       Query.equal('studentId', studentId),
@@ -74,7 +74,7 @@ export const attendanceService = {
     };
   },
 
-  // Get attendance summary for department — dept admin only
+  // Get attendance summary for department â€” dept admin only
   async getDepartmentAttendanceSummary(departmentId: string, instructorId?: string) {
     const queries = [
       Query.equal('departmentId', departmentId),
@@ -89,3 +89,4 @@ export const attendanceService = {
 };
 
 export type { AttendanceRecord, AttendanceSummary };
+

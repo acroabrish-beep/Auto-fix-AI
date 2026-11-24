@@ -1,5 +1,5 @@
-import { databaseService, COLLECTIONS, Query } from './index';
-import { UserProfile } from '../../types';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
+import { UserProfile, LearningModule, Department } from '../../types';
 
 /**
  * Enroll a student in a course with institution and department scoping.
@@ -29,23 +29,26 @@ export async function enrollStudent(
   );
   if (!course) return false;
 
+  // Legacy optional field; departmentId is not part of the current LearningModule type.
+  const legacyCourseDepartmentId = (course as LearningModule & { departmentId?: string }).departmentId;
+
   // If the course has a program, validate through the program's institution
   let courseInstitutionId = course.programId
     ? await getProgramInstitutionId(course.programId)
     : null;
 
   // If course has no direct institution but has a department, use that
-  if (!courseInstitutionId && course.departmentId) {
+  if (!courseInstitutionId && legacyCourseDepartmentId) {
     const dept = await databaseService.getDocument<Department>(
       COLLECTIONS.DEPARTMENTS,
-      course.departmentId
+      legacyCourseDepartmentId
     );
     courseInstitutionId = dept?.institutionId || null;
   }
 
   // 3. If department is specified in enrollment, validate it matches the course department
-  if (departmentId && course.departmentId && departmentId !== course.departmentId) {
-    // Department mismatch – reject
+  if (departmentId && legacyCourseDepartmentId && departmentId !== legacyCourseDepartmentId) {
+    // Department mismatch â€“ reject
     return false;
   }
 
@@ -61,7 +64,7 @@ export async function enrollStudent(
     studentId: studentUserId,
     courseId,
     institutionId: studentInstitutionId || courseInstitutionId || '',
-    departmentId: studentDepartmentId || course.departmentId || '',
+    departmentId: studentDepartmentId || legacyCourseDepartmentId || '',
     enrolledAt: new Date().toISOString(),
     status: 'active',
   }, undefined, studentUserId); // documentSecurity will enforce owner-only
@@ -152,3 +155,5 @@ async function getProgramInstitutionId(programId: string): Promise<string | null
 }
 
 export type { UserProfile };
+
+

@@ -1,4 +1,4 @@
-﻿import { databaseService, COLLECTIONS, Query } from './index';
+import { databaseService, COLLECTIONS, Query } from './core';
 import { UserProfile, UserRole } from '../../types';
 import { runAdminAction } from '../ai/adminActions';
 
@@ -72,11 +72,9 @@ export const profilesService = {
    * and creates an enrollment record. Client-supplied institution/department are
    * never trusted.
    */
-  async enrollInCourse(courseId: string, departmentId?: string): Promise<{ success: boolean; alreadyEnrolled?: boolean }> {
+  async enrollInCourse(courseId: string): Promise<{ success: boolean; alreadyEnrolled?: boolean }> {
     return await runAdminAction<{ success: boolean; alreadyEnrolled?: boolean }>('enroll_in_course', {
-      studentUserId: profile?.userId || '',
       courseId,
-      departmentId,
     });
   },
 
@@ -84,12 +82,11 @@ export const profilesService = {
    * Get the courses the current student is enrolled in.
    */
   async getEnrolledCourses(): Promise<string[]> {
-    const result = await runAdminAction<{ success: boolean; enrollments: { courseId: string }[] }>('get_enrolled_courses', {
-      studentUserId: profile?.userId || '',
-    });
+    const result = await runAdminAction<{ success: boolean; enrollments: { courseId: string }[] }>('get_enrolled_courses', {});
     return result.enrollments?.map((e: { courseId: string }) => e.courseId) || [];
   },
 };
 
 // Keep the imported role type visible for callers that need the domain union.
 export type { UserRole };
+

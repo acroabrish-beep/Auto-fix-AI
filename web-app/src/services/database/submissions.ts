@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { UserProfile, UserRole } from '../../types';
 import { Permission, Role } from 'appwrite';
 
@@ -16,7 +16,7 @@ interface SubmissionRecord {
 }
 
 export const submissionsService = {
-  // List submissions for a specific student — only their own work
+  // List submissions for a specific student â€” only their own work
   async listStudentSubmissions(studentId: string) {
     const queries = [
       Query.equal('studentId', studentId),
@@ -29,7 +29,7 @@ export const submissionsService = {
     );
   },
 
-  // List submissions for an assignment — instructor can view
+  // List submissions for an assignment â€” instructor can view
   async listAssignmentSubmissions(assignmentId: string, instructorId: string) {
     const queries = [
       Query.equal('assignmentId', assignmentId),
@@ -43,7 +43,7 @@ export const submissionsService = {
     );
   },
 
-  // Create submission — STUDENT only
+  // Create submission â€” STUDENT only
   async createSubmission(submissionData: {
     assignmentId: string;
     content: string;
@@ -77,7 +77,7 @@ export const submissionsService = {
     );
   },
 
-  // Grade submission — INSTRUCTOR only, routed through admin function
+  // Grade submission â€” INSTRUCTOR only, routed through admin function
   async gradeSubmission(_submissionId: string, _grade: string, _feedback: string) {
     // NOTE: Client-side grading is prevented.
     // Use the grade-submission Appwrite Function instead.
@@ -86,3 +86,4 @@ export const submissionsService = {
 };
 
 export type { SubmissionRecord };
+

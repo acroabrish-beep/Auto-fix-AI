@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { UserProfile, UserRole } from '../../types';
 
 interface CertificateRecord {
@@ -22,7 +22,7 @@ interface CertificateSummary {
 }
 
 export const certificatesService = {
-  // Issue certificate — INSTRUCTOR or ADMIN only, routed through function
+  // Issue certificate â€” INSTRUCTOR or ADMIN only, routed through function
   async issueCertificate(_certificateData: {
     studentId: string;
     courseId: string;
@@ -34,7 +34,7 @@ export const certificatesService = {
     throw new Error('Certificate issuance must use issue-certificate Appwrite Function');
   },
 
-  // Get student's certificates — student can view only their own
+  // Get student's certificates â€” student can view only their own
   async getStudentCertificates(studentId: string) {
     const queries = [
       Query.equal('studentId', studentId),
@@ -61,3 +61,4 @@ export const certificatesService = {
 };
 
 export type { CertificateRecord, CertificateSummary };
+

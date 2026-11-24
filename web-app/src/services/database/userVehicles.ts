@@ -1,7 +1,7 @@
-import { databases, DATABASE_ID, ID } from '../../lib/appwrite';
+﻿import { databases, DATABASE_ID, ID } from '../../lib/appwrite';
 import { Query, Permission, Role } from 'appwrite';
 import { UserVehicle } from '../../types';
-import { COLLECTIONS } from './index';
+import { COLLECTIONS } from './core';
 
 /**
  * Service for the free-text `vehicles` collection.
@@ -51,3 +51,4 @@ export const userVehiclesService = {
     return document;
   },
 };
+

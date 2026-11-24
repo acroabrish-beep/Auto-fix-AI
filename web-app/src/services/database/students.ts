@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { UserProfile, UserRole } from '../../types';
 import { Permission, Role } from 'appwrite';
 
@@ -74,3 +74,4 @@ interface AttendanceRecord {
   present: boolean;
   recordedAt: string;
 }
+

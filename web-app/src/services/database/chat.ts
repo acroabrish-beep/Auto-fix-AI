@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { ChatRecord } from '../../types';
 import { Permission, Role, ID } from 'appwrite';
 
@@ -48,3 +48,4 @@ export const chatService = {
     ]);
   },
 };
+

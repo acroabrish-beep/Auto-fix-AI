@@ -99,36 +99,23 @@ function validateDiagnosticRequest(request: DiagnosticRequest): { valid: boolean
   if (!request.description || typeof request.description !== 'string' || request.description.trim().length === 0) {
     return { valid: false, error: 'description is required and must be a non-empty string.' };
   }
-  if (request.symptoms !== undefined && typeof request.symptoms !== 'undefined') {
-    if (Array.isArray(request.symptoms)) {
-      if (request.symptoms.length > 10) {
-        return { valid: false, error: 'symptoms array exceeds maximum length (10).' };
-      }
-      for (const s of request.symptoms) {
-        if (typeof s !== 'string' || s.trim().length === 0) {
-          return { valid: false, error: 'Each symptom must be a non-empty string.' };
-        }
-      }
-    } else if (typeof request.symptoms === 'string') {
-      if (request.symptoms.trim().length === 0) {
-        return { valid: false, error: 'symptoms string must not be empty.' };
-      }
+  if (!Array.isArray(request.symptoms) || request.symptoms.length > 10) {
+    return { valid: false, error: 'symptoms must be an array with at most 10 items.' };
+  }
+  for (const s of request.symptoms) {
+    if (typeof s !== 'string' || s.trim().length === 0) {
+      return { valid: false, error: 'Each symptom must be a non-empty string.' };
     }
   }
   if (!request.timing || typeof request.timing !== 'string' || request.timing.trim().length === 0) {
     return { valid: false, error: 'timing is required and must be a non-empty string.' };
   }
-  if (request.warningLights !== undefined) {
-    if (Array.isArray(request.warningLights)) {
-      for (const wl of request.warningLights) {
-        if (typeof wl !== 'string' || wl.trim().length === 0) {
-          return { valid: false, error: 'Each warning light must be a non-empty string.' };
-        }
-      }
-    } else if (typeof request.warningLights === 'string') {
-      if (request.warningLights.trim().length === 0) {
-        return { valid: false, error: 'warningLights string must not be empty.' };
-      }
+  if (!Array.isArray(request.warningLights)) {
+    return { valid: false, error: 'warningLights must be an array.' };
+  }
+  for (const wl of request.warningLights) {
+    if (typeof wl !== 'string' || wl.trim().length === 0) {
+      return { valid: false, error: 'Each warning light must be a non-empty string.' };
     }
   }
   return { valid: true };

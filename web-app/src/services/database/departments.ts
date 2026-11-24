@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { UserProfile, UserRole } from '../../types';
 
 interface Department {
@@ -19,7 +19,7 @@ interface DepartmentWithHead {
 }
 
 export const departmentsService = {
-  // List departments — scoped to institution
+  // List departments â€” scoped to institution
   async listDepartments(institutionId: string) {
     const queries = [
       Query.equal('institutionId', institutionId),
@@ -40,7 +40,7 @@ export const departmentsService = {
     );
   },
 
-  // Get department with head name — for dashboard displays
+  // Get department with head name â€” for dashboard displays
   async getDepartmentWithHead(departmentId: string) {
     const dept = await this.getDepartment(departmentId);
     
@@ -66,7 +66,7 @@ export const departmentsService = {
     };
   },
 
-  // List all departments across institution — for admin views
+  // List all departments across institution â€” for admin views
   async listAllDepartments(): Promise<DepartmentWithHead[]> {
     // This would require institution context; in production, institutionId would be known
     // For now, return empty and let admin functions handle it
@@ -75,3 +75,4 @@ export const departmentsService = {
 };
 
 export type { Department, DepartmentWithHead };
+

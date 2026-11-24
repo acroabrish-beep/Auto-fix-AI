@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { LearningModule, LearningProgress } from '../../types';
 import { Permission, Role } from 'appwrite';
 
@@ -65,3 +65,4 @@ export const learningService = {
     }
   }
 };
+

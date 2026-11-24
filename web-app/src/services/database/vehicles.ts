@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { VehicleProfile } from '../../types';
 import { Permission, Role } from 'appwrite';
 
@@ -76,3 +76,4 @@ export const vehiclesService = {
     await databaseService.deleteDocument(COLLECTIONS.VEHICLES, vehicleId);
   }
 };
+

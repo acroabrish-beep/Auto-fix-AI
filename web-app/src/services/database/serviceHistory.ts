@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { ServiceRecord } from '../../types';
 import { Permission, Role } from 'appwrite';
 
@@ -51,3 +51,4 @@ export const serviceHistoryService = {
     await databaseService.deleteDocument(COLLECTIONS.SERVICE_RECORDS, recordId);
   }
 };
+

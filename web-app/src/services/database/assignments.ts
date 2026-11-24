@@ -1,4 +1,4 @@
-import { databaseService, COLLECTIONS, Query } from './index';
+﻿import { databaseService, COLLECTIONS, Query } from './core';
 import { UserProfile, UserRole } from '../../types';
 import { Assignment } from '../../types';
 
@@ -33,7 +33,7 @@ export const assignmentsService = {
     );
   },
 
-  // Create assignment — INSTRUCTOR only, routed through admin function
+  // Create assignment â€” INSTRUCTOR only, routed through admin function
   // This is a placeholder; actual creation should use assign-instructor-to-department function
   async createAssignment(_assignmentData: any) {
     // NOTE: Client-side direct creation is prevented.
@@ -41,7 +41,7 @@ export const assignmentsService = {
     throw new Error('Assignment creation must use admin Actions function');
   },
 
-  // List assignments for student — only their enrollments
+  // List assignments for student â€” only their enrollments
   async listStudentAssignments(studentId: string) {
     const queries = [
       Query.equal('status', 'active'),
@@ -55,7 +55,7 @@ export const assignmentsService = {
     );
   },
 
-  // Update assignment — instructor only
+  // Update assignment â€” instructor only
   async updateAssignment(assignmentId: string, data: Partial<Assignment>) {
     // Strip fields that shouldn't be client-modifiable
     const cleanData: Partial<Assignment> = { ...data };
@@ -70,3 +70,4 @@ export const assignmentsService = {
 };
 
 export type { Assignment };
+
