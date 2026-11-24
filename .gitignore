@@ -23,6 +23,11 @@ migrate_working_dir/
 # is commented out by default.
 #.vscode/
 
+# Environment variables - never commit these
+.env
+.env.local
+.env.*.local
+
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
@@ -43,3 +48,14 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Node.js dependencies and build output
+node_modules/
+dist/
+
+node_modules/
+web-app/node_modules/
+dist/
+web-app/dist/
+.env
+web-app/.env

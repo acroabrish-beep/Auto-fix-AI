@@ -1,4 +1,103 @@
 const friendlyErrorMessage = () => 'Diagnostic service unavailable. Please try again.';
+
+function toStringArray(value) {
+  if (!Array.isArray(value)) return [];
+  return value.filter(
+    (item) => typeof item === 'string' && item.trim().length > 0
+  );
+}
+
+function toPossibleCauses(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((item) => {
+      if (!item || typeof item !== 'object') return null;
+      const cause = item;
+      if (typeof cause.title !== 'string' || !cause.title.trim()) return null;
+      return {
+        title: cause.title.trim(),
+        description: typeof cause.description === 'string' ? cause.description.trim() : '',
+        probability:
+          typeof cause.probability === 'number'
+            ? Math.min(1, Math.max(0, cause.probability))
+            : 0.5,
+      };
+    })
+    .filter((item) => item != null);
+}
+
+function toRecommendedChecks(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((item) => {
+      if (!item || typeof item !== 'object') return null;
+      const check = item;
+      if (typeof check.title !== 'string' || !check.title.trim()) return null;
+      return {
+        title: check.title.trim(),
+        description:
+          typeof check.description === 'string' ? check.description.trim() : '',
+        toolsRequired: toStringArray(check.toolsRequired),
+      };
+    })
+    .filter((item) => item != null);
+}
+
+/** 
+ * Parse the structured diagnostic JSON returned by the Gemini API.
+ * Falls back gracefully if the response is chat-style or malformed.
+ */
+function parseStructuredDiagnosis(reply) {
+  const cleaned = reply
+    .trim()
+    .replace(/^```(?:json)?\\s*/i, '')
+    .replace(/\\s*\\*\\*\\*$/i, '')
+    .trim();
+
+  if (!cleaned.startsWith('{')) return null;
+
+  try {
+    const data = JSON.parse(cleaned);
+    if (!data || typeof data !== 'object' || typeof data.summary !== 'string') return null;
+
+    const confidence =
+      typeof data.confidence === 'number'
+        ? Math.min(1, Math.max(0, data.confidence))
+        : 0.5;
+
+    return {
+      summary: data.summary.trim(),
+      possibleCauses: toPossibleCauses(data.possibleCauses),
+      recommendedChecks: toRecommendedChecks(data.recommendedChecks),
+      nextSteps: toStringArray(data.nextSteps),
+      safetyNotes: toStringArray(data.safetyNotes),
+      confidence,
+      disclaimer:
+        typeof data.disclaimer === 'string' && data.disclaimer.trim()
+          ? data.disclaimer.trim()
+          : 'Diagnostic disclaimer: This AI-generated analysis is for informational purposes only and not a substitute for professional mechanical inspection. Always consult a qualified mechanic for vehicle repairs.',
+    };
+  } catch {
+    return null;
+  }
+}
+
+function toDiagnosticResponse(reply) {
+  const structured = parseStructuredDiagnosis(reply);
+  if (structured) return structured;
+
+  return {
+    summary: reply,
+    possibleCauses: [],
+    recommendedChecks: [],
+    nextSteps: [],
+    safetyNotes: [],
+    confidence: 0.5,
+    disclaimer:
+      'Diagnostic disclaimer: This AI-generated analysis is for informational purposes only and not a substitute for professional mechanical inspection. Always consult a qualified mechanic for vehicle repairs.',
+  };
+}
+const friendlyErrorMessage = () => 'Diagnostic service unavailable. Please try again.';
 const friendlyErrorMessage = () => 'Diagnostic service unavailable. Please try again.';
 "
 "
@@ -19,7 +118,7 @@ const friendlyErrorMessage = () => 'Diagnostic service unavailable. Please try a
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 
 function toStringArray(value) {
   if (!Array.isArray(value)) return [];
@@ -260,8 +359,8 @@ export const diagnosticService = {
                 { role: 'user', content: prompt }
               ],
             ],
-            response_format: { type: 'json_object' },
-            temperature: 0.7,
+            ,
+            ,
           }),
         };
 
@@ -517,6 +616,16 @@ function toDiagnosticResponse(reply) {
   This function handles vehicle diagnostics using an AI provider.
   It does NOT handle admin actions, role management, or privileged operations.
   It rejects any request that contains an `action` field, keeping diagnostic-ai
+*/
+*/
+// Removed appwriteRequest helper - unused in diagnostic flow.
+// Diagnostic-ai now uses Google Gemini API directly.
+
+/**/
+*/
+/*
+*/
+/**/
   dedicated exclusively to vehicle diagnostics.
 */
 
@@ -524,7 +633,7 @@ const endpoint = process.env.APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io
 const projectId = process.env.APPWRITE_PROJECT_ID;
 const apiKey = process.env.AUTOFIX_APPWRITE_API_KEY;
 const databaseId = process.env.APPWRITE_DATABASE_ID || 'autofix-ai-db';
-const openAiApiKey = process.env.GEMINI_API_KEY;
+const geminiApiKey = process.env.GEMINI_API_KEY;
 
 async function appwriteRequest(path, options = {}) {
   if (!projectId || !apiKey) {
@@ -569,7 +678,7 @@ function queryEqual(field, value) {
 
 
 async function runDiagnostic(payload) {
-  if (!openAiApiKey) {
+  if (!geminiApiKey) {
     throw new Error('AI diagnostics is not configured yet. Please add GEMINI_API_KEY to the function environment.');
   }
 
@@ -584,7 +693,7 @@ async function runDiagnostic(payload) {
   }
 
   const prompt = `
-    You are a professional automotive diagnostic assistant.
+    You are a professional automotive diagnostic assistant providing guidance in JSON format.
     Analyze the following vehicle problem and provide a structured JSON response.
 
     Vehicle ID: ${vehicleId}
@@ -593,7 +702,7 @@ async function runDiagnostic(payload) {
     Warning Lights: ${warningLights?.join?.(', ') || warningLights || 'None'}
     Timing: ${timing}
 
-    Respond ONLY with a valid JSON object following this structure:
+    Respond with valid JSON having these fields: summary, possibleCauses, recommendedChecks, nextSteps, safetyNotes, confidence, disclaimer.
     {
       "summary": "Short overview of the issue",
       "possibleCauses": [
@@ -609,11 +718,11 @@ async function runDiagnostic(payload) {
     }
   `;
 
-  const response = await fetch('https://generativelanguage.googleapis.com/v1beta/v1/chat/completions', {
+  const response = await fetch('https://generativelanguage.googleapis.com/v1beta/v1generateContent', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${openAiApiKey}`,
+      Authorization: `Bearer ${geminiApiKey}`,
     },
     body: JSON.stringify({
       model: 'gemini-1.5-flash',
@@ -621,8 +730,8 @@ async function runDiagnostic(payload) {
         { role: 'system', content: 'You are an expert automotive mechanic providing diagnostic guidance in JSON format.' },
         { role: 'user', content: prompt },
       ],
-      response_format: { type: 'json_object' },
-      temperature: 0.7,
+      ,
+      ,
     }),
   });
 
@@ -657,7 +766,7 @@ export default async (context) => {
 
   // Diagnostic flow.
   try {
-    if (!openAiApiKey) {
+    if (!geminiApiKey) {
       return res.json(
         { error: 'AI diagnostics is not configured yet. Please add GEMINI_API_KEY to the function environment.' },
         500
@@ -671,3 +780,99 @@ export default async (context) => {
     return res.json({ error: err?.message || 'An internal error occurred during analysis.' }, 500);
   }
 };
+export const diagnosticService = {
+  async analyzeSymptoms(request) {
+    try {
+      const geminiApiKey = process.env.GEMINI_API_KEY || '';
+      const geminiModel = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
+
+      if (!geminiApiKey) {
+        return {
+          summary: 'AI diagnostics not configured.',
+          possibleCauses: [],
+          recommendedChecks: [],
+          nextSteps: ['Please configure GEMINI_API_KEY in the function environment.'],
+          safetyNotes: [],
+          confidence: 0.0,
+          disclaimer:
+            'Diagnostic disclaimer: This AI-generated analysis is for informational purposes only and not a substitute for professional mechanical inspection. Always consult a qualified mechanic for vehicle repairs.',
+        };
+      }
+
+      const prompt = String(
+        `You are a professional automotive diagnostic assistant. Analyze the following vehicle problem and provide a structured JSON response with these exact fields: summary, possibleCauses (array with title, description, probability), recommendedChecks (array with title, description, toolsRequired), nextSteps (array of steps), safetyNotes (array), confidence (number 0-1), disclaimer (string).
+
+Vehicle ID: ${request.vehicleId}
+Problem Description: ${request.description}
+Symptoms: ${Array.isArray(request.symptoms) ? request.symptoms.join(', ') : request.symptoms || 'None specified'}
+Warning Lights: ${Array.isArray(request.warningLights) ? request.warningLights.join(', ') : request.warningLights || 'None'}
+Timing: ${request.timing}
+
+Respond ONLY with valid JSON having these fields: summary, possibleCauses, recommendedChecks, nextSteps, safetyNotes, confidence, disclaimer. No explanatory text.`
+;
+
+      const url = 'https://generativelanguage.googleapis.com/v1beta/models/' + geminiModel + ':generateContent';
+
+      const result = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-goog-api-key': geminiApiKey,
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              role: 'user',
+              parts: [{ text: prompt }],
+            },
+          ],
+        }),
+      });
+
+      if (!result.ok) {
+        const errorText = await result.text();
+        throw new Error('AI service unavailable. Please try again.');
+      }
+
+      const resultData = await result.json();
+
+      if (!resultData.candidates || !resultData.candidates[0] || !resultData.candidates[0].content) {
+        return {
+          summary: 'No diagnostic analysis available.',
+          possibleCauses: [],
+          recommendedChecks: [],
+          nextSteps: [],
+          safetyNotes: [],
+          confidence: 0.0,
+          disclaimer:
+            'Diagnostic disclaimer: This AI-generated analysis is for informational purposes only and not a substitute for professional mechanical inspection. Always consult a qualified mechanic for vehicle repairs.',
+        };
+      }
+
+      const text = resultData.candidates[0].content.parts[0].text || '';
+
+      return toDiagnosticResponse(text);
+    } catch (err) {
+      console.error('[diagnostics] AI service error:', err);
+      return {
+        summary: 'Diagnostic failed.',
+        possibleCauses: [],
+        recommendedChecks: [],
+        nextSteps: ['Please try again later.'],
+        safetyNotes: [],
+        confidence: 0.0,
+        disclaimer:
+          'Diagnostic disclaimer: This AI-generated analysis is for informational purposes only and not a substitute for professional mechanical inspection. Always consult a qualified mechanic for vehicle repairs.',
+      };
+    }
+  },
+};
+
+export function toPossibleCauses(value) { return toPossibleCauses(value); }
+export function toRecommendedChecks(value) { return toRecommendedChecks(value); }
+export function toStringArray(value) { return toStringArray(value); }
+export function parseStructuredDiagnosis(value) { return parseStructuredDiagnosis(value); }
+export function toDiagnosticResponse(value) { return toDiagnosticResponse(value); }
+export * from './types';
+export * from './provider';
+"
