@@ -10,10 +10,7 @@ const CHAT_FUNCTION_ID = (import.meta.env.VITE_APPWRITE_CHAT_FUNCTION_ID as stri
  * Friendly fallback reply shown when the AI provider is unavailable.
  */
 const fallbackReply = (message: string) =>
-  i18n.t('dashboard.chat_fallback', {
-    message: message.slice(0, 120),
-    id: CHAT_FUNCTION_ID,
-  });
+  i18n.t('dashboard.chat_fallback');
 
 export function parseChatResponse(responseBody?: string | null): string | null {
   if (!responseBody) return null;

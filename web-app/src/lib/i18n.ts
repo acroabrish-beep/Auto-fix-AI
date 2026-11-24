@@ -114,7 +114,7 @@ const en: TranslationResource = {
     could_not_load_history: 'Could not load chat history. Check the "chat_history" collection.',
     failed_send: 'Failed to send message.',
     chat_fallback:
-      'I couldn\'t reach the AI assistant right now. Your message ("{{message}}") has been saved to your history. Once the "{{id}}" Appwrite Function is deployed, live responses will appear here.',
+      'The AI assistant is temporarily unavailable. Please try again.',
     health_optimal: 'Optimal',
     health_fair: 'Fair',
     health_attention: 'Attention Needed',

@@ -59,3 +59,12 @@ dist/
 web-app/dist/
 .env
 web-app/.env
+
+# local junk
+*.storage.zip
+*.bak
+tsc-after.txt
+tsc-baseline.txt
+temp_sdk_check.js
+functions/diagnostic-ai/replace.js
+rcautofix_ai*
