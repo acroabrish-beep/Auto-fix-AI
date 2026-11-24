@@ -1,4 +1,4 @@
-import type { AppPageTranslations } from './types';
+﻿import type { AppPageTranslations } from './types';
 
 export const en: AppPageTranslations = {
   shared: {
@@ -139,7 +139,7 @@ export const en: AppPageTranslations = {
     minutes: '{{count}} Minutes',
     professional_module: 'Professional Module',
     your_progress: 'Your Learning Progress',
-    started: 'Started · lesson in progress',
+    started: 'Started Â· lesson in progress',
     continue_learning: 'Continue Learning',
     start_learning: 'Start Learning',
     module_completed: 'Module Completed',
@@ -350,7 +350,7 @@ export const en: AppPageTranslations = {
     delete_record_failed: 'Failed to delete record',
     add_vehicle_title: 'Add Vehicle',
     add_vehicle_desc:
-      'Enter your vehicle details. Make and model are free text — type any manufacturer or model.',
+      'Enter your vehicle details. Make and model are free text â€” type any manufacturer or model.',
     back_to_diagnostics: 'Back to Diagnostics',
     year_invalid: 'Please enter a valid year, for example 2018.',
     save_failed: 'Failed to save vehicle. Please try again.',
@@ -403,8 +403,13 @@ export const en: AppPageTranslations = {
     intro:
       'Run simulated electrical and diagnostic checks. Readings are for practice only and are not connected to a real vehicle.',
     online: 'Lab online',
+    simulation_title: 'Interactive Automotive Lab Simulation',
+    start: 'Start',
+    pause: 'Pause',
+    reset: 'Reset',
+    simulation_range: 'Simulation range',
     multimeter: 'Digital Multimeter',
-    auto_ranging: 'Auto-ranging · DC voltage',
+    auto_ranging: 'Auto-ranging Â· DC voltage',
     connected: 'Connected',
     dc_voltage: 'DC voltage',
     probe_status: 'Probe status',
@@ -504,7 +509,7 @@ export const en: AppPageTranslations = {
     modules_title: '15 Integrated Modules',
     modules_desc:
       'Everything you need for automotive learning, diagnosis, and repair in one platform.',
-    modules_note: 'All 15 modules work together — and keep working offline.',
+    modules_note: 'All 15 modules work together â€” and keep working offline.',
     module_1: 'AI TVET Teacher',
     module_2: 'Auto Diagnostic AI',
     module_3: 'Electrical AI',
@@ -525,10 +530,10 @@ export const en: AppPageTranslations = {
     impact_desc: 'Driving measurable change in TVET education across Africa.',
     sdg4_title: 'Quality Education',
     sdg4_desc:
-      'Equipping TVET learners with practical, industry-relevant automotive skills — anywhere, online or off.',
+      'Equipping TVET learners with practical, industry-relevant automotive skills â€” anywhere, online or off.',
     sdg8_title: 'Decent Work and Economic Growth',
     sdg8_desc:
-      'Creating pathways to skilled employment and self-employment for Africa’s growing technician workforce.',
+      'Creating pathways to skilled employment and self-employment for Africaâ€™s growing technician workforce.',
     sdg9_title: 'Industry, Innovation and Infrastructure',
     sdg9_desc:
       'Bringing AI-driven diagnostics and resilient digital infrastructure to workshops across the continent.',

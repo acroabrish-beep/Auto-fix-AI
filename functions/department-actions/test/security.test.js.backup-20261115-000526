@@ -1,0 +1,147 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+
+process.env.APPWRITE_ENDPOINT = 'https://fra.cloud.appwrite.io/v1';
+process.env.APPWRITE_PROJECT_ID = 'test-project';
+process.env.APPWRITE_API_KEY = 'test-key';
+process.env.APPWRITE_DATABASE_ID = 'autofix-ai-db';
+
+const { default: handler } = await import('../index.js');
+
+function mockResponse(data, status = 200) {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    json: async () => data,
+    text: async () => JSON.stringify(data),
+  };
+}
+
+async function invoke(jwt, fetchMock, body = { action: 'list_instructors' }) {
+  global.fetch = fetchMock;
+
+  let result;
+  let status;
+
+  await handler({
+    req: {
+      method: 'POST',
+      headers: jwt ? { 'x-appwrite-user-jwt': jwt } : {},
+      body: JSON.stringify(body),
+    },
+    res: {
+      json(data, code = 200) {
+        result = data;
+        status = code;
+        return { data, status };
+      },
+    },
+    log() {},
+    error() {},
+  });
+
+  return { result, status };
+}
+
+test('missing JWT returns 401 without calling Appwrite', async () => {
+  let calls = 0;
+
+  const response = await invoke(null, async () => {
+    calls++;
+    return mockResponse({});
+  });
+
+  assert.equal(response.status, 401);
+  assert.equal(calls, 0);
+});
+
+test('invalid JWT returns 401', async () => {
+  const response = await invoke('invalid-token', async () =>
+    mockResponse({ message: 'Unauthorized' }, 401)
+  );
+
+  assert.equal(response.status, 401);
+});
+
+test('authenticated non-department-admin returns 403', async () => {
+  const response = await invoke('valid-token', async (url) => {
+    if (String(url).endsWith('/account')) {
+      return mockResponse({ $id: 'user-123' });
+    }
+
+    return mockResponse({
+      documents: [{
+        $id: 'profile-1',
+        userId: 'user-123',
+        role: 'student',
+        institutionId: 'institution-A',
+        departmentId: 'department-A',
+      }],
+    });
+  });
+
+  assert.equal(response.status, 403);
+  assert.match(response.result.error, /Department Admin access required/);
+});
+
+test('department instructor query is restricted to verified department and institution', async () => {
+  const requestedUrls = [];
+  let profileLookupCount = 0;
+
+  const response = await invoke('valid-token', async (url) => {
+    const address = String(url);
+    requestedUrls.push(address);
+
+    if (address.endsWith('/account')) {
+      return mockResponse({ $id: 'admin-user-1' });
+    }
+
+    if (address.includes('/collections/profiles/documents')) {
+      profileLookupCount++;
+
+      if (profileLookupCount === 1) {
+        return mockResponse({
+          documents: [{
+            $id: 'admin-profile',
+            userId: 'admin-user-1',
+            role: 'department_admin',
+            institutionId: 'institution-A',
+            departmentId: 'department-A',
+          }],
+        });
+      }
+
+      return mockResponse({
+        documents: [{
+          $id: 'instructor-profile',
+          userId: 'instructor-1',
+          fullName: 'Test Instructor',
+          email: 'instructor@example.test',
+          role: 'instructor',
+          institutionId: 'institution-A',
+          departmentId: 'department-A',
+        }],
+      });
+    }
+
+    throw new Error(`Unexpected Appwrite request: ${address}`);
+  });
+
+  assert.equal(response.status, 200);
+  assert.equal(response.result.success, true);
+  assert.equal(response.result.data.length, 1);
+
+  const listUrl = requestedUrls.find(
+    (url) =>
+      url.includes('/collections/profiles/documents') &&
+      url.includes('departmentId')
+  );
+
+  assert.ok(listUrl, 'Department profile query was not made');
+
+  const decoded = decodeURIComponent(listUrl);
+
+  assert.ok(decoded.includes('equal("departmentId","department-A")'));
+  assert.ok(decoded.includes('equal("institutionId","institution-A")'));
+  assert.ok(decoded.includes('equal("role","instructor")'));
+});

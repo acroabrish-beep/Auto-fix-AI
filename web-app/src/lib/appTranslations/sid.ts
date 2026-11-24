@@ -1,4 +1,4 @@
-import type { AppPageTranslations } from './types';
+﻿import type { AppPageTranslations } from './types';
 
 export const sid: AppPageTranslations = {
   shared: {
@@ -146,7 +146,7 @@ export const sid: AppPageTranslations = {
     minutes: 'Daqiiqaa {{count}}',
     professional_module: 'Mooduula Ogeessaa',
     your_progress: 'Adeemsa Barro Keessan',
-    started: 'Jalqabame · barnoonni adeemsa irra jira',
+    started: 'Jalqabame Â· barnoonni adeemsa irra jira',
     continue_learning: 'Barro Itti Fufi',
     start_learning: 'Barro Jalqabi',
     module_completed: 'Mooduuliin Xumurameera',
@@ -364,7 +364,7 @@ export const sid: AppPageTranslations = {
     delete_record_failed: "Galmee haquun hin danda'amne",
     add_vehicle_title: 'Konkolaataa Dabali',
     add_vehicle_desc:
-      "Bal'ina konkolaataa keessan galchaa. Oomishaan fi moodeeliin barreeffama bilisaa — oomishaa yookaan moodeela kamiyyuu barreessaa.",
+      "Bal'ina konkolaataa keessan galchaa. Oomishaan fi moodeeliin barreeffama bilisaa â€” oomishaa yookaan moodeela kamiyyuu barreessaa.",
     back_to_diagnostics: "Gara Qorannoo Deebi'i",
     year_invalid: 'Maaloo waggaa sirrii galchaa, fkn. 2018.',
     save_failed:
@@ -419,8 +419,13 @@ export const sid: AppPageTranslations = {
     intro:
       'Qorannoo elektirikii fi qorannoo yaadaa hojjedhaa. Qabxiileen kunneen shaakalaaf qofa, konkolaataa dhugaa waliin hin qunnamne.',
     online: 'Laaboraatooriin toora irra jira',
+    simulation_title: 'Interactive Automotive Lab Simulation',
+    start: 'Start',
+    pause: 'Pause',
+    reset: 'Reset',
+    simulation_range: 'Simulation range',
     multimeter: 'Multimeetara Dijitaalaa',
-    auto_ranging: 'Ofumaan hanga · Volteejii DC',
+    auto_ranging: 'Ofumaan hanga Â· Volteejii DC',
     connected: 'Qunnamteera',
     dc_voltage: 'Volteejii DC',
     probe_status: 'Haala Probe',
@@ -522,7 +527,7 @@ export const sid: AppPageTranslations = {
     modules_desc:
       'Wanti barnoota, qorannoo fi suphee konkolaataaf barbaachisu hunda waltajjii tokko keessatti.',
     modules_note:
-      'Mooduulootni 15 hundi waliin hojjeta — interneedla malees hojjechuu itti fufu.',
+      'Mooduulootni 15 hundi waliin hojjeta â€” interneedla malees hojjechuu itti fufu.',
     module_1: 'Barsiisaa TVET AI',
     module_2: 'Qorannoo Ofumaa AI',
     module_3: 'Elektirikii AI',
@@ -543,7 +548,7 @@ export const sid: AppPageTranslations = {
     impact_desc: "Barnoota TVET Afriikaa keessatti jijjiirama safaramuu danda'u fiduu.",
     sdg4_title: 'Barnoota Qulqulluu',
     sdg4_desc:
-      'Barattoota TVET dandeettii konkolaataa qabatamaa fi industirii waliin walsimu — bakka kamiyyuu, toora irra yookaan toora malee kennuu.',
+      'Barattoota TVET dandeettii konkolaataa qabatamaa fi industirii waliin walsimu â€” bakka kamiyyuu, toora irra yookaan toora malee kennuu.',
     sdg8_title: 'Hojii Gaarii fi Guddina Dinagdee',
     sdg8_desc:
       "Hojjetaa teekniikii Afriikaa guddachaa jiruuf carraa hojii ogummaa fi ofiin hojjechuu uumuu.",

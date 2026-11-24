@@ -152,6 +152,7 @@ export default async (context) => {
   if (trimmed.length > MAX_MESSAGE_LENGTH) {
     return res.json({ error: `Message exceeds maximum length (${MAX_MESSAGE_LENGTH} characters).` }, 400);
   }
+  const systemPrompt = typeof payload?.systemPrompt === 'string' ? payload.systemPrompt.trim().slice(0, 2000) : '';
 
   // 2. Authenticate via Appwrite JWT
   const jwt = req.headers['x-appwrite-user-jwt'];
@@ -215,6 +216,7 @@ export default async (context) => {
         'x-goog-api-key': geminiApiKey,
       },
       body: JSON.stringify({
+        ...(systemPrompt ? { systemInstruction: { parts: [{ text: systemPrompt }] } } : {}),
         contents: [{ role: 'user', parts: [{ text: trimmed }] }],
       }),
     });

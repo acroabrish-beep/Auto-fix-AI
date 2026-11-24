@@ -1,0 +1,13 @@
+{
+  "name": "diagnostic-ai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node index.js"
+  }
+}

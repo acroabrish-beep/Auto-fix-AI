@@ -5,8 +5,11 @@ import { DiagnosticRequest, DiagnosticResponse } from "../../types";
 const functions = new Functions(client);
 
 const DIAGNOSTIC_FUNCTION_ID =
-  (import.meta.env.VITE_APPWRITE_DIAGNOSTIC_FUNCTION_ID as string | undefined)?.trim() ||
-  "6a7743a8001a7c995501";
+  (import.meta.env.VITE_APPWRITE_DIAGNOSTIC_FUNCTION_ID as string | undefined)?.trim();
+
+if (!DIAGNOSTIC_FUNCTION_ID) {
+  throw new Error('VITE_APPWRITE_DIAGNOSTIC_FUNCTION_ID is not configured.');
+}
 
 const friendlyErrorMessage = () =>
   "Diagnostic service unavailable. Please try again.";
@@ -86,13 +89,11 @@ function toDiagnosticResponse(reply: string): DiagnosticResponse {
 const MAX_DIAGNOSTIC_PAYLOAD_SIZE = 10 * 1024; // 10KB
 
 function validateDiagnosticRequest(request: DiagnosticRequest): { valid: boolean; error?: string } {
-  // payload size limit
   const payloadString = JSON.stringify(request);
   if (payloadString.length > MAX_DIAGNOSTIC_PAYLOAD_SIZE) {
     return { valid: false, error: 'Request payload exceeds maximum size (10KB).' };
   }
 
-  // field-level validation
   if (!request.vehicleId || typeof request.vehicleId !== 'string' || request.vehicleId.trim().length === 0) {
     return { valid: false, error: 'vehicleId is required and must be a non-empty string.' };
   }
@@ -121,22 +122,54 @@ function validateDiagnosticRequest(request: DiagnosticRequest): { valid: boolean
   return { valid: true };
 }
 
+function classifyExecutionError(error: any, statusCode?: number): { message: string; status: number } {
+  const rawMessage = error?.message || (typeof error === 'string' ? error : '');
+  const code = error?.code ?? error?.status ?? statusCode ?? 0;
+  console.error('[diagnostics] execution error', { code, status: statusCode, message: rawMessage });
+
+  const msg = rawMessage.toLowerCase();
+  if (code === 401 || /unauthorized|authentication required|not allowed/.test(msg)) {
+    return { message: 'You are not allowed to run diagnostics. Please sign in.', status: 401 };
+  }
+  if (code === 404 || /not found/.test(msg)) {
+    return { message: 'The diagnostic service is not available right now.', status: 404 };
+  }
+  if (/network|cors|failed to fetch|load failed/.test(msg)) {
+    return { message: 'Network error. Please check your connection and try again.', status: 0 };
+  }
+  if (code >= 500 || code === 0) {
+    return { message: 'Something went wrong on our side. Please try again later.', status: 500 };
+  }
+  return { message: 'Something went wrong. Please try again.', status: code || 500 };
+}
+
 export const diagnosticService = {
   async analyzeSymptoms(request: DiagnosticRequest): Promise<DiagnosticResponse> {
-    // Input validation
     const validation = validateDiagnosticRequest(request);
     if (!validation.valid) {
       throw new Error(validation.error);
     }
     try {
-      const execution = await functions.createExecution(DIAGNOSTIC_FUNCTION_ID, JSON.stringify({
-        vehicleId: request.vehicleId,
-        description: request.description,
-        symptoms: request.symptoms,
-        timing: request.timing,
-        warningLights: request.warningLights,
-      }))
+      let execution: any;
+      try {
+        execution = await functions.createExecution(DIAGNOSTIC_FUNCTION_ID, JSON.stringify({
+          vehicleId: request.vehicleId,
+          description: request.description,
+          symptoms: request.symptoms,
+          timing: request.timing,
+          warningLights: request.warningLights,
+        }));
+      } catch (error: any) {
+        const { message } = classifyExecutionError(error);
+        throw new Error(message);
+      }
+
       const reply = execution.responseBody ? execution.responseBody : "";
+      const statusCode = execution.responseStatusCode ?? 0;
+      if (execution.status === 'failed' || (statusCode > 0 && statusCode >= 400)) {
+        const { message } = classifyExecutionError(new Error(''), statusCode);
+        throw new Error(message);
+      }
       try {
         const parsed = JSON.parse(reply);
         if (parsed && typeof parsed === "object" && typeof parsed.summary === "string") {
@@ -157,7 +190,7 @@ export const diagnosticService = {
       return toDiagnosticResponse(reply);
     } catch (error) {
       console.error("[diagnostics] AI service error:", error);
-      throw new Error(friendlyErrorMessage());
+      throw error instanceof Error ? error : new Error('Something went wrong. Please try again later.');
     }
   },
 };

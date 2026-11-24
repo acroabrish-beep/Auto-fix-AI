@@ -291,9 +291,7 @@ export const StudentDashboard: React.FC = () => {
     ]);
 
     try {
-      const reply = await generateChatReply(
-        `System: You are a TVET tutor. Help the student learn. User: ${text}`
-      );
+      const reply = await generateChatReply(text, 'You are a TVET tutor. Help the student learn.');
       setChatMessages((prev) => [
         ...prev,
         { id: `local-${Date.now()}-ai`, role: 'assistant', content: reply },

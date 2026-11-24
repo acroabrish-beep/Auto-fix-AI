@@ -1,0 +1,285 @@
+/*
+  APPWRITE FUNCTION: admin-actions
+  Privileged admin operations executed with a server API key.
+*/
+
+const endpoint = process.env.APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1';
+const projectId = process.env.APPWRITE_PROJECT_ID;
+const apiKey = process.env.APPWRITE_API_KEY;
+const databaseId = process.env.APPWRITE_DATABASE_ID || 'autofix-ai-db';
+
+async function appwriteRequest(path, options = {}) {
+  if (!projectId || !apiKey) {
+    throw new Error('Missing APPWRITE_PROJECT_ID or APPWRITE_API_KEY.');
+  }
+
+  const response = await fetch(`${endpoint}${path}`, {
+    ...options,
+    headers: {
+      'X-Appwrite-Project': projectId,
+      'X-Appwrite-Key': apiKey,
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      ...(options.headers || {}),
+    },
+  });
+
+  const text = await response.text();
+  let data = null;
+  if (text) {
+    try {
+      data = JSON.parse(text);
+    } catch {
+      data = text;
+    }
+  }
+
+  if (!response.ok) {
+    throw new Error(data?.message || data?.error || text || `Appwrite request failed with ${response.status}`);
+  }
+
+  return data;
+}
+
+function queryEqual(field, value) {
+  return encodeURIComponent(`equal("${field}","${String(value).replace(/"/g, '\\"')}")`);
+}
+
+async function findProfile(userId) {
+  const result = await appwriteRequest(
+    `/databases/${databaseId}/collections/profiles/documents?queries[]=${queryEqual('userId', userId)}&limit=1`
+  );
+  return result?.documents?.[0] || null;
+}
+
+// Verify the caller's Appwrite JWT using the Account API.
+// Never trust a caller-supplied user ID as authentication.
+async function verifyCaller(req) {
+  const jwt = req.headers?.['x-appwrite-user-jwt'];
+
+  if (typeof jwt !== 'string' || !jwt.trim()) {
+    return null;
+  }
+
+  try {
+    const response = await fetch(
+      `${endpoint.replace(/\/+$/, '')}/account`,
+      {
+        method: 'GET',
+        headers: {
+          'X-Appwrite-Project': projectId,
+          'X-Appwrite-JWT': jwt,
+          Accept: 'application/json',
+        },
+      }
+    );
+
+    if (!response.ok) return null;
+
+    const account = await response.json();
+    return typeof account?.$id === 'string' ? account.$id : null;
+  } catch {
+    return null;
+  }
+}
+
+async function writeAuditLog(actorId, action, targetId, details) {
+  if (!actorId) throw new Error('Verified actorId is required for audit logging.');
+  await appwriteRequest(`/databases/${databaseId}/collections/audit_logs/documents`, {
+    method: 'POST',
+    body: JSON.stringify({
+      documentId: 'unique()',
+      data: {
+        actorId,
+        action,
+        targetId,
+        details,
+        timestamp: new Date().toISOString(),
+      },
+      permissions: [],
+    }),
+  });
+}
+
+async function changeRole(payload) {
+  const { userId, role, actorId } = payload || {};
+  if (!userId || !role) throw new Error('userId and role are required.');
+
+  const allowedRoles = [
+    'tvet_admin',
+    'department_admin',
+    'instructor',
+    'student',
+    'garage_admin',
+    'mechanic',
+  ];
+
+  if (!allowedRoles.includes(role)) {
+    throw new Error('This role is not allowed through the standard role assignment process.');
+  }
+
+  const profile = await findProfile(userId);
+  if (!profile) throw new Error('Profile not found.');
+
+  await appwriteRequest(`/databases/${databaseId}/collections/profiles/documents/${profile.$id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      data: { role },
+    }),
+  });
+
+  await writeAuditLog(actorId, 'change_role', profile.$id, `Changed role from ${profile.role} to ${role}`);
+  return { userId, role };
+}
+
+async function setProfileStatus(userId, status, actorId, action) {
+  if (!userId || !status) throw new Error('userId and status are required.');
+
+  const profile = await findProfile(userId);
+  if (!profile) throw new Error('Profile not found.');
+
+  await appwriteRequest(`/databases/${databaseId}/collections/profiles/documents/${profile.$id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      data: { status },
+    }),
+  });
+
+  await writeAuditLog(actorId, action, profile.$id, `Set user status to ${status}`);
+  return { userId, status };
+}
+
+async function approveApplication(payload) {
+  const { applicationId, actorId } = payload || {};
+  if (!applicationId) throw new Error('applicationId is required.');
+
+  const application = await appwriteRequest(
+    `/databases/${databaseId}/collections/applications/documents/${applicationId}`
+  );
+
+  const collectionId = application.type === 'garage' ? 'garages' : 'schools';
+  const ownerField = application.type === 'garage' ? 'ownerId' : 'adminId';
+
+  const created = await appwriteRequest(`/databases/${databaseId}/collections/${collectionId}/documents`, {
+    method: 'POST',
+    body: JSON.stringify({
+      documentId: 'unique()',
+      data: {
+        name: application.details || `${application.type} application`,
+        location: '',
+        [ownerField]: application.applicantId,
+        status: 'active',
+      },
+      permissions: [],
+    }),
+  });
+
+  await appwriteRequest(`/databases/${databaseId}/collections/applications/documents/${applicationId}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      data: { status: 'approved' },
+    }),
+  });
+
+  await writeAuditLog(actorId, 'approve_application', applicationId, `Approved ${application.type} application`);
+  return { applicationId, createdId: created.$id, type: application.type };
+}
+
+async function rejectApplication(payload) {
+  const { applicationId, actorId } = payload || {};
+  if (!applicationId) throw new Error('applicationId is required.');
+
+  await appwriteRequest(`/databases/${databaseId}/collections/applications/documents/${applicationId}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      data: { status: 'rejected' },
+    }),
+  });
+
+  await writeAuditLog(actorId, 'reject_application', applicationId, 'Rejected application');
+  return { applicationId, status: 'rejected' };
+}
+
+async function setInstitutionStatus(payload) {
+  const { collectionId, id, status, actorId } = payload || {};
+  if (!collectionId || !id || !status) {
+    throw new Error('collectionId, id, and status are required.');
+  }
+  if (!['schools', 'garages'].includes(collectionId)) {
+    throw new Error('Only schools and garages can be updated.');
+  }
+
+  await appwriteRequest(`/databases/${databaseId}/collections/${collectionId}/documents/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      data: { status },
+    }),
+  });
+
+  await writeAuditLog(actorId, 'set_institution_status', id, `Set ${collectionId} ${id} to ${status}`);
+  return { collectionId, id, status };
+}
+
+export default async (context) => {
+  const { req, res, log, error } = context;
+
+  if (req.method !== 'POST') {
+    return res.json({ error: 'Method not allowed. Use POST.' }, 405);
+  }
+
+  let payload;
+  try {
+    payload = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+  } catch {
+    return res.json({ error: 'Invalid JSON payload.' }, 400);
+  }
+
+  const action = payload?.action;
+  const actionPayload = payload?.payload || {};
+
+  const actorId = await verifyCaller(req);
+  if (!actorId) {
+    return res.json({ error: 'Authentication required or session expired.' }, 401);
+  }
+
+  try {
+    const actorProfileResult = await appwriteRequest(
+      `/databases/${databaseId}/collections/profiles/documents?queries[]=${queryEqual('userId', actorId)}&limit=1`
+    );
+    const actorProfile = actorProfileResult?.documents?.[0];
+    if (!actorProfile || actorProfile.role !== 'global_admin') {
+      return res.json({ error: 'Global admin access required.' }, 403);
+    }
+
+    log(`Admin action: ${action} by ${actorId}`);
+
+    let result;
+    switch (action) {
+      case 'change_role':
+        result = await changeRole({ ...actionPayload, actorId });
+        break;
+      case 'suspend_user':
+        result = await setProfileStatus(actionPayload.userId, 'suspended', actorId, 'suspend_user');
+        break;
+      case 'activate_user':
+        result = await setProfileStatus(actionPayload.userId, 'active', actorId, 'activate_user');
+        break;
+      case 'approve_application':
+        result = await approveApplication({ ...actionPayload, actorId });
+        break;
+      case 'reject_application':
+        result = await rejectApplication({ ...actionPayload, actorId });
+        break;
+      case 'set_institution_status':
+        result = await setInstitutionStatus({ ...actionPayload, actorId });
+        break;
+      default:
+        return res.json({ error: `Unknown action: ${action}` }, 400);
+    }
+
+    return res.json({ success: true, data: result });
+  } catch (err) {
+    error(err?.message || 'Admin action failed.');
+    return res.json({ error: err?.message || 'Admin action failed.' }, 500);
+  }
+};

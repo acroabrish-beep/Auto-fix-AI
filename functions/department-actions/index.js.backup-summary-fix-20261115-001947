@@ -1,0 +1,317 @@
+/*
+ * APPWRITE FUNCTION: department-actions
+ *
+ * Department-scoped operations.
+ * Server environment:
+ * APPWRITE_ENDPOINT
+ * APPWRITE_PROJECT_ID
+ * APPWRITE_API_KEY
+ * APPWRITE_DATABASE_ID
+ *
+ * The caller's department and institution are always taken from
+ * the verified server-side profile, never from request payload.
+ */
+
+const endpoint = (process.env.APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1').replace(/\/+$/, '');
+const projectId = process.env.APPWRITE_PROJECT_ID;
+const apiKey = process.env.APPWRITE_API_KEY;
+const databaseId = process.env.APPWRITE_DATABASE_ID || 'autofix-ai-db';
+
+function queryEqual(field, value) {
+  return encodeURIComponent(`equal("${field}","${String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"')}")`);
+}
+
+async function appwriteRequest(path, options = {}) {
+  if (!projectId || !apiKey) {
+    throw new Error('Department function server configuration is incomplete.');
+  }
+
+  const response = await fetch(`${endpoint}${path}`, {
+    ...options,
+    headers: {
+      'X-Appwrite-Project': projectId,
+      'X-Appwrite-Key': apiKey,
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      ...(options.headers || {}),
+    },
+  });
+
+  const raw = await response.text();
+  let data = null;
+
+  if (raw) {
+    try {
+      data = JSON.parse(raw);
+    } catch {
+      data = null;
+    }
+  }
+
+  if (!response.ok) {
+    throw new Error(data?.message || `Appwrite request failed (${response.status}).`);
+  }
+
+  return data;
+}
+
+async function verifyCaller(req) {
+  const jwt = req.headers?.['x-appwrite-user-jwt'];
+
+  if (typeof jwt !== 'string' || !jwt.trim() || !projectId) {
+    return null;
+  }
+
+  try {
+    const response = await fetch(`${endpoint}/account`, {
+      method: 'GET',
+      headers: {
+        'X-Appwrite-Project': projectId,
+        'X-Appwrite-JWT': jwt,
+        Accept: 'application/json',
+      },
+    });
+
+    if (!response.ok) return null;
+
+    const account = await response.json();
+    return typeof account?.$id === 'string' ? account.$id : null;
+  } catch {
+    return null;
+  }
+}
+
+async function findProfile(userId) {
+  const result = await appwriteRequest(
+    `/databases/${databaseId}/collections/profiles/documents?queries[]=${queryEqual('userId', userId)}&limit=1`
+  );
+
+  return result?.documents?.[0] || null;
+}
+
+async function listDepartmentProfiles(actor, role) {
+  const path =
+    `/databases/${databaseId}/collections/profiles/documents` +
+    `?queries[]=${queryEqual('departmentId', actor.departmentId)}` +
+    `&queries[]=${queryEqual('institutionId', actor.institutionId)}` +
+    `&queries[]=${queryEqual('role', role)}` +
+    '&limit=100';
+
+  const result = await appwriteRequest(path);
+
+  return (result?.documents || []).map((profile) => ({
+    $id: profile.$id,
+    userId: profile.userId,
+    fullName: profile.fullName,
+    email: profile.email,
+    role: profile.role,
+    specialization: profile.specialization || '',
+    status: profile.status || 'unknown',
+    departmentId: profile.departmentId,
+  }));
+}
+
+async function listDepartmentAttendance(actor, payload = {}, maxRecords = 100) {
+  const queries = [
+    queryEqual('departmentId', actor.departmentId),
+    queryEqual('institutionId', actor.institutionId),
+  ];
+
+  if (typeof payload.courseId === 'string' && payload.courseId.trim()) {
+    queries.push(queryEqual('courseId', payload.courseId.trim()));
+  }
+
+  if (typeof payload.attendanceDate === 'string' && payload.attendanceDate.trim()) {
+    queries.push(queryEqual('attendanceDate', payload.attendanceDate.trim()));
+  }
+
+  const result = await appwriteRequest(
+    `/databases/${databaseId}/collections/attendance/documents?` +
+    queries.map((query) => `queries[]=${query}`).join('&') +
+    `&limit=${maxRecords}`
+  );
+
+  return (result?.documents || []).map((record) => ({
+    $id: record.$id,
+    studentId: record.studentId,
+    instructorId: record.instructorId,
+    courseId: record.courseId || '',
+    attendanceDate: record.attendanceDate,
+    status: record.status,
+    recordedBy: record.recordedBy,
+    recordedAt: record.recordedAt,
+    notes: record.notes || '',
+  }));
+}
+
+async function getDepartmentAttendanceSummary(actor, payload = {}) {
+  // Read only this department and institution. The client cannot override either scope.
+  const records = await listDepartmentAttendance(actor, payload, 1000);
+
+  const summary = {
+    total: records.length,
+    present: 0,
+    absent: 0,
+    late: 0,
+    excused: 0,
+    other: 0,
+  };
+
+  for (const record of records) {
+    if (Object.prototype.hasOwnProperty.call(summary, record.status)) {
+      summary[record.status] += 1;
+    } else {
+      summary.other += 1;
+    }
+  }
+
+  return {
+    ...summary,
+    attendanceRate: summary.total > 0
+      ? Math.round((summary.present / summary.total) * 10000) / 100
+      : 0,
+    cappedAt: 1000,
+  };
+}
+async function createInstructorAssignment(actor, payload, actorId) {
+  const instructorId = typeof payload.instructorId === 'string' ? payload.instructorId.trim() : '';
+  const title = typeof payload.title === 'string' ? payload.title.trim() : '';
+
+  if (!instructorId || !title) {
+    throw new Error('instructorId and title are required.');
+  }
+
+  if (title.length > 160) {
+    throw new Error('Assignment title must be 160 characters or fewer.');
+  }
+
+  // Resolve the instructor from trusted database data.
+  const instructor = await findProfile(instructorId);
+
+  if (
+    !instructor ||
+    instructor.role !== 'instructor' ||
+    instructor.departmentId !== actor.departmentId ||
+    instructor.institutionId !== actor.institutionId
+  ) {
+    throw new Error('Instructor not found in your department.');
+  }
+
+  const data = {
+    title,
+    description: typeof payload.description === 'string' ? payload.description.slice(0, 4000) : '',
+    courseId: typeof payload.courseId === 'string' ? payload.courseId.trim() : '',
+    instructorId: instructor.userId,
+    institutionId: actor.institutionId,
+    departmentId: actor.departmentId,
+    dueDate: typeof payload.dueDate === 'string' ? payload.dueDate : '',
+  };
+
+  const created = await appwriteRequest(
+    `/databases/${databaseId}/collections/assignments/documents`,
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        documentId: 'unique()',
+        data,
+        permissions: [],
+      }),
+    }
+  );
+
+  // Record who performed the action.
+  await appwriteRequest(
+    `/databases/${databaseId}/collections/audit_logs/documents`,
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        documentId: 'unique()',
+        data: {
+          actorId,
+          action: 'department_create_instructor_assignment',
+          targetId: created.$id,
+          details: JSON.stringify({
+            departmentId: actor.departmentId,
+            instructorId: instructor.userId,
+          }),
+          timestamp: new Date().toISOString(),
+        },
+        permissions: [],
+      }),
+    }
+  );
+
+  return {
+    $id: created.$id,
+    title: created.title,
+    instructorId: created.instructorId,
+    departmentId: created.departmentId,
+  };
+}
+
+export default async function ({ req, res, log, error }) {
+  if (req.method !== 'POST') {
+    return res.json({ error: 'Method not allowed. Use POST.' }, 405);
+  }
+
+  let body;
+  try {
+    body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+  } catch {
+    return res.json({ error: 'Invalid JSON payload.' }, 400);
+  }
+
+  const actorId = await verifyCaller(req);
+
+  if (!actorId) {
+    return res.json({ error: 'Authentication required or session expired.' }, 401);
+  }
+
+  try {
+    const actor = await findProfile(actorId);
+
+    if (!actor || actor.role !== 'department_admin') {
+      return res.json({ error: 'Department Admin access required.' }, 403);
+    }
+
+    if (!actor.departmentId || !actor.institutionId) {
+      return res.json({
+        error: 'Your account has not been assigned to a department and institution yet.',
+      }, 403);
+    }
+
+    let data;
+
+    switch (body?.action) {
+      case 'list_instructors':
+        data = await listDepartmentProfiles(actor, 'instructor');
+        break;
+
+      case 'list_students':
+        data = await listDepartmentProfiles(actor, 'student');
+        break;
+
+      case 'list_attendance':
+        data = await listDepartmentAttendance(actor, body.payload || {}, 100);
+        break;
+
+      case 'get_attendance_summary':
+        data = await getDepartmentAttendanceSummary(actor, body.payload || {});
+        break;
+
+      case 'create_instructor_assignment':
+        data = await createInstructorAssignment(actor, body.payload || {}, actorId);
+        break;
+
+      default:
+        return res.json({ error: 'Unsupported department action.' }, 400);
+    }
+
+    log(`Department action ${body.action} by ${actorId} in ${actor.departmentId}`);
+
+    return res.json({ success: true, data });
+  } catch (err) {
+    error(err?.message || 'Department action failed.');
+    return res.json({ error: err?.message || 'Department action failed.' }, 400);
+  }
+}
