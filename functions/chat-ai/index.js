@@ -1,4 +1,4 @@
-﻿/* 
+/* 
   APPWRITE FUNCTION: chat-ai
   
   Secure proxy between the AutoFix AI chat UI and OpenAI.
@@ -20,7 +20,7 @@ const endpoint =
   'https://fra.cloud.appwrite.io/v1';
 const projectId =
   process.env.APPWRITE_FUNCTION_PROJECT_ID || process.env.APPWRITE_PROJECT_ID;
-const apiKey = process.env.APPWRITE_API_KEY;
+
 const geminiApiKey = process.env.GEMINI_API_KEY || '';
 const geminiModel = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 
@@ -36,12 +36,20 @@ const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 // Eliminates stale-window race conditions while staying within Appwrite row-ID limits.
 
 // TablesDB persistent rate limiter â€” shared across Function instances, atomic increments with window reset.
-const TABLES_DB_ENDPOINT = endpoint.replace(/\/+$/, '');
-const tablesClient = new Client()
-  .setEndpoint(endpoint)
-  .setProject(projectId)
-  .setKey(apiKey);
-const tablesdb = new TablesDB(tablesClient);
+// Use Appwrite's per-execution key. It is injected in x-appwrite-key and
+// is limited by this Function's configured scopes; no manually managed key
+// or stale APPWRITE_API_KEY secret is required.
+function createTablesDB(req) {
+  const executionKey = req.headers?.['x-appwrite-key'];
+  if (!executionKey || typeof executionKey !== 'string') {
+    throw new Error('Appwrite execution key is missing.');
+  }
+  const tablesClient = new Client()
+    .setEndpoint(endpoint)
+    .setProject(projectId)
+    .setKey(executionKey);
+  return new TablesDB(tablesClient);
+}
 
 // Table name: chat-ai rate limits; created idempotently in setup-db.js
 const RATE_LIMIT_TABLE = 'chat-ai-rate-limits';
@@ -55,7 +63,7 @@ const RATE_LIMIT_TABLE = 'chat-ai-rate-limits';
 // No separate window-detection check is needed â€” the row ID guarantees correctness.
 // ---------------------------------------------------------------------------
 
-async function upsertRateLimit(userId) {
+async function upsertRateLimit(userId, tablesdb) {
   const now = Date.now();
   const windowStart = Math.floor(now / RATE_LIMIT_WINDOW_MS) * RATE_LIMIT_WINDOW_MS;
   const windowEnd = windowStart + RATE_LIMIT_WINDOW_MS;
@@ -233,7 +241,8 @@ export default async (context) => {
   //    Never an in-memory Map â€” always backed by Appwrite TablesDB.
   let rateCheck;
   try {
-    rateCheck = await upsertRateLimit(userId);
+    const tablesdb = createTablesDB(req);
+    rateCheck = await upsertRateLimit(userId, tablesdb);
   } catch (err) {
     // Max exceeded â†’ HTTP 429; store unavailable â†’ HTTP 503
     if (err.message && err.message.toLowerCase().includes('max')) {
