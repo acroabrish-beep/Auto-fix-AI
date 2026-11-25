@@ -1,15 +1,15 @@
 export const am = {
   common: {
-    dashboard: "ዳሽቦርድ",
-    academy: "አካዳሚ",
-    diagnostics: "ምርመራ",
-    vehicles: "ጋራዥ",
-    repairs: "ጥገና",
+    dashboard: "የቁጥጥር ሰሌዳ",
+    academy: "የትምህርት ማዕከል",
+    diagnostics: "የመኪና ምርመራ",
+    vehicles: "ተሽከርካሪዎች",
+    repairs: "የጥገና መመሪያዎች",
     settings: "ቅንብሮች",
     logout: "ውጣ",
     loading: "በመጫን ላይ...",
     save: "አስቀምጥ",
-    cancel: "ሰርዝ",
+    cancel: "ይቅር",
     search: "ፈልግ",
     home: "መነሻ"
   }
