@@ -14,8 +14,12 @@
 import { createHash } from 'node:crypto';
 import { TablesDB, Client } from 'node-appwrite';
 
-const endpoint = process.env.APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1';
-const projectId = process.env.APPWRITE_PROJECT_ID;
+const endpoint =
+  process.env.APPWRITE_FUNCTION_API_ENDPOINT ||
+  process.env.APPWRITE_ENDPOINT ||
+  'https://fra.cloud.appwrite.io/v1';
+const projectId =
+  process.env.APPWRITE_FUNCTION_PROJECT_ID || process.env.APPWRITE_PROJECT_ID;
 const apiKey = process.env.APPWRITE_API_KEY;
 const geminiApiKey = process.env.GEMINI_API_KEY || '';
 const geminiModel = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
@@ -154,45 +158,74 @@ export default async (context) => {
   }
   const systemPrompt = typeof payload?.systemPrompt === 'string' ? payload.systemPrompt.trim().slice(0, 2000) : '';
 
-  // 2. Authenticate via Appwrite JWT.
-  //    The JWT may arrive either as the `x-appwrite-user-jwt` header (Appwrite
-  //    auto-forwards it when the caller is authenticated) or explicitly in the
-  //    request body as `jwt` (the client mints it with account.createJWT()).
-  //    Log header NAMES only — never token or key values.
+  // 2. Authenticate.
+  //    Prefer Appwrite's own x-appwrite-user-id header: Appwrite sets it
+  //    itself for executions by a signed-in user and clients cannot override
+  //    x-appwrite-* headers. If absent, fall back to verifying a JWT.
+  //    Log header NAMES only — never tokens or keys.
   const headerNames = Object.keys(req.headers || {}).join(', ');
   log(`Auth headers received: ${headerNames}`);
 
-  const jwt =
-    (payload?.jwt && typeof payload.jwt === 'string'
-      ? payload.jwt
-      : req.headers['x-appwrite-user-jwt'] &&
-        typeof req.headers['x-appwrite-user-jwt'] === 'string'
-      ? req.headers['x-appwrite-user-jwt']
-      : null);
-
-  if (!jwt) {
-    return res.json({ error: 'Authentication required. Please sign in to continue.' }, 401);
-  }
-
-  // Verify JWT using Appwrite account API
   let userId = null;
-  try {
-    const verifyRes = await fetch(`${endpoint}/account`, {
-      headers: {
-        'X-Appwrite-Project': projectId,
-        'X-Appwrite-JWT': jwt,
-        Accept: 'application/json',
-      },
-    });
-    if (!verifyRes.ok) return res.json({ error: 'Authentication required.' }, 401);
-    const account = await verifyRes.json();
-    userId = typeof account?.$id === 'string' ? account.$id : null;
-  } catch {
-    return res.json({ error: 'Authentication required.' }, 401);
-  }
 
-  if (!userId) {
-    return res.json({ error: 'Authentication required.' }, 401);
+  const userIdFromHeader =
+    req.headers['x-appwrite-user-id'] &&
+    typeof req.headers['x-appwrite-user-id'] === 'string'
+      ? req.headers['x-appwrite-user-id']
+      : null;
+
+  if (userIdFromHeader) {
+    // Trusted: Appwrite sets this header for signed-in executions.
+    userId = userIdFromHeader;
+  } else {
+    // Fall back to JWT verification (body `jwt`, then `x-appwrite-user-jwt` header).
+    const jwt =
+      (payload?.jwt && typeof payload.jwt === 'string'
+        ? payload.jwt
+        : req.headers['x-appwrite-user-jwt'] &&
+          typeof req.headers['x-appwrite-user-jwt'] === 'string'
+        ? req.headers['x-appwrite-user-jwt']
+        : null);
+
+    if (!jwt) {
+      return res.json({ error: 'Authentication required. Please sign in to continue.' }, 401);
+    }
+
+    if (!projectId) {
+      log('Auth config error: APPWRITE_FUNCTION_PROJECT_ID / APPWRITE_PROJECT_ID is not set');
+      return res.json({ error: 'Authentication service is not configured.' }, 500);
+    }
+
+    // Verify JWT using Appwrite account API
+    try {
+      const verifyRes = await fetch(`${endpoint}/account`, {
+        headers: {
+          'X-Appwrite-Project': projectId,
+          'X-Appwrite-JWT': jwt,
+          Accept: 'application/json',
+        },
+      });
+
+      if (!verifyRes.ok) {
+        const endpointHost = endpoint ? new URL(endpoint).host : '(unset)';
+        const bodyText = await verifyRes.text().catch(() => '');
+        log(
+          `JWT verification failed host=${endpointHost} status=${verifyRes.status} body=${bodyText}`
+        );
+        return res.json({ error: 'Authentication required.' }, 401);
+      }
+
+      const account = await verifyRes.json();
+      userId = typeof account?.$id === 'string' ? account.$id : null;
+    } catch (err) {
+      const endpointHost = endpoint ? new URL(endpoint).host : '(unset)';
+      log(`JWT verification error host=${endpointHost} message=${err.message}`);
+      return res.json({ error: 'Authentication required.' }, 401);
+    }
+
+    if (!userId) {
+      return res.json({ error: 'Authentication required.' }, 401);
+    }
   }
 
   // 3. Atomic persistent rate-limiting â€” shared across Function instances with per-window row IDs.
@@ -236,7 +269,8 @@ export default async (context) => {
     });
 
     if (!response.ok) {
-      // Do NOT log or return raw provider errors
+      const errorText = await response.text().catch(() => '');
+      log(`Gemini API error status=${response.status} body=${errorText}`);
       fallbackUsed = true;
     } else {
       const aiData = await response.json();
@@ -249,6 +283,7 @@ export default async (context) => {
     }
   } catch (err) {
     // Network / provider error
+    log(`Gemini call error message=${err.message}`);
     fallbackUsed = true;
   }
 
