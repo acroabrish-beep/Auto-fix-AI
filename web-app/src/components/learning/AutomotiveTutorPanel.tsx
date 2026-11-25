@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { generateChatReply } from '../services/ai/chat';
+import { generateChatReply } from '../../services/ai/chat';
 
 type Props = {
   courseTitle: string;
