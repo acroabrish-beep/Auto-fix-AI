@@ -126,7 +126,10 @@ async function upsertRateLimit(userId, tablesdb) {
         value: 1,
         max: RATE_LIMIT_MAX, // 30 â€” new count must not exceed this
       });
-      const newCount = result?.data?.count ?? existing.data.count + 1;
+      const newCount = result?.count ?? result?.data?.count ?? existing?.count ?? existing?.data?.count;
+      if (!Number.isFinite(newCount)) {
+        throw new Error('Rate limit row is missing a valid count value.');
+      }
       const exceeded = newCount > RATE_LIMIT_MAX;
       return { count: newCount, exceeded };
     } catch (incrementErr) {
