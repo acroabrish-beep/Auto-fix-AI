@@ -32,6 +32,7 @@ import {
 import { Button } from '../components/ui/Button';
 import { AlertCircle, Wrench, Snowflake } from 'lucide-react';
 import { diagnosticService } from '../services/ai';
+import { AutomotiveTutorPanel } from '../components/learning/AutomotiveTutorPanel';
 import { DiagnosticRequest, DiagnosticResponse } from '../types';
 
 type SimulationState = {
@@ -623,6 +624,16 @@ export const VirtualLab = () => {
           </section>
         </aside>
       </div>
+          <AutomotiveTutorPanel
+            courseTitle={moduleTitle || t('lab.module_fallback')}
+            scenario={scenario}
+            readings={{
+              rpm: simulation.rpm,
+              speed: simulation.speed,
+              coolantTemp: simulation.coolantTemp,
+              batteryVoltage: simulation.batteryVoltage,
+            }}
+          />
     </main>
   );
 };
