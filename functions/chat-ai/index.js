@@ -261,12 +261,18 @@ export default async (context) => {
   const startTime = Date.now();
 
   // 5. AI provider call
+  if (!geminiApiKey) {
+    error('GEMINI_API_KEY is not configured for chat-ai.');
+    return res.json({ error: 'AI assistant is not configured. Please contact the administrator.' }, 503);
+  }
+
   let reply = null;
   let fallbackUsed = false;
 
   try {
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent`, {
       method: 'POST',
+      signal: AbortSignal.timeout(18_000),
       headers: {
         'Content-Type': 'application/json',
         'x-goog-api-key': geminiApiKey,
