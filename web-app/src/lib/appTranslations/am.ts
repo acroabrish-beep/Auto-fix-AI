@@ -68,7 +68,7 @@ export const am: AppPageTranslations = {
     subtitle: 'የግል መረጃዎን፣ ምርጫዎን እና የመለያዎን ደህንነት ያስተዳድሩ።',
     account_status: 'የመለያ ሁኔታ',
     account_active:
-      'መገለጫዎ ንቁ ነው እና ከAutoFix AI ዓለም አቀፍ ኔትወርክ ጋር ተገናኝቷል።',
+      'መለያዎ ንቁ ነው፤ ከAutoFix AI ጋርም ተገናኝቷል።',
     personal_info: 'የግል መረጃ',
     account_id: 'የመለያ መለያ ቁጥር',
     full_name: 'ሙሉ ስም',
@@ -193,7 +193,7 @@ export const am: AppPageTranslations = {
     cat_drivetrain: 'የመንዳት ስርዓት',
     cat_diagnostics: 'ምርመራ',
     sample_notice:
-      'ቀጥታ ቤተ መጻሕፍቱ ባዶ ወይም የማይገኝ በሚሆንበት ጊዜ የናሙና የጥገና መመሪያዎችን በማሳየት ላይ።',
+      'የጥገና መመሪያዎች ማውጫው ባዶ ወይም ለጊዜው የማይገኝ ሲሆን የናሙና መመሪያዎች ይታያሉ።',
     no_match_title: 'ተመሳሳይ ሂደት አልተገኘም',
     no_match_message:
       'ከ"{{query}}" ጋር የሚዛመድ የጥገና መመሪያ አልተገኘም። እባክዎ ሰፊ ቃላትን ይሞክሩ።',
@@ -472,7 +472,7 @@ export const am: AppPageTranslations = {
     diag_view_history: 'ታሪክ ይመልከቱ',
     diag_user_message: 'መኪናዬ አይነሳም፤ ሲያስነሳ የጠቅታ ድምፅ እሰማለሁ።',
     diag_response_intro:
-      'ምልክቶቹን ተንትኜያለሁ። በማስነሳት ጊዜ በሚሰማው "የመጠየፍ ድምጽ" መሰረት፣ በጣም የሚመስሉ ምክንያቶች የሚከተሉት ናቸው፦',
+      'ምልክቶቹን ተንትኜያለሁ። መኪናውን ለማስነሳት ሲሞከር የጠቅታ ድምፅ ከተሰማ፣ ሊሆኑ የሚችሉ ምክንያቶች እነዚህ ናቸው፦',
     diag_cause1_title: 'ደካማ ወይም የተለቀቀ ባትሪ',
     diag_cause1_desc: 'የማስነሻውን ሶሌኖይድ ሙሉ በሙሉ ለማሳተፍ በቂ ያልሆነ ጅረት።',
     diag_cause2_title: 'የማስነሻ ሞተር ሶሌኖይድ ችግር',
@@ -481,7 +481,7 @@ export const am: AppPageTranslations = {
     diag_cause3_desc: 'ከፍተኛ ጅረት እንዳይፈስ የሚያደርግ ደካማ የኤሌክትሪክ ግንኙነት።',
     diag_first_check: 'የሚመከር የመጀመሪያ ምርመራ',
     diag_first_check_text:
-      'የባትሪ ቮልቴጅን በሙልቲሜትር ይለኩ። ጤናማ ባትሪ በእረፍት ጊዜ 12.6V ወይም ከዚያ በላይ ማንበብ አለበት።',
+      'የባትሪውን ቮልቴጅ በመልቲሜትር ይለኩ። ሙሉ በሙሉ የተሞላ ጤናማ ባትሪ ሞተሩ ጠፍቶ ሲቆይ በግምት 12.6V ያሳያል።',
     diag_placeholder: 'የመኪናዎን ምልክቶች ይግለጹ...',
     diag_demo_note: 'ይህ የበይነገጽ ማሳያ ብቻ ነው። በእውነተኛ መኪና ላይ ምርመራ ለማድረግ ተስማሚ መሣሪያ ማገናኘት ያስፈልጋል።',
     diag_try: 'AI ምርመራ ይሞክሩ',
