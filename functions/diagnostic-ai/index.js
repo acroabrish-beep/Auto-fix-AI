@@ -26,7 +26,7 @@ const projectId = process.env.APPWRITE_PROJECT_ID;
 const apiKey = process.env.APPWRITE_API_KEY;
 const databaseId = process.env.APPWRITE_DATABASE_ID || 'autofix-ai-db';
 const geminiApiKey = process.env.GEMINI_API_KEY || '';
-const geminiModel = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+const geminiModel = process.env.GEMINI_MODEL || 'gemini-2.5-flash-lite';
 
 const COURSE_MATERIALS_BUCKET = 'course-materials';
 const MAX_MATERIAL_FILE_SIZE = 10 * 1024 * 1024;
@@ -1098,7 +1098,7 @@ async function runDiagnostic(payload) {
 
   const prompt = `
     You are a professional automotive diagnostic assistant.
-    Analyze the following vehicle problem and provide a structured JSON response.
+    Analyze the following vehicle problem and provide a structured JSON response. Write all human-readable JSON values in clear, natural Ethiopian Amharic when the user's problem description is in Amharic. Keep JSON property names in English and keep standard automotive technical terms in English with Amharic explanations. Do not invent test results.
 
     Vehicle ID: ${vehicleId}
     Problem Description: ${description}
