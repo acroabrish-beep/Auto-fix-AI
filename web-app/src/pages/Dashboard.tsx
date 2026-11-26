@@ -73,6 +73,7 @@ export const Dashboard = () => {
   const [reminders, setReminders] = useState<MaintenanceReminder[]>([]);
   const [feed, setFeed] = useState<EcosystemEvent[]>([]);
   const [userProgress, setUserProgress] = useState<Record<string, number>>({});
+  const [totalModules, setTotalModules] = useState(0);
 
   // --- Service request modal state ---
   const [requestModalOpen, setRequestModalOpen] = useState(false);
@@ -104,6 +105,7 @@ export const Dashboard = () => {
 
         // Fetch learning progress for all modules
         const allModules = await learningService.listModules();
+        setTotalModules(allModules.length);
         const progressByModule: Record<string, number> = {};
         for (const module of allModules) {
           const progress = await learningService.getProgress(user.$id, module.$id);
@@ -708,10 +710,10 @@ export const Dashboard = () => {
                         <div className="mb-8">
                            <div className="flex justify-between items-center text-xs font-bold mb-3 opacity-60 uppercase tracking-widest">
                               <span>{t('dashboard.module_completion')}</span>
-                              <span>{allModules.length > 0 ? `${Math.round(Object.values(userProgress).reduce((total, progress) => total + progress, 0) / allModules.length)}%` : t('dashboard.progress_not_saved')}</span>
+                              <span>{totalModules > 0 ? `${Math.round(Object.values(userProgress).reduce((total, progress) => total + progress, 0) / totalModules)}%` : t('dashboard.progress_not_saved')}</span>
                            </div>
                            <div className="h-3 w-full bg-white/10 rounded-full overflow-hidden">
-                              <div className="h-full bg-brand-teal transition-all duration-500" style={{ width: `${allModules.length > 0 ? Math.round(Object.values(userProgress).reduce((total, progress) => total + progress, 0) / allModules.length) : 0}%` }} />
+                              <div className="h-full bg-brand-teal transition-all duration-500" style={{ width: `${totalModules > 0 ? Math.round(Object.values(userProgress).reduce((total, progress) => total + progress, 0) / totalModules) : 0}%` }} />
                            </div>
                         </div>
                         <p className="text-sm text-white/70 leading-relaxed mb-8">
