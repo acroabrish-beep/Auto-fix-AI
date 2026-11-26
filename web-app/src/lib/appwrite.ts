@@ -1,4 +1,4 @@
-import { Client, Account, Databases, Storage, ID } from 'appwrite';
+import { Client, Account, Databases, Storage, TablesDB, Query, ID } from 'appwrite';
 
 /**
  * Single source of truth for the Appwrite SDK.
@@ -45,6 +45,7 @@ if (projectId) {
 
 export const account = new Account(client);
 export const databases = new Databases(client);
+export const tablesDB = new TablesDB(client);
 export const storage = new Storage(client);
 
 /** Database ID from the environment, with a fallback for local development. */
@@ -53,4 +54,7 @@ export const DATABASE_ID = databaseId || 'autofix-ai-db';
 /** Collection that stores AI chat exchanges. */
 export const CHAT_COLLECTION_ID = chatCollectionId || 'chat_history';
 
-export { ID };
+export { ID, Query };
+
+/** Appwrite TablesDB table for individual automotive lab attempts. */
+export const LAB_ATTEMPTS_TABLE_ID = '6b08396d0033f89c9fc8';

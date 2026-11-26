@@ -72,6 +72,7 @@ export const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [reminders, setReminders] = useState<MaintenanceReminder[]>([]);
   const [feed, setFeed] = useState<EcosystemEvent[]>([]);
+  const [userProgress, setUserProgress] = useState<Record<string, number>>({});
 
   // --- Service request modal state ---
   const [requestModalOpen, setRequestModalOpen] = useState(false);
@@ -101,6 +102,17 @@ export const Dashboard = () => {
           serviceHistoryService.listUserRecords(user.$id)
         ]);
 
+        // Fetch learning progress for all modules
+        const allModules = await learningService.listModules();
+        const progressByModule: Record<string, number> = {};
+        for (const module of allModules) {
+          const progress = await learningService.getProgress(user.$id, module.$id);
+          if (progress) {
+            progressByModule[module.$id] = progress.progressPercent;
+          }
+        }
+
+        setUserProgress(progressByModule);
         setVehicles(userVehicles);
         setDiagnostics(userDiagnostics);
         setServices(userServices);
@@ -696,10 +708,10 @@ export const Dashboard = () => {
                         <div className="mb-8">
                            <div className="flex justify-between items-center text-xs font-bold mb-3 opacity-60 uppercase tracking-widest">
                               <span>{t('dashboard.module_completion')}</span>
-                              <span>0%</span>
+                              <span>{allModules.length > 0 ? `${Math.round(Object.values(userProgress).reduce((total, progress) => total + progress, 0) / allModules.length)}%` : t('dashboard.progress_not_saved')}</span>
                            </div>
                            <div className="h-3 w-full bg-white/10 rounded-full overflow-hidden">
-                              <div className="h-full bg-brand-teal w-0"></div>
+                              <div className="h-full bg-brand-teal transition-all duration-500" style={{ width: `${allModules.length > 0 ? Math.round(Object.values(userProgress).reduce((total, progress) => total + progress, 0) / allModules.length) : 0}%` }} />
                            </div>
                         </div>
                         <p className="text-sm text-white/70 leading-relaxed mb-8">

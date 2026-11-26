@@ -22,6 +22,7 @@ import { Dashboard } from './pages/Dashboard';
 import { Learning } from './pages/Learning';
 import { LearningModule } from './pages/LearningModule';
 import { VirtualLab } from './pages/VirtualLab';
+import { LabEngine } from './pages/LabEngine';
 import { Diagnostics } from './pages/Diagnostics';
 import { DiagnosticHistory } from './pages/DiagnosticHistory';
 import { Vehicles } from './pages/Vehicles';
@@ -124,6 +125,15 @@ function App() {
           element={
             <ProtectedRoute>
               <LearningModule />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/lab/engine-basics"
+          element={
+            <ProtectedRoute>
+              <LabEngine />
             </ProtectedRoute>
           }
         />

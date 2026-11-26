@@ -4,13 +4,6 @@ import { DiagnosticRequest, DiagnosticResponse } from "../../types";
 
 const functions = new Functions(client);
 
-const DIAGNOSTIC_FUNCTION_ID =
-  (import.meta.env.VITE_APPWRITE_DIAGNOSTIC_FUNCTION_ID as string | undefined)?.trim();
-
-if (!DIAGNOSTIC_FUNCTION_ID) {
-  throw new Error('VITE_APPWRITE_DIAGNOSTIC_FUNCTION_ID is not configured.');
-}
-
 const friendlyErrorMessage = () =>
   "Diagnostic service unavailable. Please try again.";
 
@@ -145,6 +138,13 @@ function classifyExecutionError(error: any, statusCode?: number): { message: str
 
 export const diagnosticService = {
   async analyzeSymptoms(request: DiagnosticRequest): Promise<DiagnosticResponse> {
+    const functionId =
+      (import.meta.env.VITE_APPWRITE_DIAGNOSTIC_FUNCTION_ID as string | undefined)?.trim();
+    if (!functionId) {
+      console.error('VITE_APPWRITE_DIAGNOSTIC_FUNCTION_ID is not configured.');
+      throw new Error('Diagnostic service is not configured. Please contact your administrator.');
+    }
+
     const validation = validateDiagnosticRequest(request);
     if (!validation.valid) {
       throw new Error(validation.error);
@@ -152,7 +152,7 @@ export const diagnosticService = {
     try {
       let execution: any;
       try {
-        execution = await functions.createExecution(DIAGNOSTIC_FUNCTION_ID, JSON.stringify({
+        execution = await functions.createExecution(functionId, JSON.stringify({
           vehicleId: request.vehicleId,
           description: request.description,
           symptoms: request.symptoms,

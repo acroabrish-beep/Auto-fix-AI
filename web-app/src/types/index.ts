@@ -62,6 +62,89 @@ export interface LearningProgress extends Models.Document {
   completedAt?: string;
 }
 
+// Interactive automotive lab definitions.
+export interface LabExercise {
+  id: string;
+  moduleId: string;
+  title: string;
+  objective: string;
+  scenario: FaultScenarioKey;
+  steps: LabStep[];
+  passScore: number;
+}
+
+export interface LabStep {
+  instruction: string;
+  requiredAction: 'mode' | 'range' | 'probes' | 'interpretation';
+  expectedMode?: MultimeterMode;
+  expectedRange?: number;
+  acceptableRange?: { min: number; max: number };
+  hint: string;
+  points: number;
+}
+
+export type MultimeterMode = 'dc_voltage' | 'resistance' | 'continuity';
+
+export interface MultimeterReading {
+  voltage?: number;
+  resistance?: number;
+  continuity?: boolean;
+  noise: number;
+  rawValue: number;
+}
+
+export interface LabAttemptInput {
+  userId: string;
+  moduleId: string;
+  exerciseId: string;
+  score: number;
+  durationSec: number;
+  mistakes: number;
+  passed: boolean;
+  completedAt: string;
+}
+
+export interface LabAttempt extends Models.Row {
+  userId: string;
+  moduleId: string;
+  exerciseId: string;
+  score: number;
+  durationSec: number;
+  mistakes: number;
+  passed: boolean;
+  completedAt: string;
+}
+
+// Educational sample values only; these are not live vehicle measurements.
+export const FAULT_SCENARIOS = {
+  healthy: {
+    batteryResting: 12.6,
+    crankingVoltage: 10.2,
+    chargingVoltage: 14.4,
+    description: 'Healthy battery and charging system',
+  },
+  weakBattery: {
+    batteryResting: 12.2,
+    crankingVoltage: 9.8,
+    chargingVoltage: 13.5,
+    description: 'Weak battery - low resting voltage',
+  },
+  badAlternator: {
+    batteryResting: 12.5,
+    crankingVoltage: 10.1,
+    chargingVoltage: 12.8,
+    description: 'Bad alternator - low charging voltage',
+  },
+  looseTerminal: {
+    batteryResting: 12.3,
+    crankingVoltage: 9.5,
+    chargingVoltage: 13.2,
+    description: 'Loose terminal - possible intermittent connection',
+  },
+} as const;
+
+export type FaultScenarioKey = keyof typeof FAULT_SCENARIOS;
+
 export interface VehicleProfile extends Models.Document {
   userId: string;
   institutionId?: string;
