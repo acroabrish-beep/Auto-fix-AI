@@ -26,7 +26,7 @@ const projectId = process.env.APPWRITE_PROJECT_ID;
 const apiKey = process.env.APPWRITE_API_KEY;
 const databaseId = process.env.APPWRITE_DATABASE_ID || 'autofix-ai-db';
 const geminiApiKey = process.env.GEMINI_API_KEY || '';
-const geminiModel = process.env.GEMINI_MODEL || 'gemini-2.5-flash-lite';
+const geminiModel = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 
 const COURSE_MATERIALS_BUCKET = 'course-materials';
 const MAX_MATERIAL_FILE_SIZE = 10 * 1024 * 1024;
