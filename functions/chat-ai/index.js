@@ -22,7 +22,7 @@ const projectId =
   process.env.APPWRITE_FUNCTION_PROJECT_ID || process.env.APPWRITE_PROJECT_ID;
 
 const geminiApiKey = process.env.GEMINI_API_KEY || '';
-const geminiModel = process.env.GEMINI_MODEL || 'gemini-2.5-flash-lite';
+const geminiModel = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 
 const MAX_MESSAGE_LENGTH = 2000;
 const RATE_LIMIT_MAX = 30;
