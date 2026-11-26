@@ -22,7 +22,7 @@ const projectId =
   process.env.APPWRITE_FUNCTION_PROJECT_ID || process.env.APPWRITE_PROJECT_ID;
 
 const geminiApiKey = process.env.GEMINI_API_KEY || '';
-const geminiModel = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+const geminiModel = process.env.GEMINI_MODEL || 'gemini-2.5-flash-lite';
 
 const MAX_MESSAGE_LENGTH = 2000;
 const RATE_LIMIT_MAX = 30;
@@ -167,7 +167,8 @@ export default async (context) => {
   if (trimmed.length > MAX_MESSAGE_LENGTH) {
     return res.json({ error: `Message exceeds maximum length (${MAX_MESSAGE_LENGTH} characters).` }, 400);
   }
-  const systemPrompt = typeof payload?.systemPrompt === 'string' ? payload.systemPrompt.trim().slice(0, 2000) : '';
+  const suppliedSystemPrompt = typeof payload?.systemPrompt === 'string' ? payload.systemPrompt.trim().slice(0, 2000) : '';
+  const systemPrompt = suppliedSystemPrompt || 'You are AutoFix AI, a helpful automotive and TVET learning assistant. Reply in the same language the user uses. If the user writes in Amharic, respond in clear, natural Ethiopian Amharic. Keep standard automotive technical terms in English and explain them in Amharic. Give safe, practical, step-by-step guidance. Do not invent vehicle readings or claim a diagnosis is certain without tests.';
 
   // 2. Authenticate.
   //    Prefer Appwrite's own x-appwrite-user-id header: Appwrite sets it
